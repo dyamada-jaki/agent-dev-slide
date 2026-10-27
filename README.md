@@ -1,107 +1,67 @@
-# エージェント開発テンプレート（Spec × Issue × Orca）
+# agent-dev-slide
 
-人間が判断し、AI エージェント（Claude Code と Codex）が仕様づくりから実装・レビュー・マージ・ふりかえりまでを進めるための、プロセス一式のテンプレートです。
-エージェントは役割の違う3つの席に分かれ、[Orca](https://github.com/stablyai/orca)（複数の AI エージェントの端末と worktree をまとめて扱うアプリ）の上で動きます。
+[agent-dev-template](https://github.com/dyamada-jaki/agent-dev-template) の開発プロセスを、人に説明するための日本語スライドです。
+スライド自体も、Spec・Issue・Orca を使った同じプロセスで少しずつ制作します。
 
-> **既定は Web アプリ（Node・Vite・React・Vitest）用です。** 何もしなければこの構成で動きます。
-> 別の種類（スライド・文書など）にするときは、`CLAUDE.md` の「作るもの」と「開発設定」の表、`docs/testing.md` を書き換えます。→ [profiles/README.md](profiles/README.md)
+現在は制作環境の初期準備です。原稿は表示確認用の表紙のみで、本文は今後の Issue で作ります。
 
-## 仕組み
+## すぐに試す
 
-### 席と受け渡し
+Node.js の版は `.nvmrc` を使います。PDF 出力には Google Chrome が必要です。
 
-```mermaid
-flowchart LR
-  human(["人間"])
-  gh[("GitHub<br/>Issue・PR・ラベル")]
-  launcher["起動係<br/>Orca の定期実行<br/>15分おき"]
-
-  subgraph main["Orca: main の worktree"]
-    po["PO<br/>仕様・Issue・受け入れ確認<br/>長く使う"]
-    team["開発チーム<br/>進行・比較・マージ<br/>Issue ごとに開いて閉じる"]
-  end
-
-  subgraph wt["Issue ごとの worktree"]
-    devc["開発者<br/>Claude Code"]
-    devx["開発者<br/>Codex"]
-  end
-
-  human <-->|議論| po
-  po -->|"Issue を書いて「開発可」を付ける"| gh
-  gh -.->|"「開発可」を見つける"| launcher
-  launcher -->|開く| team
-  team -->|実装・相互レビューを頼む| devc & devx
-  devc & devx -->|PR| gh
-  team -->|推薦 PR の受け入れ確認| po
-  po -->|判定を返す| team
-  team -->|"計画・採否・改善を聞く"| human
+```sh
+nvm install
+nvm use
+npm ci
+npm run dev
 ```
 
-| 席 | 担当 |
-|---|---|
-| PO | 人間と議論して `spec.md` と Issue を書き、着手してよい Issue に「開発可」を付ける。開発チームが推す PR を、受け入れ条件・仕様・使う人の目で確かめる（コードは見ない） |
-| 開発チーム | 1つの Issue を最後まで進める。開発者2人に同じ Issue を別々に実装させ、互いにレビューさせて、どちらを採るかを推す。マージ・後片付け・ふりかえりのあと、自分の端末を閉じる |
-| 開発者 | 自分の worktree で計画・実装・PR・レビューを行う（Claude Code と Codex が1人ずつ） |
-| 起動係 | 「開発可」の Issue があり、動いている開発チームがいないときだけ、開発チームを開く（同時に1つまで） |
+ブラウザで `http://localhost:5273/` を開きます。終了は `Ctrl+C`。
+`nvm` を使わない場合も `.nvmrc` と同じ Node.js を用意してください。
 
-PO と開発チームを分けているのは、1つの端末にまとめると文脈がすぐあふれ、開発中にプロダクトの検討を進めにくくなるためです。
-
-### Issue 1本の流れ
-
-六角形が人間の判断です。それ以外はエージェントが進めます。
-
-```mermaid
-flowchart TD
-  s1["① PO と人間が議論し、spec.md を書く"] --> s2["② PO が Issue を切り、「開発可」を付ける"]
-  s2 --> s3["③ 起動係が開発チームを開く"]
-  s3 --> plan["開発者2人が、それぞれ計画を立てる"]
-  plan --> g4{{"④ 計画を承認する"}}
-  g4 --> s5["⑤ 開発者2人が別々に実装し、PR を出す"]
-  s5 --> rev["相互レビュー → 開発チームが推す PR を選ぶ"]
-  rev --> po{"PO の受け入れ確認"}
-  po -->|"差し戻し（2回まで）"| fix["開発チームが直させて、レビューし直す"]
-  fix --> po
-  po -->|受け入れ| g6{{"⑥ 採用する PR を決める"}}
-  g6 --> s7["⑦ 開発チームがマージし、後片付けする"]
-  s7 --> g8{{"⑧ ふりかえりを聞き、改善の採否を決める"}}
-  g8 --> close["開発チームが端末を閉じる → 次の「開発可」へ"]
-  g8 -.->|"仕様・Issue の案を申し送る"| s1
-  g8 -.->|"技術判断を残す"| adr[("ADR<br/>docs/decisions")]
-  adr -.->|"次の計画で読む"| plan
+```sh
+npm run check
 ```
 
-人間がすることは、PO との議論と、④⑥⑧の3つの判断です。記録は GitHub（Issue・PR・コメント）と `docs/issue-reports/` に残ります。ふりかえりでは、作業ごとの開始・終了の表（`work-times.py`）を見て、時間のかかった作業や過剰な作業を改善します。
+原稿の書式・ローカルリンク・ガイドの同期を確認し、HTML と PDF を生成します。
 
-## 始め方
-
-1. GitHub で「Use this template」から新しいリポジトリを作り、手元に clone する
-2. `CLAUDE.md` の `<…>` を埋める。「作るもの」と「開発設定」の表を、作るものに合わせて直す（Web アプリなら、ほぼそのまま）。終わったら `AGENTS.md` に同じ内容をコピーする
-3. Web アプリなら `profiles/web-app/ci.yml` を `.github/workflows/ci.yml` にコピーし、アプリの雛形と `.nvmrc`（Node の版）を作る
-4. GitHub にラベルを作る: `gh label create 開発可` と `gh label create 着手中`。マージは squash を許可しておく
-5. Orca でリポジトリを開き、PO の端末を開く（[workflow.md「PO を開く」](docs/workflow.md#po-を開く)）。`dev-team.sh po-register` で登録する
-6. Orca の定期実行「開発チーム起動」を作る（[workflow.md「開発チームを開く」](docs/workflow.md#開発チームを開く起動係)）
-7. PO と議論して `docs/spec.md` の初版を作り、最初の Issue を切って「開発可」を付ける
-
-モデルの指定は `.claude/skills/dual-implement/SKILL.md` の「モデルの指定」と、[workflow.md](docs/workflow.md) のコーディネーターのモデルにあります。Codex の既定は `~/.codex/config.toml` で決まります。
-
-## 中身
-
-| 場所 | 中身 |
+| コマンド | 用途 |
 |---|---|
-| [CLAUDE.md](CLAUDE.md) / [AGENTS.md](AGENTS.md) | エージェント向けガイド。「作るもの」と「開発設定」の表がプロジェクトごとの値 |
-| `.claude/skills/` | 4つのスキル: `implement-issue`（1本実装）・`dual-implement`（開発チームの③〜⑥）・`accept-review`（PO の受け入れ確認）・`finish-issue`（⑦〜⑧）と補助スクリプト。`.agents/skills/` は Codex 用のシンボリックリンク |
-| [docs/workflow.md](docs/workflow.md) | 開発の進め方（3つの席・8ステップ） |
-| [docs/testing.md](docs/testing.md) | テスト（確かめ方）とレビューの方針。作るものの種類ごとに書き換える |
-| [docs/spec.md](docs/spec.md) / [docs/next-issues.md](docs/next-issues.md) | 仕様と現在地の雛形（PO が書く） |
-| [docs/decisions/](docs/decisions/README.md) | 技術判断の記録（ADR）の書き方と雛形 |
-| [docs/issue-reports/](docs/issue-reports/README.md) | Issue ごとの記録の書き方 |
-| [profiles/](profiles/README.md) | 作るものの種類ごとの設定 |
-| [docs/origin.md](docs/origin.md) | 取り出し元のプロジェクトとコミット |
+| `npm run dev` | 編集用プレビュー |
+| `npm run lint` | Markdown の書式確認 |
+| `npm run check:links` | ローカル参照先の確認 |
+| `npm run check:guides` | CLAUDE.md と AGENTS.md の一致確認 |
+| `npm run build` | `dist/index.html` を生成 |
+| `npm run build:pdf` | `dist/agent-dev-slide.pdf` を生成 |
+| `npm run check` | 上記の自動確認を一括実行（dev を除く） |
 
-## 前提
-- [Orca](https://github.com/stablyai/orca)、Claude Code、Codex CLI、GitHub CLI（`gh`）、Python 3、Bash
-- `.agents/skills/` はシンボリックリンクとして GitHub に保存されている。Windows で clone した場合の扱いは確かめていない
-- まだ確かめていないこと: 開発チームを Codex にした構成
+Marp の使い方は [公式ドキュメント](https://github.com/marp-team/marp-cli#readme) を参照してください。
+HTML 内のプレイヤー用リソースは CDN を参照する場合があります。オフラインで配布する場合は PDF を使い、発表環境で確認します。
+
+## これからの進め方
+
+1. 初期準備の差分を確認し、main にコミットして push する。
+2. PO と対象読者・説明時間・伝えたいことを決め、仕様に反映する。
+3. 今作る一片を Issue にし、受け入れ条件・スコープ外・確認方法を決める。
+4. 起動係を有効化し、着手条件のそろった Issue に「開発可」を付ける。
+5. 計画承認、制作、相互レビュー、PO の受け入れ確認、採用判断、マージ、ふりかえりを行う。
+
+起動係は作成済み・無効です。設定手順と有効化コマンドは [環境構築](docs/setup.md) にあります。
+
+## 文書と原稿
+
+- [仕様](docs/spec.md): 決まったことと未決事項
+- [現在地と次の Issue](docs/next-issues.md): 続きから始めるための記録
+- [原稿](slides/index.md): Markdown／Marp、16:9
+- [参照元](docs/sources.md): 説明対象の資料と固定した版
+- [開発手順](docs/workflow.md): 3つの席と8ステップ
+- [確認・レビュー方針](docs/testing.md): スライド向けの確かめ方
+- [環境構築](docs/setup.md): 開発環境と Orca／GitHub の設定
+- [取り出し元](docs/origin.md): テンプレートの由来
+
+原稿と設定を Git で管理し、生成物 `dist/` と依存 `node_modules/` はコミットしません。
+GitHub Actions は PR と main への push で同じ確認コマンドを実行し、HTML・PDF を artifact に保存します。ホスティングは行いません。
 
 ## ライセンス
-[MIT No Attribution（MIT-0）](LICENSE)。著作権表示を残す必要もなく、自由に使い・変え・配れます。テンプレートから作ったプロジェクトでは、この `LICENSE` を消しても、自分のライセンスに差し替えても構いません。
+
+[MIT No Attribution（MIT-0）](LICENSE)。

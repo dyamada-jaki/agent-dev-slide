@@ -1,5 +1,13 @@
 # 取り出し元
 
+## このプロジェクトの直接の作成元
+
+`agent-dev-slide` は [dyamada-jaki/agent-dev-template](https://github.com/dyamada-jaki/agent-dev-template) から作成した。
+スライドで説明する版と資料は [sources.md](sources.md) に記録する。
+以下は元テンプレートが保持していた、さらに上流の取り出し元の記録。
+
+## 元テンプレートの由来
+
 このテンプレートは、別のプロジェクトで実際に回しているプロセスから取り出したもの。プロセスの改善は取り出し元で先に起き、ここへ移す。
 
 | 項目 | 値 |
@@ -9,6 +17,7 @@
 | 対象 | `.claude/skills/`・`.agents/skills/`・`docs/workflow.md`・`docs/testing.md`・`docs/decisions/`（README と雛形）・`docs/issue-reports/README.md`・`CLAUDE.md`・README のプロセスの図 |
 
 ## 次に取り出すとき
+
 1. 取り出し元で `git log <上のコミット>..main -- .claude/skills docs/workflow.md docs/testing.md docs/decisions/README.md docs/decisions/0000-template.md docs/issue-reports/README.md CLAUDE.md` を見る
 2. プロセスの変更だけを選んで、ここへ移す。経緯の注記（「#番号 で…ため」）は、規則を残して理由を一般的な言葉に置き換える
 3. 作るもの固有の値は、CLAUDE.md の「開発設定」と profiles に寄せる

@@ -1,0 +1,23 @@
+{
+  "name": "agent-dev-slide",
+  "version": "0.0.0",
+  "private": true,
+  "description": "agent-dev-template の開発プロセスを説明するスライド",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env scripts/dev.mjs",
+    "lint": "markdownlint-cli2",
+    "check:links": "markdown-link-check --quiet --ignore docs/decisions/0000-template.md --config .markdown-link-check.json README.md AGENTS.md CLAUDE.md docs slides",
+    "check:guides": "node scripts/check-guides.mjs",
+    "build": "marp slides/index.md -o dist/index.html",
+    "build:pdf": "marp slides/index.md --pdf -o dist/agent-dev-slide.pdf",
+    "check": "npm run lint && npm run check:links && npm run check:guides && npm run build && npm run build:pdf"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "4.5.1",
+    "markdown-link-check": "3.15.0",
+    "markdownlint-cli2": "0.24.0"
+  }
+}

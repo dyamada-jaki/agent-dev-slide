@@ -1,0 +1,12 @@
+{
+  "globs": ["README.md", "AGENTS.md", "CLAUDE.md", "docs/**/*.md", "slides/**/*.md"],
+  "ignores": ["docs/workflow.md", "docs/decisions/**", "docs/issue-reports/README.md"],
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD024": { "siblings_only": true },
+    "MD033": false,
+    "MD041": false,
+    "MD060": false
+  }
+}
