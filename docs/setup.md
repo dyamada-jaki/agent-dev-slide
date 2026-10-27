@@ -41,7 +41,8 @@ npm run check
 - リポジトリ: `dyamada-jaki/agent-dev-slide`、既定ブランチ: `main`
 - `開発可` と `着手中` のラベルを作成済み。
 - squash merge は許可済みだった。マージ方式は既存の finish-issue に従う。
-- `.github/workflows/ci.yml` を追加。リモートでの CI 実行は push 後に確認する。
+- `.github/workflows/ci.yml` を追加。実行状況は [現在地](next-issues.md) に記録する。
+- この作業環境の `origin` は SSH（`git@github.com:dyamada-jaki/agent-dev-slide.git`）。既存の SSH 認証で push を確認した。HTTPS の OAuth 認証は `workflow` スコープがなく、CI ファイルを含む push は拒否された。認証権限の追加は行っていない。
 
 ## PO
 
@@ -63,7 +64,7 @@ PO は [仕様](spec.md) と [現在地](next-issues.md) を読んで続きか�
 - 15分おき、既存の main worktree、毎回新しいセッション。
 - precheck: `bash .claude/skills/dual-implement/scripts/dev-team.sh precheck`
 - 起動係は Claude Haiku。開発チームは元テンプレートの設定を引き継ぐ。
-- 現在は**無効**。初期準備の main 反映後に有効化する。最初の Issue の前提がそろったら PO が「開発可」を付ける。
+- 2026-10-27、初期準備の main 反映と CI 成功を確認し、**有効化済み**。最初の Issue の前提がそろったら PO が「開発可」を付ける。
 
 ```sh
 /Applications/Orca.app/Contents/Resources/bin/orca automations edit \
@@ -77,7 +78,8 @@ ID は端末環境ごとの値なので、再作成時には更新する。
 ## 初期準備の区切り
 
 [workflow.md](workflow.md) の「準備4」は、初期の土台を人間が main にコミットする手順。
-今回はその確認用の差分を用意する。コミット・push のあとに CI を確認し、起動係を有効化する。
+2026-10-27、人間からコミットの承認を受け、セットアップを `375b88e` として main にコミット・push した。
+CI と起動係の状態は [現在地](next-issues.md) に記録する。
 本文の制作は、読者・持ち時間を仕様へ反映して Issue を切ってから始める。
 
 ## 依存監査の残件
