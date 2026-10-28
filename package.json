@@ -11,8 +11,8 @@
     "lint": "markdownlint-cli2",
     "check:links": "markdown-link-check --quiet --ignore docs/decisions/0000-template.md --config .markdown-link-check.json README.md AGENTS.md CLAUDE.md docs slides",
     "check:guides": "node scripts/check-guides.mjs",
-    "build": "marp --no-stdin slides/index.md -o dist/index.html",
-    "build:pdf": "marp --no-stdin slides/index.md --pdf -o dist/agent-dev-slide.pdf",
+    "build": "node scripts/build.mjs",
+    "build:pdf": "node scripts/build.mjs --pdf",
     "check": "npm run lint && npm run check:links && npm run check:guides && npm run build && npm run build:pdf",
     "build:samples": "node scripts/build-design-sample.mjs"
   },

@@ -12,7 +12,7 @@
 
 - 制作環境: Markdown + Marp CLI。原稿は Git 管理し、HTML と PDF を生成する
 - 実行環境: Node.js 24（`.nvmrc`）と Chrome。ローカルで制作し、GitHub Actions で確認する
-- 初期原稿は表示確認用の表紙のみ。内容・構成・デザインは人間と議論し、Issue ごとに作る
+- 原稿は LT の導入6枚。共通デザイン（`themes/paper.css`）で見た目をそろえる。内容・構成・デザインは人間と議論し、Issue ごとに作る
 
 ## コマンド
 
@@ -28,11 +28,13 @@
 ## ディレクトリ構成
 
 ```text
-slides/        スライド原稿（index.md）
-scripts/       プレビュー起動・ガイド同期確認
+slides/        スライド原稿（index.md）と画像（assets/）
+themes/        共通デザインのテーマ（paper.css）
+scripts/       プレビュー起動・本編と見本の生成・ガイド同期確認
 dist/          HTML・PDF（生成物、Git 管理外）
 docs/
   spec.md      仕様（正）
+  design.md    共通デザインの使い方
   sources.md   説明対象の参照元と版
   setup.md     環境構築・運用の開始手順
   workflow.md  開発の進め方
