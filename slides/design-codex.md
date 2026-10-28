@@ -51,7 +51,7 @@ style: |
   .definitions {
     display: flex;
     gap: 22px;
-    height: 400px;
+    height: 430px;
     margin-top: 12px;
   }
   .definition {
@@ -63,6 +63,7 @@ style: |
     flex-direction: column;
   }
   .definition ul { font-size: 25px; }
+  .definition li { white-space: nowrap; }
   .meta { font-size: 22px; color: #62626C; }
   .definition .meta { margin-top: auto; padding-top: 12px; }
   .arrow {
@@ -71,22 +72,12 @@ style: |
     align-self: flex-start;
     padding-top: 22px;
   }
-  .note {
-    position: absolute;
-    left: 72px;
-    right: 72px;
-    bottom: 56px;
-    border-top: 1px solid #D7D2C4;
-    padding-top: 18px;
-    font-size: 22px;
-    color: #62626C;
-  }
   section.human-page h2 { margin-bottom: 16px; }
   .decision-layout { display: flex; gap: 32px; align-items: flex-start; }
   .person { flex: 0 0 340px; }
   .person h3 { margin-bottom: 0; }
   .person li + li { margin-top: 4px; }
-  .person .meta { margin-top: 0; color: #98723B; }
+  .person .meta { margin-top: 0; color: #6E5418; }
   .people {
     display: block;
     width: 300px;
@@ -98,11 +89,11 @@ style: |
   .judgements { flex: 1; padding-top: 12px; }
   .judgement {
     font-size: 30px;
-    color: #1F2B47;
+    color: #6E5418;
     padding: 20px 0;
-    border-bottom: 1px solid #D7D2C4;
+    border-bottom: 1px solid #B8912F;
   }
-  .judgement:first-child { border-top: 2px solid #D7D2C4; }
+  .judgement:first-child { border-top: 2px solid #B8912F; }
 ---
 
 <!-- _class: cover -->
@@ -134,8 +125,8 @@ agent-dev-template というテンプレートが用意している開発プロ�
     <h3>Spec</h3>
     <ul>
       <li>作るもの全体の仕様</li>
-      <li>「何を・なぜ・どこまで」を書く</li>
-      <li>まだ作らない部分も書いてよい</li>
+      <li>「何を・なぜ・どこまで」<br>を書く</li>
+      <li>まだ作らない部分も<br>書いてよい</li>
     </ul>
     <p class="meta">docs/spec.md</p>
   </div>
@@ -143,9 +134,9 @@ agent-dev-template というテンプレートが用意している開発プロ�
   <div class="definition">
     <h3>Issue</h3>
     <ul>
-      <li>仕様から今回作る部分だけを取り出した作業の単位</li>
-      <li>目的・範囲・受け入れ条件を書く</li>
-      <li>1〜3本ずつ出し、終わったら次を切る</li>
+      <li>仕様から今回作る部分<br>だけを取り出した<br>作業の単位</li>
+      <li>目的・範囲・<br>受け入れ条件を書く</li>
+      <li>1〜3本ずつ出し、<br>終わったら次を切る</li>
     </ul>
     <p class="meta">GitHub Issue</p>
   </div>
@@ -153,17 +144,16 @@ agent-dev-template というテンプレートが用意している開発プロ�
   <div class="definition">
     <h3>Orca</h3>
     <ul>
-      <li>複数の AI エージェントの端末と worktree をまとめて扱うアプリ</li>
-      <li>Issue を1本ずつ実装する作業環境</li>
+      <li>複数の AI エージェントの<br>端末と worktree を<br>まとめて扱うアプリ</li>
+      <li>Issue を1本ずつ<br>実装する作業環境</li>
     </ul>
     <p class="meta">エージェントの作業場所</p>
   </div>
 </div>
 
-<p class="note">Spec から今回作る部分を Issue に切り出し、Orca で1本ずつ作る</p>
-
 <!--
 【話すこと】
+Spec から今回作る部分を Issue に切り出し、Orca で1本ずつ作る
 Spec は、作るもの全体について「何を・なぜ・どこまで」作るかを書いた仕様で、まだ作らない部分も書いておけます。
 Issue は、その仕様から今回作る部分だけを取り出した作業の単位です。今回実装する作業の目的・範囲（やらないこと）・受け入れ条件を書きます。1〜3本ずつ出して、終わったら次を切ります。
 Orca は、複数の AI エージェントの端末と worktree をまとめて扱うアプリで、Issue を1本ずつ実装する作業環境になります。
@@ -199,10 +189,9 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
   </div>
 </div>
 
-<p class="note">3つの判断は人間が行う。それ以外はエージェントが進める</p>
-
 <!--
 【話すこと】
+3つの判断は人間が行う。それ以外はエージェントが進める
 人間は3つの役割のどれにも含めません。
 人間がすることは、PO との議論と、3つの判断です。実装前の計画を承認する、採用する PR を決める、ふりかえりで出た改善の採否を決める。
 この3つの判断は人間が行い、それ以外の作業はエージェントが進めます。
