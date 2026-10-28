@@ -1,0 +1,185 @@
+/* @theme paper */
+/*
+ * 個人用の共通デザイン「紙と藍」。Issue #5 の採用見本（e0d645a）の数値を出発点にする。
+ * 使い方・ページ型・改行と画像の注意は docs/design.md を参照する。
+ */
+
+@import 'default';
+
+:root {
+  --paper: #F6F4EE;
+  --ink: #26262E;
+  --indigo: #1F2B47;
+  --rule: #D7D2C4;
+  --muted: #62626C;
+  /* 金色は人間の判断だけに使う。文字は紙色に対し 6.48:1、罫線は文字に使わない */
+  --gold-text: #6E5418;
+  --gold-rule: #B8912F;
+  --font-heading: "Yu Mincho", "YuMincho", "Noto Serif CJK JP", serif;
+  --font-body: "Hiragino Sans", "Noto Sans CJK JP", "Noto Sans JP", sans-serif;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 25px;
+  line-height: 1.5;
+  padding: 56px 72px;
+  /* 日本語を文節で折り返す（Chrome）。対応しない環境では通常の折り返しになる */
+  word-break: auto-phrase;
+}
+
+section::after {
+  color: var(--muted);
+  font-size: 18px;
+}
+
+h1, h2, h3 {
+  color: var(--indigo);
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 1.35;
+  margin: 24px 0 38px;
+  border: 0;
+  padding: 0;
+}
+
+h3 {
+  font-size: 34px;
+  line-height: 1.35;
+  margin: 0 0 24px;
+}
+
+p, ul { margin: 0; }
+ul { padding-left: 1.1em; }
+li + li { margin-top: 16px; }
+
+.meta {
+  font-size: 22px;
+  color: var(--muted);
+}
+
+.arrow {
+  flex: none;
+  color: var(--muted);
+  font-size: 30px;
+  align-self: flex-start;
+  padding-top: 22px;
+}
+
+/* 表紙: 左揃えの大きな題名と広い余白 */
+section.cover h1 {
+  font-size: 60px;
+  line-height: 1.35;
+  margin: 130px 0 40px;
+  letter-spacing: .04em;
+}
+section.cover .keywords { font-size: 32px; color: var(--indigo); }
+section.cover .subtitle { font-size: 28px; margin-top: 16px; }
+
+/* 要旨の一文 */
+.statement {
+  font-size: 30px;
+  line-height: 1.6;
+  margin-bottom: 56px;
+}
+
+/* 工程: 左から右へ。各工程は文字と上端の罫線で示し、塗りで囲わない */
+.flow {
+  display: flex;
+  gap: 16px;
+}
+.flow .step {
+  flex: 1;
+  min-width: 0;
+  border-top: 2px solid var(--indigo);
+  padding-top: 16px;
+  color: var(--indigo);
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+}
+.flow .arrow { padding-top: 14px; }
+
+/* 3列: 項目名・箇条書き・参照先。参照先は列の下端にそろえる */
+.columns {
+  display: flex;
+  gap: 22px;
+  height: 430px;
+  margin-top: 12px;
+}
+.column {
+  flex: 1;
+  min-width: 0;
+  border-top: 2px solid var(--rule);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.column .meta { margin-top: auto; padding-top: 12px; }
+
+/* 左右: 左に人間（挿絵つき）、右に3つの判断を金色で示す */
+.split { display: flex; gap: 32px; align-items: flex-start; }
+.split > .arrow { padding-top: 50px; }
+.person { flex: 0 0 340px; }
+.person h3 { margin-bottom: 0; }
+.person li + li { margin-top: 4px; }
+.person .meta { color: var(--gold-text); }
+.people {
+  display: block;
+  width: 300px;
+  height: 210px;
+  object-fit: contain;
+  margin: 0;
+  background: transparent;
+}
+.judgements { flex: 1; padding-top: 12px; }
+.judgement {
+  font-size: 30px;
+  color: var(--gold-text);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--gold-rule);
+}
+.judgement:first-child { border-top: 2px solid var(--gold-rule); }
+
+/* まとめ表と次の案内: 罫線だけで区切る */
+table.recap {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 26px;
+}
+table.recap tr,
+table.recap th,
+table.recap td {
+  background: transparent;
+  border: 0;
+}
+table.recap th,
+table.recap td {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 16px;
+  text-align: left;
+  vertical-align: top;
+}
+table.recap tr:first-child th,
+table.recap tr:first-child td { border-top: 2px solid var(--rule); }
+table.recap th {
+  width: 160px;
+  color: var(--indigo);
+}
+.next {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 2px solid var(--indigo);
+  color: var(--indigo);
+  font-size: 26px;
+}

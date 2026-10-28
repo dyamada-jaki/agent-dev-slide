@@ -3,7 +3,7 @@
 [agent-dev-template](https://github.com/dyamada-jaki/agent-dev-template) の開発プロセスを、人に説明するための日本語スライドです。
 スライド自体も、Spec・Issue・Orca を使った同じプロセスで少しずつ制作します。
 
-現在は制作環境の初期準備です。原稿は表示確認用の表紙のみで、本文は今後の Issue で作ります。
+現在の原稿は LT の導入6枚です。見た目は共通デザイン（[themes/paper.css](themes/paper.css)、使い方は [docs/design.md](docs/design.md)）でそろえています。
 
 ## すぐに試す
 
@@ -31,8 +31,9 @@ npm run check
 | `npm run lint` | Markdown の書式確認 |
 | `npm run check:links` | ローカル参照先の確認 |
 | `npm run check:guides` | CLAUDE.md と AGENTS.md の一致確認 |
-| `npm run build` | `dist/index.html` を生成 |
+| `npm run build` | `dist/index.html` を生成（画像を `dist/assets/` へ複製） |
 | `npm run build:pdf` | `dist/agent-dev-slide.pdf` を生成 |
+| `npm run build:samples` | Issue #5 の見本を `dist/design-codex.*` に生成 |
 | `npm run check` | 上記の自動確認を一括実行（dev を除く） |
 
 Marp の使い方は [公式ドキュメント](https://github.com/marp-team/marp-cli#readme) を参照してください。
@@ -53,6 +54,7 @@ HTML 内のプレイヤー用リソースは CDN を参照する場合があり�
 - [仕様](docs/spec.md): 決まったことと未決事項
 - [現在地と次の Issue](docs/next-issues.md): 続きから始めるための記録
 - [原稿](slides/index.md): Markdown／Marp、16:9
+- [共通デザイン](docs/design.md): テーマ `paper` の色・書体・ページ型と、スライドの足し方
 - [参照元](docs/sources.md): 説明対象の資料と固定した版
 - [開発手順](docs/workflow.md): 3つの席と8ステップ
 - [確認・レビュー方針](docs/testing.md): スライド向けの確かめ方
@@ -64,7 +66,7 @@ GitHub Actions は PR と main への push で同じ確認コマンドを実行�
 
 ## 検討用のデザイン見本
 
-Issue #5 の [Codex案（3枚）](slides/design-codex.md) は、本編と分けた未採用の見本です。[意図・素材・比較手順](docs/design-samples/issue-5-codex.md)を確認できます。`npm run build:samples` で `dist/design-codex.html` と `dist/design-codex.pdf` を生成します。
+Issue #5 の [Codex案（3枚）](slides/design-codex.md) は、本編と分けた見本です。採用後に共通デザインの出発点とし、比較の記録として独自の style のまま残しています。[意図・素材・比較手順](docs/design-samples/issue-5-codex.md)を確認できます。`npm run build:samples` で `dist/design-codex.html` と `dist/design-codex.pdf` を生成します。
 
 ## ライセンス
 
