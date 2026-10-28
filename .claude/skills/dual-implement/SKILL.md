@@ -62,7 +62,7 @@ orca orchestration worker-start --spec "<下の実装用の指示>" --task-title
 それぞれの `worker-start --json` の結果から、dispatch ID と worktree の絶対パス（`path`）を控えておく（手順6で使う）。見つからなければ `orca worktree list --json` で `issue-N-claude` / `issue-N-codex` を探す。
 
 `worker-start` が 0 以外で終わったら、起動し直さない。結果の `failedStage` と `recovery` を読み、`orca skills get orchestration --reference references/recovery-and-cleanup.md` に従う。
-- `failedStage` が `agent_readiness` のときは、`residualResources` のターミナルを `orca terminal read` で読み、CLI の更新案内などの画面で止まっていないか見る。更新案内なら更新はせず「スキップ」を選び、`recovery` に従って片付けてから、`--task <task_id> --retry-of <dispatch_id>` と同じ置き場所・エージェント・モデルを明示して起動し直す
+- `failedStage` が `agent_readiness` のときは、`residualResources` のターミナルを `orca terminal read` で読み、CLI の更新案内などの画面で止まっていないか見る。更新案内なら更新はせず「次の版までスキップ」（Skip until next version）を選び（1回だけのスキップでは、起動し直すたびに同じ案内で止まるため）、`recovery` に従って片付けてから、`--task <task_id> --retry-of <dispatch_id>` と同じ置き場所・エージェント・モデルを明示して起動し直す
 
 ### 実装用の指示（`--spec` に入れる。<…> は埋める）
 ```
@@ -209,7 +209,7 @@ orca orchestration worker-start --spec "<下の品質レビュー用の指示>" 
      - 差し戻しは2回まで（「開発設定」の「PO の差し戻し」）。3回目の差し戻しになったら、直さずに手順9で人間に判断を仰ぐ
 6. PO の判定・回数・対象 SHA・修正と再確認の内容を、手順7の Issue レポートに追記する
 7. 人間が、不採用にする PR の作りの移植や追加の修正を求めたときも、5. の差し戻しと同じ流れ（PR の作者と同じエージェントで修正 → 相互レビューの担当が新しい SHA を再確認 → 推薦を更新 → PO に再確認）で進める。差し戻しの回数には数えない
-   - 人間が選んだ作りが受け入れ条件に合わない場合は、人間の判断を原文のまま PO に送り、Issue と spec.md の更新を頼む。修正はそれと並行してよい。再確認と PO の確認は更新後の条件で行う
+   - 人間が選んだ作りが受け入れ条件に合わない場合は、人間の判断を原文のまま PO に送り、Issue と spec.md の更新を頼む。PO の更新が終わってから修正ワーカーを起動し、更新後の Issue と spec.md の差分を修正の指示に含める（並行して起動すると、更新で加わった条件を直すために修正と再確認がもう1回増えるため）。再確認と PO の確認は更新後の条件で行う
 
 ## 9. 人間に報告する
 報告の形（日本語）:
