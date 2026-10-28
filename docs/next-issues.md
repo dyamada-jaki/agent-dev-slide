@@ -14,10 +14,10 @@
 | リモート CI | 導入の main `a69f2e5` と改善 `7a17319` で成功（[導入](https://github.com/dyamada-jaki/agent-dev-slide/actions/runs/40627524894)、[改善](https://github.com/dyamada-jaki/agent-dev-slide/actions/runs/40628214005)） |
 | PO | この Orca の Codex 端末を登録済み。再起動時は再登録する |
 | GitHub | 「開発可」「着手中」を作成済み。squash merge の許可を確認済み |
-| 起動係 | 有効化済み。次の対象はデザイン比較の Issue #5。具体案は開発チームの計画を人間が承認してから制作する（[起動手順](setup.md)） |
+| 起動係 | 有効化済み。Issue #5 の開発チームが稼働中（Run `run_801ae3053c85`）。修正は同チームが継続する（[起動手順](setup.md)） |
 | LT の前提 | AI開発に関心がある開発者へ、15分程度で全体像を説明。人間と合意済み（仕様 `26838ab`） |
 | 説明用スライド | [Issue #1](https://github.com/dyamada-jaki/agent-dev-slide/issues/1) の導入6枚を実装・検証・取り込み済み。PR #2 は不採用でクローズ、リモートブランチを保存 |
-| 個人用デザイン | [Issue #5](https://github.com/dyamada-jaki/agent-dev-slide/issues/5) を登録。採用済み導入の1・3・5枚目を題材に、各開発者が3枚の1案を作り計2案で比較する。範囲は人間と合意済み、具体案の計画承認はこれから。人物はデフォルメしたレナ・ヨナを基本にする（spec.md 2.2） |
+| 個人用デザイン | [Issue #5](https://github.com/dyamada-jaki/agent-dev-slide/issues/5) の2案を比較し、人間が PR #6 を土台に罫線・金色の強調・下部2文のノート移動を選択。PO が仕様と受け入れ条件を更新。開発チームによる修正と新しい head での再レビュー・受け入れ確認待ち（spec.md 2.2） |
 | スクラムの用語・対比 | 人間の希望を spec.md 2.3 に記録し、スクラムガイドの参照先を追加。[Issue #4](https://github.com/dyamada-jaki/agent-dev-slide/issues/4) を先行登録。対応表などが未決のため開発可は付けない |
 | 採用した技術判断 | [ADR 0001](decisions/0001-原稿内のHTMLで図を描く.md)。原稿内の HTML/CSS で図を描く。後続の計画前に読む |
 
@@ -45,7 +45,7 @@
 
 ## 次に進める Issue
 
-[Issue #5: 導入の代表3枚で個人用スライドのデザイン2案を比較する](https://github.com/dyamada-jaki/agent-dev-slide/issues/5)。仕様と受け入れ条件を整え、開発チームが計画を提案できる状態にした。2案をそれぞれ HTML・PDF で確認できるところまでを制作範囲とし、比較の結果を PO が仕様と次の Issue に反映する。人間による具体案の計画承認・採用判断を経る。
+[Issue #5: 導入の代表3枚で個人用スライドのデザイン2案を比較する](https://github.com/dyamada-jaki/agent-dev-slide/issues/5)。計画承認・2案の制作・人間の比較を経て、PR #6 の修正へ進む。具体的な変更と素材記録の扱いは spec.md 2.2 と Issue の更新済み条件に従う。修正後の新しい head で受け入れ確認を行う。main に残すのは #6 だけとし、#7 は完了処理でブランチを残してクローズする。正式な共通テーマと本編への適用は後続 Issue で扱う。
 
 ## 次に切る Issue
 
