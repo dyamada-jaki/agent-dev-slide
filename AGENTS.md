@@ -23,6 +23,7 @@
 - `npm run check:guides` — CLAUDE.md と AGENTS.md の一致を確認
 - `npm run build` — HTML を `dist/index.html` に出力
 - `npm run build:pdf` — PDF を `dist/agent-dev-slide.pdf` に出力
+- `npm run build:samples` — デザイン見本（`slides/samples/`）の HTML・PDF を `dist/samples/` に出力
 - `npm run check` — 必須確認をまとめて実行
 
 ## ディレクトリ構成
