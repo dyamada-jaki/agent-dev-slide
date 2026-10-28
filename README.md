@@ -62,6 +62,10 @@ HTML 内のプレイヤー用リソースは CDN を参照する場合があり�
 原稿と設定を Git で管理し、生成物 `dist/` と依存 `node_modules/` はコミットしません。
 GitHub Actions は PR と main への push で同じ確認コマンドを実行し、HTML・PDF を artifact に保存します。ホスティングは行いません。
 
+## 検討用のデザイン見本
+
+Issue #5 の [Codex案（3枚）](slides/design-codex.md) は、本編と分けた未採用の見本です。[意図・素材・比較手順](docs/design-samples/issue-5-codex.md)を確認できます。`npm run build:samples` で `dist/design-codex.html` と `dist/design-codex.pdf` を生成します。
+
 ## ライセンス
 
 [MIT No Attribution（MIT-0）](LICENSE)。
