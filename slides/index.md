@@ -105,9 +105,12 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
 
 ## 3つの役割（どれも AI エージェント）
 
-<div class="columns">
+<div class="columns roles">
   <div class="column">
-    <h3>PO</h3>
+    <div class="role-head">
+      <img class="role-figure" src="assets/roles/po.png" alt="AI エージェントの PO を表す、開いた冊子を読むデフォルメした人物">
+      <h3>PO</h3>
+    </div>
     <ul>
       <li>人間と議論して<br>spec.md と Issue を書く</li>
       <li>着手してよい Issue に<br>「開発可」を付ける</li>
@@ -116,7 +119,10 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
     <p class="meta">長く使う</p>
   </div>
   <div class="column">
-    <h3>開発チーム</h3>
+    <div class="role-head">
+      <img class="role-figure" src="assets/roles/team.png" alt="AI エージェントの開発チームを表す、板に付箋を順に貼るデフォルメした人物">
+      <h3>開発チーム</h3>
+    </div>
     <ul>
       <li>Issue 1本を<br>最後まで進める</li>
       <li>開発者2人の実装を比べ、<br>採る PR を推薦する</li>
@@ -125,7 +131,11 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
     <p class="meta">Issue ごとに開いて閉じる</p>
   </div>
   <div class="column">
-    <h3>開発者</h3>
+    <div class="role-head">
+      <img class="role-figure" src="assets/roles/developer-1.png" alt="AI エージェントの開発者を表す、ノートパソコンで作業するデフォルメした人物（1人目）">
+      <img class="role-figure" src="assets/roles/developer-2.png" alt="AI エージェントの開発者を表す、ノートパソコンで作業するデフォルメした人物（2人目）">
+      <h3>開発者</h3>
+    </div>
     <ul>
       <li>自分の worktree で<br>計画・実装・PR・レビュー</li>
       <li>Claude Code と Codex が<br>1人ずつ</li>
@@ -137,6 +147,7 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
 <!--
 【話すこと】
 人間はこの3つの役割に含めない（次のページ）
+絵の人物は AI エージェントの3つの役割を表します。次のページの2人は人間です。
 エージェントは3つの役割に分かれます。
 PO は人間と議論して仕様と Issue を書き、開発チームが推薦する PR を受け入れ条件・仕様・使う人の目で確かめます。コードは見ません。
 開発チームは Issue 1本を最後まで進めます。開発者2人に同じ Issue を別々に実装させ、互いにレビューさせて、どちらを採るかを推薦します。
