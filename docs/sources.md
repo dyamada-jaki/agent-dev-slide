@@ -40,6 +40,15 @@ README の工程図（65行目）はマージと後片付けを開発チーム�
 - キャラクターの参照資料が必要なら、隣接する `overstrata` プロジェクトの既存資料を読み取り専用で確認する。未公開資料の本文・生成指示を本リポジトリへ転載しない。
 - 見本で使う画像は、使用ファイルと生成・編集した素材の区別を保守用に記録する。参照元の列挙は求めない。表情・ポーズ、デフォルメの程度は計画で提示する。
 
+## 次章で使う本プロジェクトの実例
+
+元テンプレートの説明に添える具体例として Issue #5 を使う。テンプレートの一般的なルールと、実際に行った作業の記録を区別する。
+
+- [Issue #5 レポート](https://github.com/dyamada-jaki/agent-dev-slide/blob/4c79405a64f13ec4359e6ceb57d1c871ba84b35f/docs/issue-reports/issue-5.md): 計画承認（3章）、初回2案の比較（4章）、PO の確認と人間の判断・修正（8章）、完了処理（9章）、ふりかえりと改善の採否（10・11章）。実例の参照版は改善 A〜C 反映時の `4c79405a64f13ec4359e6ceb57d1c871ba84b35f`。
+- 初回比較の成果物: [PR #6 の原稿](https://github.com/dyamada-jaki/agent-dev-slide/blob/c332c3760316c7509452b0cc6be39d138d712368/slides/design-codex.md)（`c332c37`）と [PR #7 の原稿](https://github.com/dyamada-jaki/agent-dev-slide/blob/b3e0c3e8964a764a424a131f004625d5f4b6697d/slides/samples/issue-5-claude/index.md)（`b3e0c3e`）。採用修正版とは区別する。
+- 採用修正版: [PR #6 の原稿](https://github.com/dyamada-jaki/agent-dev-slide/blob/3480008867440677afcb0b29e8a0b8aa06a08c00/slides/design-codex.md)と同じ版の `docs/design-samples/issue-5-codex-preview/`。罫線・金色・下部2文のノート移動を反映した版。
+- 次への接続は [Issue #8](https://github.com/dyamada-jaki/agent-dev-slide/issues/8) の目的・範囲（共通デザインの整備と導入6枚への適用）を示す。今回の実例の時点で、その完了や効果を断定しない。
+
 ## 使い方
 
 - 読むための参照先。元リポジトリを変更しない。
