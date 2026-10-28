@@ -63,7 +63,7 @@ style: |
     flex-direction: column;
   }
   .definition ul { font-size: 25px; }
-  .definition li { white-space: nowrap; }
+  .definition li { white-space: nowrap; letter-spacing: -.04em; }
   .meta { font-size: 22px; color: #62626C; }
   .definition .meta { margin-top: auto; padding-top: 12px; }
   .arrow {
