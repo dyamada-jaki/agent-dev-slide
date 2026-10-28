@@ -105,9 +105,12 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
 
 ## 3つの役割（どれも AI エージェント）
 
-<div class="columns">
+<div class="columns roles">
   <div class="column">
-    <h3>PO</h3>
+    <div class="role-heading">
+      <h3>PO</h3>
+      <img class="role-portrait" src="assets/issue-12-codex/po-lena.png" alt="PO の AI エージェントの役割を表す、仕様書を確認するレナ">
+    </div>
     <ul>
       <li>人間と議論して<br>spec.md と Issue を書く</li>
       <li>着手してよい Issue に<br>「開発可」を付ける</li>
@@ -116,7 +119,10 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
     <p class="meta">長く使う</p>
   </div>
   <div class="column">
-    <h3>開発チーム</h3>
+    <div class="role-heading">
+      <h3>開発チーム</h3>
+      <img class="role-portrait" src="assets/issue-12-codex/team-yona.png" alt="開発チームの AI エージェントの役割を表す、資料を整理するヨナ">
+    </div>
     <ul>
       <li>Issue 1本を<br>最後まで進める</li>
       <li>開発者2人の実装を比べ、<br>採る PR を推薦する</li>
@@ -125,7 +131,10 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
     <p class="meta">Issue ごとに開いて閉じる</p>
   </div>
   <div class="column">
-    <h3>開発者</h3>
+    <div class="role-heading">
+      <h3>開発者</h3>
+      <img class="role-portrait" src="assets/issue-12-codex/developer.png" alt="開発者の AI エージェントの役割を表す、端末で制作する名前のない人物">
+    </div>
     <ul>
       <li>自分の worktree で<br>計画・実装・PR・レビュー</li>
       <li>Claude Code と Codex が<br>1人ずつ</li>
@@ -136,6 +145,7 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
 
 <!--
 【話すこと】
+このページの人物画は AI エージェントの役割を表す挿絵です。次のページでは人間の判断を表します。作品内の役職との対応ではありません。
 人間はこの3つの役割に含めない（次のページ）
 エージェントは3つの役割に分かれます。
 PO は人間と議論して仕様と Issue を書き、開発チームが推薦する PR を受け入れ条件・仕様・使う人の目で確かめます。コードは見ません。

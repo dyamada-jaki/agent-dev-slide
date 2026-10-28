@@ -126,6 +126,27 @@ section.cover .subtitle { font-size: 28px; margin-top: 16px; }
 }
 .column .meta { margin-top: auto; padding-top: 12px; }
 
+/* 人物つきの3列: 役割名のすぐ横に絵を添え、既存の本文と下端の補足を残す */
+.columns.roles { height: 480px; }
+.roles .column { padding-top: 12px; }
+.role-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 110px;
+  flex: none;
+  margin-bottom: 12px;
+}
+.role-heading h3 { flex: 1; min-width: 0; margin: 0; }
+.role-portrait {
+  display: block;
+  flex: none;
+  width: 160px;
+  height: 110px;
+  object-fit: contain;
+  background: transparent;
+}
+
 /* 左右: 左に人間（挿絵つき）、右に3つの判断を金色で示す */
 .split { display: flex; gap: 32px; align-items: flex-start; }
 .split > .arrow { padding-top: 50px; }
