@@ -201,8 +201,8 @@ agent-dev-template というテンプレートが用意している開発プロ�
   <div class="card">
     <h3>Spec</h3>
     <ul>
-      <li>作るもの全体の地図</li>
-      <li>「何を・なぜ・どこまで」を持つ</li>
+      <li>作るもの全体の仕様</li>
+      <li>「何を・なぜ・どこまで」を書く</li>
       <li>まだ作らない部分も書いてよい</li>
     </ul>
     <p class="meta">docs/spec.md</p>
@@ -211,7 +211,7 @@ agent-dev-template というテンプレートが用意している開発プロ�
   <div class="card">
     <h3>Issue</h3>
     <ul>
-      <li>地図から今作る一片だけを切り出した作業票</li>
+      <li>仕様から今回作る部分だけを取り出した作業の単位</li>
       <li>1〜3本ずつ出し、終わったら次を切る</li>
     </ul>
     <p class="meta">GitHub Issue</p>
@@ -227,22 +227,22 @@ agent-dev-template というテンプレートが用意している開発プロ�
   </div>
 </div>
 
-<p class="note">地図（Spec）から一片（Issue）を切り出し、Orca の上で1本ずつ作る</p>
+<p class="note">Spec から今回作る部分を Issue に切り出し、Orca で1本ずつ作る</p>
 
 <!--
 【話すこと】
-Spec は作るもの全体の地図で、まだ作らない部分も書いておけます。
-Issue は、その地図から「今作る一片」だけを切り出した作業票です。1〜3本ずつ出して、終わったら次を切ります。
+Spec は、作るもの全体について「何を・なぜ・どこまで」作るかを書いた仕様で、まだ作らない部分も書いておけます。
+Issue は、その仕様から今回作る部分だけを取り出した作業の単位です。1〜3本ずつ出して、終わったら次を切ります。
 Orca は、複数の AI エージェントの端末と worktree をまとめて扱うアプリで、Issue を1本ずつ実装する作業環境になります。
 
 【出典】
-- workflow.md 冒頭（spec.md は地図、Issue は一片、Orca で1本ずつ実装）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
+- workflow.md 冒頭（spec.md は作るもの全体の仕様、Issue はそこから今回作る部分だけを取り出したもの、Orca で1本ずつ実装）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
 - README 冒頭（Orca の説明）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
 -->
 
 ---
 
-## 3つの席（どれも AI エージェント）
+## 3つの役割（どれも AI エージェント）
 
 <div class="row">
   <div class="card">
@@ -250,7 +250,7 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
     <ul>
       <li>人間と議論して spec.md と Issue を書く</li>
       <li>着手してよい Issue に「開発可」を付ける</li>
-      <li>推された PR を受け入れ確認する（コードは見ない）</li>
+      <li>推薦された PR を受け入れ確認する（コードは見ない）</li>
     </ul>
     <p class="meta">長く使う</p>
   </div>
@@ -258,7 +258,7 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
     <h3>開発チーム</h3>
     <ul>
       <li>Issue 1本を最後まで進める</li>
-      <li>開発者2人の実装を比べ、採る PR を推す</li>
+      <li>開発者2人の実装を比べ、採る PR を推薦する</li>
       <li>後片付けとふりかえり</li>
     </ul>
     <p class="meta">Issue ごとに開いて閉じる</p>
@@ -273,25 +273,25 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
   </div>
 </div>
 
-<p class="note">人間はこの3つの席に入らない（次のページ）</p>
+<p class="note">人間はこの3つの役割に含めない（次のページ）</p>
 
 <!--
 【話すこと】
-エージェントは役割の違う3つの席に分かれます。
-PO は人間と議論して仕様と Issue を書き、開発チームが推す PR を受け入れ条件・仕様・使う人の目で確かめます。コードは見ません。
-開発チームは Issue 1本を最後まで進めます。開発者2人に同じ Issue を別々に実装させ、互いにレビューさせて、どちらを採るかを推します。
+エージェントは3つの役割に分かれます。
+PO は人間と議論して仕様と Issue を書き、開発チームが推薦する PR を受け入れ条件・仕様・使う人の目で確かめます。コードは見ません。
+開発チームは Issue 1本を最後まで進めます。開発者2人に同じ Issue を別々に実装させ、互いにレビューさせて、どちらを採るかを推薦します。
 開発者は自分の worktree で計画・実装・PR・レビューを行います。
 PO と開発チームを分けているのは、1つの端末にまとめると文脈がすぐあふれ、開発中にプロダクトの検討を進めにくくなるためです。
-（開発チームを自動で開く「起動係」という仕組みもありますが、席ではないので後のパートで扱います。）
+（開発チームを自動で開く「起動係」という仕組みもありますが、3つの役割には含めないので後のパートで扱います。）
 
 【出典】
-- workflow.md「3つの席」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#3つの席
-- README「席と受け渡し」（席の表、PO と開発チームを分ける理由）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md#席と受け渡し
+- workflow.md の3つの役割の節: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#3つの席
+- README の役割と受け渡しの節（役割の表、PO と開発チームを分ける理由）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md#席と受け渡し
 -->
 
 ---
 
-## 人間は席の外で判断する
+## 人間は3つの役割に含めず、判断を担う
 
 <div class="row">
   <div class="card human">
@@ -300,7 +300,7 @@ PO と開発チームを分けているのは、1つの端末にまとめると�
       <li>PO と議論する</li>
       <li>3つの判断をする</li>
     </ul>
-    <p class="meta">席には数えない</p>
+    <p class="meta">役割には数えない</p>
   </div>
   <div class="arrow">→</div>
   <div class="gates">
@@ -314,14 +314,14 @@ PO と開発チームを分けているのは、1つの端末にまとめると�
 
 <!--
 【話すこと】
-人間は3つの席のどれでもありません。
+人間は3つの役割のどれにも含めません。
 人間がすることは、PO との議論と、3つの判断です。実装前の計画を承認する、採用する PR を決める、ふりかえりで出た改善の採否を決める。
 この3つの判断は人間が行い、それ以外の作業はエージェントが進めます。
 それぞれの判断がどのタイミングで来るかは、次の「Issue 1本の流れ」で説明します。
 
 【出典】
 - README「Issue 1本の流れ」（「六角形が人間の判断です。それ以外はエージェントが進めます。」「人間がすることは、PO との議論と、④⑥⑧の3つの判断です。」）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md#issue-1本の流れ
-- workflow.md「3つの席」（「人間の関所は3つ: ④計画承認、⑥採用の判断、⑧改善の採否」）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#3つの席
+- workflow.md の3つの役割の節（人間が判断するのは3つの場面: ④計画承認、⑥採用の判断、⑧改善の採否）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#3つの席
 -->
 
 ---
@@ -330,8 +330,8 @@ PO と開発チームを分けているのは、1つの端末にまとめると�
 
 <table class="recap">
   <tr><th>何を</th><td>人間が判断し、AI エージェントが仕様からふりかえりまで進める</td></tr>
-  <tr><th>何で</th><td>Spec（地図）から Issue（一片）を切り出し、Orca の上で作る</td></tr>
-  <tr><th>誰が</th><td>PO・開発チーム・開発者の3つの席と、席の外で判断する人間</td></tr>
+  <tr><th>何で</th><td>Spec から今回作る部分を Issue に切り出し、Orca で作る</td></tr>
+  <tr><th>誰が</th><td>PO・開発チーム・開発者の3つの役割と、判断を担う人間</td></tr>
 </table>
 
 <p class="next">次: Issue 1本の流れ ― 仕様から切り出した Issue が、どう進んでいくか</p>
@@ -342,6 +342,6 @@ PO と開発チームを分けているのは、1つの端末にまとめると�
 次は、Issue 1本が切り出されてから、計画・実装・レビュー・マージ・ふりかえりへ進む流れを見ていきます。
 
 【出典】
-- README 冒頭・「席と受け渡し」・「Issue 1本の流れ」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
-- workflow.md 冒頭・「3つの席」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
+- README 冒頭・役割と受け渡しの節・「Issue 1本の流れ」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
+- workflow.md 冒頭・3つの役割の節: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
 -->
