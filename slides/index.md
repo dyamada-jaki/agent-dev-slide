@@ -212,6 +212,7 @@ agent-dev-template というテンプレートが用意している開発プロ�
     <h3>Issue</h3>
     <ul>
       <li>仕様から今回作る部分だけを取り出した作業の単位</li>
+      <li>目的・範囲・受け入れ条件を書く</li>
       <li>1〜3本ずつ出し、終わったら次を切る</li>
     </ul>
     <p class="meta">GitHub Issue</p>
@@ -232,11 +233,12 @@ agent-dev-template というテンプレートが用意している開発プロ�
 <!--
 【話すこと】
 Spec は、作るもの全体について「何を・なぜ・どこまで」作るかを書いた仕様で、まだ作らない部分も書いておけます。
-Issue は、その仕様から今回作る部分だけを取り出した作業の単位です。1〜3本ずつ出して、終わったら次を切ります。
+Issue は、その仕様から今回作る部分だけを取り出した作業の単位です。今回実装する作業の目的・範囲（やらないこと）・受け入れ条件を書きます。1〜3本ずつ出して、終わったら次を切ります。
 Orca は、複数の AI エージェントの端末と worktree をまとめて扱うアプリで、Issue を1本ずつ実装する作業環境になります。
 
 【出典】
 - workflow.md 冒頭（spec.md は作るもの全体の仕様、Issue はそこから今回作る部分だけを取り出したもの、Orca で1本ずつ実装）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
+- workflow.md ステップ2「Issueを切り出す」（Issue に書くこと: 目的、受け入れ条件、スコープ外）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
 - README 冒頭（Orca の説明）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
 -->
 
