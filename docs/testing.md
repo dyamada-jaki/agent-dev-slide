@@ -30,8 +30,8 @@
 Orca のブラウザで、スクリーンショットがタイル状に重複する、キー入力がページに届かないなどの理由で確かめられないときは、次の方法で代わりに確かめ、Orca で未確認の範囲を記録する。
 
 - 見た目: `npx marp --no-stdin --allow-local-files --images png <原稿> -o <一時ディレクトリ>/p.png` で 1280×720 の画像を作り、PDF の画像と合わせて全ページを目視する
-- ページ送り: 生成した HTML を headless Chrome などで開き、キーイベント（ArrowRight・ArrowLeft）を送ってページが移ることを確かめる
-- PR や文書に置くプレビュー画像は、Marp の操作バーが写らない上記の `--images png` で作る
+- ページ送り: Orca では `orca keypress --key ArrowRight`（`ArrowLeft`）でページが移ることを確かめる。それでも届かなければ、生成した HTML を headless Chrome などで開き、キーイベント（ArrowRight・ArrowLeft）を送って確かめる
+- PR や文書に置くプレビュー画像は、Marp の操作バーが写らない上記の `--images png` で作る。PR のプレビューは `docs/preview/issue-<番号>-<エージェント>/` にコミットし、PR 本文からリンクする（gh から PR に画像を添付できないため）
 
 ## 3. 実物と出典で確認する
 

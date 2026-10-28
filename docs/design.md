@@ -5,7 +5,7 @@ Issue #5 で採用した見本（`e0d645a` の [見本原稿](../slides/design-c
 
 - テーマは [marp.config.mjs](../marp.config.mjs) の `themeSet` で登録している。原稿の front matter に `theme: paper` と書けば、`npm run dev`・`build`・`build:pdf` と `npx marp` のどれでも同じ見た目になる。
 - 原稿の front matter に長い `style` を書かない。CSS を原稿ごとに複製せず、テーマを直す。
-- 図は [ADR 0001](decisions/0001-原稿内のHTMLで図を描く.md) のとおり原稿内の HTML で描く。見た目のクラスだけをテーマに置く（ADR 0001 の「front matter の style に置く」からの変更点。理由は、別の原稿でも CSS を複製せずに同じデザインを使うため）。
+- 図は原稿内の HTML で描き、見た目のクラスだけをテーマに置く（[ADR 0002](decisions/0002-共通デザインをMarpのテーマファイルに置く.md)。[ADR 0001](decisions/0001-原稿内のHTMLで図を描く.md) の「front matter の style に置く」を置き換えた。理由は、別の原稿でも CSS を複製せずに同じデザインを使うため）。
 - Issue #5 の見本 `slides/design-codex.md` は独自の style のまま、比較の記録として残している。テーマへは移さない。
 
 ## 色・書体・文字サイズ・余白・罫線

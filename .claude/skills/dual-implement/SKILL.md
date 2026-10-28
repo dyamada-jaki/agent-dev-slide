@@ -22,6 +22,7 @@ disable-model-invocation: true
 - 起動・登録・PO の探し方は `bash .claude/skills/dual-implement/scripts/dev-team.sh <サブコマンド>` で行う（リポジトリのルートで実行）
 - **作業時間を測る**: 手順を始めるたびに `bash .claude/skills/dual-implement/scripts/dev-team.sh mark N 開発チーム "<手順の番号と見出し>"` を実行する（例: `"6.2 相互レビュー"`）。人間・ワーカー・PO の返事を待ち始めたら、見出しの代わりに `待ち` を渡す。どの作業に時間がかかったかを見て作業方針を見直すためで、人間の待ち時間は対象にしない。集計は finish-issue で行う
 - 待つときは `orca orchestration check --wait --timeout-ms 60000` を繰り返す。時間切れは失敗ではない。進捗を伝えながら待ち続ける
+- `--types` で種類を絞らない。届いたバッチは status・heartbeat も読んで `--ack` する（絞ると処理されないメッセージが溜まり、人間の画面に通知が出るため）
 
 ## モデルの指定
 - **実装ワーカー**: Claude Code は `--model` を付けず、既定（Opus 5.5・effort medium）を使う。Codex は `--model gpt-6.1-sol --effort xhigh` を付ける（`~/.codex/config.toml` は Codex アプリや PO と共通なので、ワーカーでは明示する。モデルを変えるときはこの節と下のコマンドを直す）
@@ -81,7 +82,7 @@ orca orchestration worker-start --spec "<下の実装用の指示>" --task-title
 - 開発サーバーがあれば、ポートは CLAUDE.md（AGENTS.md）の「開発設定」の「実装（Claude Code）」「実装（Codex）」を使う（main の開発サーバーのポートとぶつけない）
 
 ## 4. 計画を人間に見せて承認をもらう（④ 関所）
-- `check --wait --types question,worker_done,escalation` で、2つのワーカーから計画（question）が届くのを待つ
+- `check --wait` で、2つのワーカーから計画（question）が届くのを待つ
 - **2つとも届いてから**、人間に並べて見せる。片方が計画を出す前に failed / escalation で終わったら、届いた1つだけを見せて、その旨を書く。見せ方:
   - それぞれの計画の要約（受け入れ条件ごとの満たし方・作る/変えるファイル・テスト）
   - 2つの計画の主な違い
@@ -198,7 +199,7 @@ orca orchestration worker-start --spec "<下の品質レビュー用の指示>" 
 2. **PO に送る**: PO が人間と話している途中なら終わるまで待つ: `orca terminal wait --terminal <handle> --for tui-idle --timeout-ms 600000 --json`（時間切れでも送ってよい。送った指示は順番待ちになる）。そのあと次を送る。Run ID は手順2で作ったもの
    - claude: `orca terminal send --terminal <handle> --text "/accept-review <推薦するPR番号> <Run ID>" --enter --wait-submit 15 --json`
    - codex: 同じく `--text "\$accept-review <推薦するPR番号> <Run ID>"`
-3. **返事を待つ**: `orca orchestration check --wait --types handoff --timeout-ms 60000` を繰り返す。60分たっても届かなければ、待つのをやめて手順9で「PO の返事待ち」と報告する
+3. **返事を待つ**: `orca orchestration check --wait --timeout-ms 60000` を繰り返し、handoff が届くのを待つ。60分たっても届かなければ、待つのをやめて手順9で「PO の返事待ち」と報告する
 4. **PR のコメントを読む**: `gh pr view <番号> --comments` で「受け入れ一次判断（PO）」を読む。返事の要約だけで判断しない
 5. **判定ごとに進める**
    - **受け入れ**: 手順9へ
