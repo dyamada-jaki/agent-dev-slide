@@ -18,6 +18,18 @@
 | [種類別設定](https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/profiles/README.md) | Web アプリ以外にもプロセスを適用する方法 |
 | [スキル](https://github.com/dyamada-jaki/agent-dev-template/tree/78c72e2a824ef1056e8ecbcae141818acf28ec71/.claude/skills) | 実装・二重実装・受け入れ確認・完了処理の具体的な手順 |
 
+### 固定版で確認した記載の不一致
+
+README の工程図（65行目）はマージと後片付けを開発チームの作業とし、workflow.md（225行目）はマージを人間がすると記載している。両方を参照版で確認済み（2026-10-28）。説明での扱いは未決で、8ステップを扱う Issue の着手前に人間と決める。本プロジェクトで実際に行った手順と、説明対象の記述を混同しない。
+
+## スクラム
+
+- 資料: Ken Schwaber・Jeff Sutherland『スクラムガイド』2020年11月版。
+- [公式の配布ページ](https://scrumguides.org/download.html) で、2020年11月版が現行の公式版であることを確認した（2026-10-28）。
+- [日本語訳 PDF](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf)。公式配布ページに掲載された訳を用いる。
+- 用途: spec.md 2.3 の用語・対比を検討するための定義の参照先。「スクラムチーム」「スクラムイベント」「スクラムの作成物」の各節を参照する。
+- 元テンプレートとの具体的な対応づけは、これから人間と決める。スクラムガイドの説明と、本プロセスへの当てはめの解釈を分けて記す。
+
 ## 使い方
 
 - 読むための参照先。元リポジトリを変更しない。
