@@ -3,7 +3,7 @@
 [agent-dev-template](https://github.com/dyamada-jaki/agent-dev-template) の開発プロセスを、人に説明するための日本語スライドです。
 スライド自体も、Spec・Issue・Orca を使った同じプロセスで少しずつ制作します。
 
-現在は制作環境の初期準備です。原稿は表示確認用の表紙のみで、本文は今後の Issue で作ります。
+現在の本編は、プロセスの全体像と役割を説明する導入6枚です。Issue #5 の採用見本を基にした共通テーマを適用しています。後続の内容は Issue ごとに作ります。
 
 ## すぐに試す
 
@@ -16,7 +16,8 @@ npm ci
 npm run dev
 ```
 
-ブラウザで `http://localhost:5273/` を開きます。終了は `Ctrl+C`。
+ブラウザで `http://localhost:5273/index.md` を開きます。終了は `Ctrl+C`。
+worktree では `.env` の `HOST_PORT` を使います。Issue #8 の Codex 作業では5282です。
 `nvm` を使わない場合も `.nvmrc` と同じ Node.js を用意してください。
 
 ```sh
@@ -34,6 +35,10 @@ npm run check
 | `npm run build` | `dist/index.html` を生成 |
 | `npm run build:pdf` | `dist/agent-dev-slide.pdf` を生成 |
 | `npm run check` | 上記の自動確認を一括実行（dev を除く） |
+| `npm run build:samples` | Issue #5 の比較見本を別の HTML・PDF に生成 |
+
+HTML を配布するときは `dist/index.html` と `dist/assets/` を一緒に渡します。共通テーマの CSS は HTML に埋め込まれ、別の CSS ファイルは不要です。PDF は1ファイルで配布できます。
+ページ型と原稿の追加手順は [共通デザイン](docs/design.md)、導入6枚の画像は [プレビュー](docs/preview/issue-8-codex/README.md) を参照してください。
 
 Marp の使い方は [公式ドキュメント](https://github.com/marp-team/marp-cli#readme) を参照してください。
 HTML 内のプレイヤー用リソースは CDN を参照する場合があります。オフラインで配布する場合は PDF を使い、発表環境で確認します。
@@ -41,8 +46,8 @@ HTML 内のプレイヤー用リソースは CDN を参照する場合があり�
 ## これからの進め方
 
 1. 初期準備は main に反映済み。CI と表示確認の記録を [現在地](docs/next-issues.md) で確認する。
-2. PO と対象読者・説明時間・伝えたいことを決め、仕様に反映する。
-3. 今作る一片を Issue にし、受け入れ条件・スコープ外・確認方法を決める。
+2. PO と仕様を議論する。対象読者・15分程度の LT という前提は合意済み。
+3. 今回作る部分を Issue にし、受け入れ条件・スコープ外・確認方法を決める。
 4. 着手条件のそろった Issue に「開発可」を付け、有効化済みの起動係から開発チームを起動する。
 5. 計画承認、制作、相互レビュー、PO の受け入れ確認、採用判断、マージ、ふりかえりを行う。
 
@@ -53,6 +58,7 @@ HTML 内のプレイヤー用リソースは CDN を参照する場合があり�
 - [仕様](docs/spec.md): 決まったことと未決事項
 - [現在地と次の Issue](docs/next-issues.md): 続きから始めるための記録
 - [原稿](slides/index.md): Markdown／Marp、16:9
+- [共通デザイン](docs/design.md): テーマ、ページ型、改行・画像配置と再利用の手順
 - [参照元](docs/sources.md): 説明対象の資料と固定した版
 - [開発手順](docs/workflow.md): 3つの席と8ステップ
 - [確認・レビュー方針](docs/testing.md): スライド向けの確かめ方
@@ -64,7 +70,7 @@ GitHub Actions は PR と main への push で同じ確認コマンドを実行�
 
 ## 検討用のデザイン見本
 
-Issue #5 の [Codex案（3枚）](slides/design-codex.md) は、本編と分けた未採用の見本です。[意図・素材・比較手順](docs/design-samples/issue-5-codex.md)を確認できます。`npm run build:samples` で `dist/design-codex.html` と `dist/design-codex.pdf` を生成します。
+Issue #5 の [Codex案（3枚）](slides/design-codex.md) は、採用したデザインの比較時点を残す資料です。原稿内の「検討用・未採用」は当時の表示のままで、本編とは独立しています。[意図・素材・比較手順](docs/design-samples/issue-5-codex.md)も当時の記録です。`npm run build:samples` で `dist/design-codex.html` と `dist/design-codex.pdf` を生成します。現在の本編は `index.md`、見本は `design-codex.md` で開きます。
 
 ## ライセンス
 
