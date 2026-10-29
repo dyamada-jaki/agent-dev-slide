@@ -50,7 +50,8 @@ Issue #5 で採用した見本（`e0d645a` の [見本原稿](../slides/design-c
 | 本文 | `## 見出し` に続けて本文。特別なクラスは不要 | 2〜6 |
 | 要旨の一文 | `<p class="statement">` | 2 |
 | 工程 | `<div class="flow">` の中に `<div class="step">` と `<div class="arrow">→</div>` を交互に置く | 2 |
-| 3列 | `<div class="columns">` の中に `<div class="column">`（`<h3>`・`<ul>`・`<p class="meta">`）。順序を示すときだけ列の間に `<div class="arrow">→</div>` を置く。参照先 `.meta` は列の下端にそろう | 3（矢印あり）・4（矢印なし） |
+| 3列 | `<div class="columns">` の中に `<div class="column">`（`<h3>`・`<ul>`・`<p class="meta">`）。順序を示すときだけ列の間に `<div class="arrow">→</div>` を置く。参照先 `.meta` は列の下端にそろう | 3（矢印あり） |
+| 3列（役割の人物つき） | `<div class="columns roles">` にし、各列の `<h3>` を `<div class="role-head">` で包んで、その前に `<img class="role-figure">` を置く（下の「役割の人物」） | 4 |
 | 左右 | `<div class="split">` の左に `<div class="person">`（`<h3>`・`<ul>`・`<p class="meta">`・`<img class="people">`）、`<div class="arrow">→</div>`、右に `<div class="judgements">` と `<div class="judgement">` | 5 |
 | まとめ表と次の案内 | `<table class="recap">`（行ごとに `<th>` と `<td>`）と `<p class="next">` | 6 |
 
@@ -101,12 +102,50 @@ paginate: true
 
 - 画像は `slides/assets/` の下に置き、原稿から相対パス（例 `assets/issue-5-codex/human-decisions.png`）で参照する。`npm run build`・`build:pdf` が `slides/assets/` を `dist/assets/` へ複製するので、配布用の HTML でも欠けない。PDF は `--allow-local-files` で画像を読み込む。
 - 縦横比を変えない。枠を決めて `object-fit: contain` で収める（`.people` は 300×210px の枠に 600×400px・3:2 の透過 PNG を置く）。
-- 文字に重ねない。人物の絵は人間を表すときだけ使い、AI エージェントの役割には人物を割り当てない。
+- 文字に重ねない。人物の絵だけで意味を伝えず、役割名や説明の文字と並べる。
+- 人間はレナ・ヨナで表す（5枚目）。AI エージェントの3つの役割は、同じ画風の名前のない別の人物で表す（下の「役割の人物」）。同じ顔を両方に使わない。
 - Overstrata の絵・キャラクター・画風の出典表記は不要（人間の判断）。保守のため、使用ファイルと生成・編集の区別は下の表に残す。
 
 | 使用ファイル | 区別 |
 |---|---|
 | [human-decisions.png](../slides/assets/issue-5-codex/human-decisions.png) | Issue #5 で新規生成し縮小した透過 PNG（記録は [説明書](design-samples/issue-5-codex.md)）。Issue #8 では本編5枚目からそのまま再利用し、再生成・編集はしていない |
+| [roles/po.png](../slides/assets/roles/po.png)・[team.png](../slides/assets/roles/team.png)・[developer-1.png](../slides/assets/roles/developer-1.png)・[developer-2.png](../slides/assets/roles/developer-2.png) | Issue #12 で新規生成した透過 PNG。生成は Codex CLI の組み込み画像生成（`codex exec` の `$imagegen`、2026-10-28）で、画風の参照に human-decisions.png、人物をそろえる参照に先に作った po.png（開発者2人目は developer-1.png も）を渡した。team.png は同じ生成の中で Codex が右手の位置を直している。編集は macOS の `sips -z 400 400` による 1254×1254 から 400×400 への縮小だけ（1:1 と透過を保持） |
+
+## 役割の人物
+
+AI エージェントの3つの役割を表す人物。Issue #12 で本編4枚目に置いた。次章などで役割を絵で示すときも、同じファイルと対応を使う。
+
+| 役割 | 使用ファイル | 人物と姿 |
+|---|---|---|
+| PO | `assets/roles/po.png` | 黒髪の短い髪。立って、開いた冊子（仕様）を読む |
+| 開発チーム | `assets/roles/team.png` | 栗色の一つ結び。板に付箋を左から順に貼る（進行の整理） |
+| 開発者 | `assets/roles/developer-1.png`・`developer-2.png` | 明るい茶色の短髪（左向き）と、濃い色のおかっぱ（右向き）。それぞれ自分の机でノートパソコンを打つ。どちらが Claude Code・Codex かは決めていない |
+
+- 4人とも名前を持たない。外見は Issue #12 の計画で提案して承認されたもので、Overstrata の正式設定・作中の役職との対応ではない。画風だけを #5 の挿絵（レナ・ヨナ）にそろえている。
+- 全員が同じ藍灰色の上着と茶色の帯を着る。人間を表すレナ・ヨナ（防具・外套）との区別を助けるが、区別の主は見出し・役割名・本文に置く。
+- 開発チームは「2枚の資料を見比べる」姿にしない。この構図は5枚目の人間の判断（PR を選ぶ）に使っている。
+- 金色を役割の人物の近くに使わない（金色は人間の判断だけ）。
+- スライド全体を1枚の画像にしない。人物1人を1ファイルにし、文字は原稿の HTML で書く。
+
+置き方（3列の型。人物の箱は 120×120px、`object-fit: contain` で 1:1 を保つ）:
+
+```html
+<div class="columns roles">
+  <div class="column">
+    <div class="role-head">
+      <img class="role-figure" src="assets/roles/po.png" alt="AI エージェントの PO を表す、開いた冊子を読むデフォルメした人物">
+      <h3>PO</h3>
+    </div>
+    <ul>…</ul>
+    <p class="meta">…</p>
+  </div>
+  …
+</div>
+```
+
+- `.columns.roles` は列の高さを 430px から 500px にする（人物の行の分）。4枚目では最も行の多い PO 列で、参照先の下端が 660px（本文の下端の上限 664px）。項目が増えると収まらないので、足すときは手元の画像と CI の PDF で確かめる。
+- 開発者のように2人並べるときは、`<img class="role-figure">` を続けて2つ書く（`gap` の 12px を `.role-figure + .role-figure` の `margin-left: -12px` で打ち消し、隙間なしで隣り合わせに並べる）。役割名が列からはみ出さないか確かめる。
+- 3列以外の型（工程・左右など）に置くときは、新しいクラスをテーマに足し、この節と上の「ページ型」の表を一緒に直す。alt には「AI エージェントの◯◯を表す」と書く。
 
 ## 表示の確かめ方（Orca）
 

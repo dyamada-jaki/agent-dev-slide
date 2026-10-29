@@ -126,6 +126,26 @@ section.cover .subtitle { font-size: 28px; margin-top: 16px; }
 }
 .column .meta { margin-top: auto; padding-top: 12px; }
 
+/* 3列（役割の人物つき）: 役割名の左に人物を置く。人物の行が増える分だけ列を高くする */
+.columns.roles { height: 500px; }
+.role-head {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.role-head h3 { margin: 0 0 8px; }
+.role-figure {
+  display: block;
+  flex: none;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin: 0;
+  background: transparent;
+}
+.role-figure + .role-figure { margin-left: -12px; }
+
 /* 左右: 左に人間（挿絵つき）、右に3つの判断を金色で示す */
 .split { display: flex; gap: 32px; align-items: flex-start; }
 .split > .arrow { padding-top: 50px; }
