@@ -203,3 +203,81 @@ table.recap th {
   color: var(--indigo);
   font-size: 26px;
 }
+
+/* Issue 1本の流れ: 既存の色・余白・書体を使い、担当と実例を並べる。導入には適用しない */
+section.issue-cycle header {
+  top: 25px;
+  left: 72px;
+  right: 72px;
+  color: var(--muted);
+  font-size: 18px;
+}
+section.issue-cycle h2 { margin-bottom: 28px; }
+section.issue-cycle h3 { font-size: 30px; margin-bottom: 18px; }
+section.issue-cycle .cycle-label { color: var(--muted); font-size: 22px; }
+section.issue-cycle .cycle-spaced { margin-top: 24px; }
+section.issue-cycle .cycle-col { min-width: 0; border-top: 2px solid var(--rule); padding-top: 18px; }
+section.issue-cycle .cycle-example { border-top: 1px solid var(--rule); margin-top: 28px; padding-top: 18px; }
+section.issue-cycle .cycle-example .cycle-label { margin-bottom: 8px; }
+section.issue-cycle img { background: transparent; margin: 0; object-fit: contain; }
+section.issue-cycle .cycle-figure { display: block; width: 180px; height: 170px; }
+section.issue-cycle .cycle-human { display: block; width: 240px; height: 170px; }
+section.issue-cycle .cycle-discussion { display: grid; grid-template-columns: 240px 1fr 260px; gap: 40px; }
+section.issue-cycle .cycle-spec { padding-top: 54px; }
+section.issue-cycle .cycle-spec h3 { margin: 12px 0 24px; }
+section.issue-cycle .cycle-start { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+section.issue-cycle .cycle-actor { display: flex; align-items: center; gap: 12px; }
+section.issue-cycle .cycle-actor > img { width: 96px; height: 96px; flex: none; }
+section.issue-cycle .cycle-actor h3 { margin: 0; }
+section.issue-cycle .cycle-start .cycle-actor { min-height: 110px; margin-bottom: 18px; }
+section.issue-cycle .cycle-human-inline { display: flex; align-items: center; gap: 16px; }
+section.issue-cycle .cycle-human-inline > img { width: 135px; height: 90px; flex: none; }
+section.issue-cycle .cycle-start .cycle-human-inline { margin-top: 24px; }
+section.issue-cycle .cycle-start .cycle-human-inline > img { width: 100px; height: 80px; }
+section.issue-cycle .cycle-start .cycle-human-inline p { font-size: 22px; }
+section.issue-cycle .cycle-plan { display: grid; grid-template-columns: 1.15fr .85fr 1fr; gap: 36px; }
+section.issue-cycle .cycle-developers { display: flex; flex: none; }
+section.issue-cycle .cycle-developers img { display: block; width: 110px; height: 110px; }
+section.issue-cycle .cycle-plan .cycle-developers { height: 170px; align-items: center; }
+section.issue-cycle .cycle-plan .cycle-developers img { width: 140px; height: 140px; }
+section.issue-cycle .cycle-plan .cycle-human { max-width: 100%; }
+section.issue-cycle .cycle-plan-team .cycle-figure { height: 170px; }
+section.issue-cycle .cycle-decision { color: var(--gold-text); border-bottom: 1px solid var(--gold-rule); padding-bottom: 12px; margin-bottom: 12px; }
+section.issue-cycle .cycle-review-actors { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+section.issue-cycle .cycle-review-actors .cycle-developers img { width: 70px; height: 70px; }
+section.issue-cycle .cycle-review-actors .cycle-actor > img { width: 70px; height: 70px; }
+section.issue-cycle .cycle-comparisons { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+section.issue-cycle .cycle-comparisons > div { border-top: 2px solid var(--rule); padding-top: 12px; }
+section.issue-cycle .cycle-comparisons h3 { margin-bottom: 4px; }
+section.issue-cycle .cycle-comparisons h3 span { font: 22px var(--font-body); }
+section.issue-cycle .cycle-sample { display: block; width: 100%; aspect-ratio: 16 / 9; height: auto; }
+section.issue-cycle .cycle-comparisons .cycle-sample { width: 500px; max-width: 100%; margin: 10px auto 0; }
+section.issue-cycle .cycle-caption { color: var(--indigo); font-size: 27px; margin-top: 14px; }
+section.issue-cycle .cycle-selection-body { display: grid; grid-template-columns: 1.65fr 1fr; gap: 36px; }
+section.issue-cycle .cycle-sequence { counter-reset: handoff; }
+section.issue-cycle .cycle-sequence-row { display: flex; align-items: center; gap: 12px; min-height: 66px; border-top: 1px solid var(--rule); }
+section.issue-cycle .cycle-sequence-row::before { counter-increment: handoff; content: counter(handoff); color: var(--muted); font-size: 20px; width: 20px; flex: none; }
+section.issue-cycle .cycle-sequence-row > img { width: 66px; height: 66px; flex: none; }
+section.issue-cycle .cycle-sequence-row p { font-size: 23px; }
+section.issue-cycle .cycle-sequence-row .cycle-developers img { width: 33px; height: 66px; }
+section.issue-cycle .cycle-sequence-row .cycle-decision { margin: 6px 0; padding-bottom: 6px; }
+section.issue-cycle .cycle-human-row > img { width: 66px; }
+section.issue-cycle .cycle-adopted { border-top: 2px solid var(--rule); padding-top: 16px; }
+section.issue-cycle .cycle-adopted h3 { margin-bottom: 4px; }
+section.issue-cycle .cycle-adopted .cycle-sample { margin-top: 14px; }
+section.issue-cycle .cycle-adopted .cycle-caption { margin-bottom: 8px; }
+section.issue-cycle .cycle-finish-body { display: grid; grid-template-columns: 1fr 1.12fr; gap: 48px; }
+section.issue-cycle .cycle-finish-body .cycle-human-inline { margin-top: 14px; }
+section.issue-cycle .cycle-finish-body .cycle-decision { margin-bottom: 0; font-size: 25px; }
+section.issue-cycle .cycle-retro > img { width: 64px; height: 64px; }
+section.issue-cycle .cycle-retro-human > img { width: 90px; height: 60px; }
+section.issue-cycle .cycle-finish-body .cycle-label { font-size: 20px; }
+section.issue-cycle .cycle-improvements { display: grid; grid-template-columns: 150px 1fr; gap: 12px 16px; font-size: 22px; margin: 12px 0 0; }
+section.issue-cycle .cycle-improvements dt { font-style: normal; font-weight: 700; color: var(--indigo); margin: 0; }
+section.issue-cycle .cycle-improvements dd { margin: 0; }
+section.issue-cycle .cycle-next { border-top: 1px solid var(--rule); margin-top: 18px; padding-top: 12px; }
+section.issue-cycle .cycle-next > img { width: 64px; height: 64px; }
+section.issue-cycle .cycle-next p { font-size: 23px; }
+/* 比較と採用修正版の説明に、フォント差を見込んだ下端の余白を残す */
+section.cycle-compare h2 { margin-bottom: 18px; }
+section.issue-cycle .cycle-adopted .cycle-spaced { margin-top: 12px; }
