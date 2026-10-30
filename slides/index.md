@@ -484,7 +484,7 @@ PR #6（Codex）は 13:32、PR #7（Claude Code）は 13:38 にでき、どち�
       <tr class="decide"><th>人間</th><td><b>採用判断</b>: #6 の罫線に #7 の金色を足す</td></tr>
       <tr><th>PO</th><td>仕様・Issue を更新（①②へ戻る）</td></tr>
       <tr><th>開発者</th><td>修正（3480008）、相互レビューで再確認</td></tr>
-      <tr><th>PO</th><td><b>受け入れ確認</b>（2回目）→ ⑦へ</td></tr>
+      <tr><th>PO</th><td><b>受け入れ</b>（2回目）→ 人間の承認後に⑦へ</td></tr>
     </table>
   </div>
   <div class="example">
