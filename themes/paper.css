@@ -109,6 +109,43 @@ section.cover .subtitle { font-size: 28px; margin-top: 16px; }
 }
 .flow .arrow { padding-top: 14px; }
 
+/* 取り入れた考え方: 工程の下に、見出しの1行と横並びの3項目（語と短い説明）。罫線で区切り、塗りで囲わない */
+.principles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 22px;
+  margin-top: 52px;
+}
+.principles-label {
+  flex-basis: 100%;
+  font-size: 26px;
+  color: var(--indigo);
+  margin-bottom: 12px;
+}
+.principle {
+  flex: 1;
+  min-width: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 12px;
+}
+.principle b {
+  display: block;
+  color: var(--indigo);
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+/* 初出の語の意味の補足: 項目名の直下に小さく置く。正式な役割との同一性は表さない。
+   役割の人物つき3列では、項目名と補足を .role-name で包み、人物の右に置く（人物の高さ 120px の中に収める） */
+.role-name { min-width: 0; }
+.gloss {
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--muted);
+  margin: 0 0 4px;
+}
+.role-name h3 { margin-bottom: 2px; }
+
 /* 3列: 項目名・箇条書き・参照先。参照先は列の下端にそろえる */
 .columns {
   display: flex;

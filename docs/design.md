@@ -33,6 +33,7 @@ Issue #5 で採用した見本（`e0d645a` の [見本原稿](../slides/design-c
 | まとめ表・次の案内 | 26px |
 | 本文 | 25px、行間 1.5 |
 | 参照先・補足 | 22px |
+| 初出の語の補足（`.gloss`） | 20px、行間 1.4 |
 | ページ番号 | 18px |
 
 - 外周の余白は上下 56px・左右 72px。見出しの下は 38px。
@@ -50,8 +51,10 @@ Issue #5 で採用した見本（`e0d645a` の [見本原稿](../slides/design-c
 | 本文 | `## 見出し` に続けて本文。特別なクラスは不要 | 2〜14 |
 | 要旨の一文 | `<p class="statement">` | 2 |
 | 工程 | `<div class="flow">` の中に `<div class="step">` と `<div class="arrow">→</div>` を交互に置く | 2 |
+| 取り入れた考え方 | 工程の下に `<div class="principles">`。先頭に `<p class="principles-label">`（見出しの1行）、続けて `<div class="principle">` を3つ（`<b>` に語、続けて短い説明）。上端の細い罫線で区切り、塗りで囲わない。Issue #4 でスクラムの透明性・検査・適応と本プロセスの対応を示すために追加 | 2 |
 | 3列 | `<div class="columns">` の中に `<div class="column">`（`<h3>`・`<ul>`・`<p class="meta">`）。順序を示すときだけ列の間に `<div class="arrow">→</div>` を置く。参照先 `.meta` は列の下端にそろう | 3（矢印あり） |
 | 3列（役割の人物つき） | `<div class="columns roles">` にし、各列の `<h3>` を `<div class="role-head">` で包んで、その前に `<img class="role-figure">` を置く（下の「役割の人物」） | 4 |
+| 初出の語の補足 | 項目名の直下に `<p class="gloss">（…）</p>`（20px・補足の色）。人物つき3列では `<h3>` と補足を `<div class="role-name">` で包み、人物の右に置く（人物の高さ 120px の中に収まり、列の高さ 500px を超えない）。括弧は初出の意味の補足だけに使い、別の用語の正式な役割と同じだと示すためには使わない。Issue #4 で PO に「（仕様・優先順位を整理する役割）」を付けた | 4 |
 | 左右 | `<div class="split">` の左に `<div class="person">`（`<h3>`・`<ul>`・`<p class="meta">`・`<img class="people">`）、`<div class="arrow">→</div>`、右に `<div class="judgements">` と `<div class="judgement">` | 5 |
 | まとめ表と次の案内 | `<table class="recap">`（行ごとに `<th>` と `<td>`）と `<p class="next">` | 6 |
 | 前提のページ | 上部の段階の行を付けず `## 見出し`、`<div class="stage">` の左に `<div class="general">`（`<p class="stage-label">`に抜粋元、`<table class="duty">` に前提の行）、右に `<div class="example">`（`<h3>`・画面や `<ul>`・`<p class="meta">`）。下の「前提のページ」 | 7・8 |
