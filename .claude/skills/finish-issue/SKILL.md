@@ -1,7 +1,7 @@
 ---
 name: finish-issue
 description: 採用する PR が決まったあと、マージ・不採用 PR のクローズ・後片付け・ふりかえりの共有を行い、人間が承認した改善を反映する（workflow.md の⑦〜⑧）。Claude Code では「/finish-issue 5」、Codex では「$finish-issue 5」のように採用する PR 番号を渡す。
-argument-hint: <採用するPR番号>
+argument-hint: <採用するPR番号 | 差し戻し>
 disable-model-invocation: true
 model: sonnet
 effort: medium
@@ -21,6 +21,12 @@ allowed-tools: Bash(bash .claude/skills/finish-issue/scripts/finish.sh *), Bash(
 - 消すものは、必ず中身を見てから消す。手順3でマージ・後片付け等の実行内容を確認し、その後はふりかえりまで進める。既に具体的な実行内容が承認されていれば、同じ確認を繰り返さない
 - ふりかえり（⑧）もこのスキルで行う。結果と具体的な改善案を会話で示して採否を確認し、承認された範囲をスキル・文書などへ反映する。判断待ちの改善は反映せず、状態を記録して返答を待つ
 - このスキルは、その Issue の開発チームの端末で動かす（workflow.md「3つの席」）。spec.md の変更と Issue の登録・順番は PO の担当なので、ここでは直さずに PO へ申し送る（手順8）
+- **差し戻し（どの PR も採らず、計画からやり直す）**: 人間がやり直しを選んだとき（dual-implement 手順8の8.）は、`P` の代わりに「差し戻し」と渡す。次のとおり手順を置き換え、それ以外は同じに進める
+  - 手順1: マージできるか・CI・PO の確認・実機確認の記録は見ない。この Issue の PR をすべて洗い出す
+  - 手順3: マージの代わりに、閉じる PR と理由（「計画からやり直すため差し戻し」。人間の言葉があれば添える）、開いたまま残す Issue、残すリモートブランチを見せる
+  - 手順4: 飛ばす。手順5: すべての PR を閉じる（リモートのブランチは残る）。Issue は閉じない
+  - 手順9: レポートの状態を「差し戻し（計画からやり直し）」にし、PO への申し送りに、やり直す理由と人間の言葉を原文で書く。一覧の結果も「差し戻し」とする
+  - 手順11: `release` で「着手中」を外す。「開発可」は付けない（計画を作り直してから PO か人間が付ける）
 
 ## 1. 対象を確かめる
 - `gh pr view P --json number,title,state,mergeable,mergeStateStatus,headRefName,headRefOid,body,url` で、PR が OPEN でマージできる状態か見る。head の SHA を控える
