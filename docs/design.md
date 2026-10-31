@@ -30,9 +30,12 @@ Issue #5 で採用した見本（`e0d645a` の [見本原稿](../slides/design-c
 | 要旨の一文 | 30px、行間 1.6 |
 | 3つの判断 | 30px |
 | 工程 | 28px 太字 |
+| 図の項目（役割・イベント・考え方） | 22px、行間 1.35 |
+| 図の行の名前 | 20px・補足の色 |
 | まとめ表・次の案内 | 26px |
 | 本文 | 25px、行間 1.5 |
 | 参照先・補足 | 22px |
+| 初出の語の補足（`.gloss`） | 20px、行間 1.4 |
 | ページ番号 | 18px |
 
 - 外周の余白は上下 56px・左右 72px。見出しの下は 38px。
@@ -49,9 +52,10 @@ Issue #5 で採用した見本（`e0d645a` の [見本原稿](../slides/design-c
 | 表紙 | `<!-- _class: cover -->` と `# 題名`、`<p class="keywords">`・`<p class="subtitle">` | 1 |
 | 本文 | `## 見出し` に続けて本文。特別なクラスは不要 | 2〜14 |
 | 要旨の一文 | `<p class="statement">` | 2 |
-| 工程 | `<div class="flow">` の中に `<div class="step">` と `<div class="arrow">→</div>` を交互に置く | 2 |
+| 工程・役割・イベントの図 | 要旨の一文を `<p class="statement compact">`（下の余白 30px）にし、図の上に `<p class="lanes-label">`（1行）、続けて `<div class="lanes">`。各行は左端の `<div class="lane-name">`（役割・工程・イベント・考え方）から始める。工程の行は `<div class="lane-step">` と `<div class="lane-arrow">→</div>` を交互に5つ（2・4・6・8・10列目が工程）。役割・イベントの行は `<div class="lane-item">` に位置の修飾クラス（`po` 仕様づくり／`team` 実装〜ふりかえり／`check` レビュー〜マージ／`retro` ふりかえり）を付け、横の位置でどの工程に関わるかを示す（`<b>` に名前、続けて2行以内の短い説明）。考え方の行は `<div class="lane-pillars">` に `<span>`（`<b>` に語、続けて短い説明）を3つ。原稿にインラインの `style` は書かない。上端の罫線で区切り、塗りで囲わない。Issue #4 でスクラムの考え方・役割・イベントと工程の関係を示すために、工程の行（`.flow`）と取り入れた考え方の段（`.principles`）を置き換えた | 2 |
 | 3列 | `<div class="columns">` の中に `<div class="column">`（`<h3>`・`<ul>`・`<p class="meta">`）。順序を示すときだけ列の間に `<div class="arrow">→</div>` を置く。参照先 `.meta` は列の下端にそろう | 3（矢印あり） |
 | 3列（役割の人物つき） | `<div class="columns roles">` にし、各列の `<h3>` を `<div class="role-head">` で包んで、その前に `<img class="role-figure">` を置く（下の「役割の人物」） | 4 |
+| 初出の語の補足 | 項目名の直下に `<p class="gloss">（…）</p>`（20px・補足の色）。人物つき3列では `<h3>` と補足を `<div class="role-name">` で包み、人物の右に置く（人物の高さ 120px の中に収まり、列の高さ 500px を超えない）。括弧は初出の意味の補足だけに使い、別の用語の正式な役割と同じだと示すためには使わない。Issue #4 で PO に「（仕様・優先順位を整理する役割）」を付けた | 4 |
 | 左右 | `<div class="split">` の左に `<div class="person">`（`<h3>`・`<ul>`・`<p class="meta">`・`<img class="people">`）、`<div class="arrow">→</div>`、右に `<div class="judgements">` と `<div class="judgement">` | 5 |
 | まとめ表と次の案内 | `<table class="recap">`（行ごとに `<th>` と `<td>`）と `<p class="next">` | 6 |
 | 前提のページ | 上部の段階の行を付けず `## 見出し`、`<div class="stage">` の左に `<div class="general">`（`<p class="stage-label">`に抜粋元、`<table class="duty">` に前提の行）、右に `<div class="example">`（`<h3>`・画面や `<ul>`・`<p class="meta">`）。下の「前提のページ」 | 7・8 |
