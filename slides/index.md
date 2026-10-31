@@ -600,13 +600,13 @@ overstrata-board の実例:
       <tr><th>開発チーム</th><td><b>推薦</b>: PR #41（駒の近く案）</td></tr>
       <tr><th>PO</th><td><b>受け入れ確認</b>: #41 を受け入れ</td></tr>
       <tr class="decide"><th>人間</th><td><b>採用判断</b>: 触り比べて #40 を選ぶ</td></tr>
-      <tr><th>PO・開発者</th><td>条件3を更新／並行して README を修正</td></tr>
+      <tr><th>PO・開発者</th><td>置き場所の条件を更新／並行して README を修正</td></tr>
       <tr><th>開発者・<br>開発チーム</th><td>更新後の条件で再レビュー、推薦を #40 へ</td></tr>
       <tr><th>PO</th><td><b>受け入れ</b>（#40）→ 人間の承認後に⑦へ</td></tr>
     </table>
   </div>
   <div class="example">
-    <h3>受け入れ条件3の変更</h3>
+    <h3>置き場所の条件の変更</h3>
     <ul>
       <li>変更前: 設定欄は、<br>対象の駒の近くに表示する</li>
       <li>変更後: 操作パネルに1つ表示し、<br>駒名・陣営色の丸・番号で<br>対象を示す</li>
