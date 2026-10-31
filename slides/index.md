@@ -219,6 +219,110 @@ PO と開発チームを分けているのは、1つの端末にまとめると�
 
 ---
 
+## この章の題材: overstrata-board #37
+
+<div class="stage">
+  <div class="general">
+    <p class="stage-label">board #37 の Issue の目的から（要約）</p>
+    <table class="duty">
+      <tr><th>何の<br>アプリか</th><td>マス目の盤面に駒を並べ、各駒が<br>動ける範囲の目安を表示するアプリ<br>（スマホ）。使うのはゲームの進行役</td></tr>
+      <tr><th>今の<br>課題</th><td>用意した駒の移動力は、すべて<br>5マス固定。駒ごとに変えられない</td></tr>
+      <tr><th>したい<br>こと</th><td>準備中に駒ごとの移動力を設定し、<br>その値で範囲の目安を出したい</td></tr>
+    </table>
+  </div>
+  <div class="example">
+    <h3>画面と言葉</h3>
+    <div class="shots phone short">
+      <div class="shot">
+        <img src="assets/issue-37-board/board-c276d11.png" alt="overstrata-board の10×10の盤面。青と赤の丸い駒が置かれ、選んだ青の駒が動ける範囲の目安が薄い青で示されている">
+        <div>
+          <p>選んだ駒の<br>範囲の目安<br>（薄い青）</p>
+          <p class="ver">#37 を作る前の画面<br>（全駒5マス）</p>
+        </div>
+      </div>
+    </div>
+    <ul>
+      <li><b>移動力</b>: 1回に動けるマス数</li>
+      <li><b>準備中</b>: 駒を並べ、「確定」を押すまで</li>
+      <li><b>範囲の目安</b>: 選んだ駒の周りの薄い色。<br>範囲の外へも動かせる</li>
+    </ul>
+  </div>
+</div>
+
+<!--
+【話すこと】
+ここから Issue 1本の流れを見ていきます。例にするのは、別の開発プロジェクト overstrata-board の Issue #37 です。工程に入る前に、この Issue で何を作りたかったのかを、Issue の目的から抜き出して紹介します。
+overstrata-board は、マス目の盤面に駒を並べて、選んだ駒が動ける範囲の目安を表示するスマホ向けのアプリです。使うのはゲームの進行役です。ゲームの種類やルールの話はしません。
+右の画面のように、駒を選ぶと周りのマスが薄い色になります。これが「範囲の目安」で、アプリは移動を禁止しません。範囲の外へも動かせます。
+この時点の課題は、用意した駒の移動力（1回に動けるマス数）がすべて5マスに固定されていたことです。
+したいことは、駒を並べて「確定」を押すまでの準備中に、駒ごとの移動力を設定し、その値で範囲の目安を出すことです。
+
+【元の言葉】
+board の仕様・Issue では、このアプリは TRPG「Overstrata」のプレイ中に使う戦闘ボードで、進行役は GM と書かれています。本文では、ゲームそのものの説明に入らないよう、人間の判断で「ゲームの進行役」と言い換えました。
+
+画像: overstrata-board の c276d11（#32 を取り込んだ main、#37 の着手前）を手元で起動し、スマホ幅 375×667（2倍の解像度）で、味方2・敵2を用意して盤面に置き、味方1を選んだ状態の盤面部分を切り抜いたもの。
+
+【時間】約60秒（見積もり）
+
+【出典】
+overstrata-board の実例（本文は以下からの要約）:
+- Issue #37 の「目的」（GM が準備中に移動力を設定する、全駒5マス固定から駒ごとの値を移動範囲の目安へ反映する）・「前提・着手条件」・「#32からの引き継ぎ」・受け入れ条件1・2・6・8（範囲の外へも動かせ、移動力で移動を禁止しない）: https://github.com/dyamada-jaki/overstrata-board/issues/37
+- 条件変更の直前の仕様 d6b5d01 の1章（TRPG のプレイ中に使う戦闘ボード、ルールを強制せず範囲を見せるだけ）: https://github.com/dyamada-jaki/overstrata-board/blob/d6b5d015f79b8324d1a776882c7e1089e2ff1ecc/docs/spec.md#L11-L25
+- 同じ版の2.2（#32 は全駒5マス固定で範囲は目安、#37 で GM が準備中に0〜9・初期値5で設定）: https://github.com/dyamada-jaki/overstrata-board/blob/d6b5d015f79b8324d1a776882c7e1089e2ff1ecc/docs/spec.md#L115-L117
+- 画像の版（#37 着手前の main、PR #38）: https://github.com/dyamada-jaki/overstrata-board/tree/c276d11e5da42c7664ffa41693d5c9cb762ac7d0
+-->
+
+---
+
+## 何を満たせば完成か（受け入れ条件の抜粋）
+
+<div class="stage">
+  <div class="general">
+    <p class="stage-label">board #37 の受け入れ条件（10項目）から（要約）</p>
+    <table class="duty">
+      <tr><th>設定の<br>範囲</th><td>準備中に選んだ駒を、0〜9マス<br>（初期値5）で設定する</td></tr>
+      <tr><th>操作</th><td>数値は表示だけ。<br>「−」「＋」で1ずつ変える</td></tr>
+      <tr><th>反映</th><td>対象の駒と、範囲の目安へ<br>すぐ反映する</td></tr>
+      <tr><th>置き場所<br>（当初）</th><td>設定欄は<b>対象の駒の近く</b>に出す。<br>どの駒か分かり、対象だけ変わる</td></tr>
+    </table>
+  </div>
+  <div class="example">
+    <h3>この条件への2つの解決案</h3>
+    <ul>
+      <li>開発者2人が、同じ課題と条件から<br>別々に作った</li>
+      <li>分かれたのは設定欄の置き場所:<br><b>駒の近く案</b>と<b>操作パネル案</b></li>
+      <li>置き場所の条件は、2案を比べた後に<br>人間の判断で変わる（⑥で説明）</li>
+    </ul>
+    <p class="meta">置き場所は、条件を変更する前の版</p>
+  </div>
+</div>
+
+<!--
+【話すこと】
+では、何ができれば完成なのか。Issue の受け入れ条件は10項目ありますが、代表的なものだけ抜き出しました。
+準備中に選んだ駒の移動力を0〜9マス、初期値5マスで設定できること。数値は表示だけで、「−」「＋」で1ずつ変えること。変えた値が、その駒と範囲の目安にすぐ反映されること。
+そして、最後の行が2案を比べる基準になります。当初の条件では、設定欄は「対象の駒の近く」に出し、どの駒の値を変えているか分かり、変更はその駒だけに反映する、となっていました。
+このあと、開発者2人が同じ課題と条件から別々に作り、設定欄の置き場所が「駒の近く案」と「操作パネル案」に分かれます。
+なお、現在の Issue のこの条件は「操作パネルに1つ表示する」に変わっています。これは2案を触り比べた後の人間の判断によるもので、最初からの条件ではありません。経緯は⑥のページで説明します。
+
+【抜き出した条件】
+- 設定の範囲: 受け入れ条件1（0〜9マスの整数、初期値5マス）・2（未配置・配置済みとも「確定」まで変更できる）
+- 操作: 受け入れ条件4（数値は「−」「＋」の間に表示し、直接入力・削除はできない）・5（1ずつ増減、0の「−」と9の「＋」は押せない）
+- 反映: 受け入れ条件6（その駒の移動力へすぐ反映）・7（移動範囲の目安にも反映）
+- 置き場所（当初）: 変更前の受け入れ条件3「設定欄は対象の駒の近くに表示し、どの駒の値を変更しているか分かる。変更は対象の駒だけに反映する。」
+- 抜き出していない条件: 8（範囲外へも移動できる。前のページで紹介）・9（確定後は値を引き継ぎ、変更操作はない）・10（やり直しで値も消える）
+
+【時間】約60秒（見積もり）
+
+【出典】
+overstrata-board の実例:
+- Issue #37 の受け入れ条件（現在の本文。条件3は人間の判断の後に変更された版）: https://github.com/dyamada-jaki/overstrata-board/issues/37
+- 変更前の条件3は、Issue の編集履歴の 2026-10-23 08:30:40 UTC の版（21:41 JST の条件変更の直前）で確認した。固定版では、条件変更の直前の仕様 d6b5d01 の2.2（設定欄は対象の駒の近くに表示し、どの駒か分かり、対象だけに反映）: https://github.com/dyamada-jaki/overstrata-board/blob/d6b5d015f79b8324d1a776882c7e1089e2ff1ecc/docs/spec.md#L127
+- 条件変更のコメント（「従来の『対象の駒の近くに表示する』という条件を置き換えました」「受け入れ条件1・2・4〜10は変更していません」）: https://github.com/dyamada-jaki/overstrata-board/issues/37#issuecomment-6365106903
+-->
+
+---
+
 <ol class="steps">
   <li class="now">①議論</li>
   <li>②切り出し</li>
@@ -245,34 +349,35 @@ PO と開発チームを分けているのは、1つの端末にまとめると�
     </table>
   </div>
   <div class="example">
-    <h3>実例: Issue #5</h3>
+    <h3>実例: overstrata-board #37</h3>
     <ul>
-      <li>人間の希望:<br>Overstrata の雰囲気を取り入れた<br>個人用のスライドデザインを検討したい</li>
-      <li>PO が spec.md に記録し、<br>導入のページで2案を比べることにした</li>
+      <li>前の Issue #32 から、移動力の<br>設定を別の Issue（#37）に分けると、<br>人間と PO が合意した</li>
+      <li>PO が spec.md に記録: 0〜9マス・<br>初期値5・設定欄は駒の近く</li>
     </ul>
-    <p class="meta">spec.md 2.2・決定の記録（2026-10-28）</p>
+    <p class="meta">spec.md 2.2・6章、#37 レポート 2章</p>
   </div>
 </div>
 
 <!--
 【話すこと】
-ここから、Issue 1本が進む流れを、このスライド自体の制作で行った Issue #5 を例に見ていきます。
-上の帯は元テンプレートの8ステップで、金色の④⑥⑧が人間の判断です。各ページの左が一般的な手順、右が実例です。
+ここから、題材の Issue #37 が8つの段階をどう進んだかを見ていきます。
+上部の段階の行は元テンプレートの8ステップで、金色の④⑥⑧が人間の判断です。各ページの左が一般的な手順、右が実例です。
 ① 議論では、PO が人間と議論して、作るもの全体の仕様 spec.md を書きます。会話は消えますが、spec.md は残ります。
 ここで人間がするのは議論で、3つの判断はまだ来ません。
 
 【実例】
-Issue #5 では、人間が「Overstrata の雰囲気を取り入れた個人用のデザインを検討したい」と希望しました。
-PO はこれを spec.md に記録し、導入の代表3枚で2つのデザイン案を比べる進め方を人間と決めました（「OK。それで進めましょう」）。
+前提のページで紹介した課題（全駒5マス固定）と、したいこと（準備中に駒ごとに設定）は、この段階で人間（利用者）と PO が議論し、spec.md に書いたものです。
+前の Issue #32（駒の準備・配置）から移動力の設定を #37 に分けることを決め、PO が spec.md に記録しました。0〜9マス・初期値5マス、設定欄は「駒の近く」に出す、という合意もこのとき引き継いでいます。
 
-【時間】約45秒
+【時間】約35秒（見積もり）
 
 【出典】
 一般的な手順:
 - README「Issue 1本の流れ」の流れ図（①〜⑧、六角形が人間の判断）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md#L49-L71
 - workflow.md ステップ1「議論する」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L132-L143
-本プロジェクトの実例:
-- spec.md 2.2・6章の決定の記録（2026-10-28、Overstrata を取り入れたデザインの検討と、代表3枚で2案を比べる方針）: https://github.com/dyamada-jaki/agent-dev-slide/blob/4c79405a64f13ec4359e6ceb57d1c871ba84b35f/docs/spec.md
+overstrata-board の実例:
+- Issue #37 レポート 2章（全駒5マス固定から、準備中に駒ごとに0〜9マスへ）: https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-37.md
+- spec.md 2.2（#32 は全駒5マス固定、駒ごとの設定は #37）と6章の決定の記録（2026-10-23、#32 から #37 へ分離、駒の近くの入力欄などの合意を引き継ぐ）: https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/spec.md#L117-L119 ・ https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/spec.md#L532
 -->
 
 ---
@@ -297,43 +402,49 @@ PO はこれを spec.md に記録し、導入の代表3枚で2つのデザイン
       <tr><th>担当</th><td><div class="actors">
         <div class="actor"><img class="actor-figure" src="assets/roles/po.png" alt="AI エージェントの PO を表す、開いた冊子を読むデフォルメした人物"><span class="actor-name">PO</span></div>
         <span class="arrow">→</span>
+        <div class="actor-box">GitHub<span>Issue と「開発可」</span></div>
+        <span class="arrow">→</span>
+        <div class="actor-box">Orca の起動係<span>定期実行で起動</span></div>
+        <span class="arrow">→</span>
         <div class="actor"><img class="actor-figure" src="assets/roles/team.png" alt="AI エージェントの開発チームを表す、板に付箋を順に貼るデフォルメした人物"><span class="actor-name">開発チーム</span></div>
-        <p class="meta">間で起動係（仕組み）が開発チームを開く</p>
       </div></td></tr>
       <tr><th>渡すもの</th><td>Issue（目的・受け入れ条件・<br>スコープ外）と「開発可」</td></tr>
       <tr><th>人間が<br>決めること</th><td>なし（着手の順番は PO が決める）</td></tr>
     </table>
   </div>
   <div class="example">
-    <h3>実例: Issue #5</h3>
+    <h3>実例: overstrata-board #37</h3>
     <ul>
-      <li>導入6枚から代表3枚に絞り、<br>同じ内容でデザインを2案作る</li>
-      <li>スコープ外: 6枚すべてへの展開、<br>共通テーマの正式実装</li>
-      <li>「開発可」を見て起動係が<br>開発チームを開いた（13:04）</li>
+      <li>範囲: 前提で示した条件を含む<br>受け入れ条件10項目</li>
+      <li>スコープ外: 戦闘途中の駒の増減、<br>倒れた駒の表示（別の Issue）</li>
+      <li>#32 の完了後に「開発可」。<br>Orca の起動係が開発チームを<br>起動し、19:45 に着手した</li>
     </ul>
-    <p class="meta">Issue #5 レポート 2・3章</p>
+    <p class="meta">#37 レポート 2・3章</p>
   </div>
 </div>
 
 <!--
 【話すこと】
 ② 切り出しでは、PO が spec.md から今すぐ作る部分を Issue にします。目的・受け入れ条件・スコープ外を書き、PR 1本で終わる大きさにします。
-着手してよい Issue に PO が「開発可」のラベルを付けると、③ 着手です。Orca の定期実行の「起動係」が、動いている開発チームがいないときだけ、開発チームを開きます。起動係は3つの役割に含めない仕組みなので、人物の絵は付けていません。
+PO は GitHub に Issue を書き、着手してよい Issue に「開発可」のラベルを付けます。担当の行の真ん中の GitHub の枠がこれです。
+すると ③ 着手です。Orca の定期実行の「起動係」が、「開発可」の Issue があり、動いている開発チームがいないときだけ、開発チームを起動します。担当の行の「Orca の起動係」の枠がこれです。GitHub と起動係は3つの役割に含めない仕組みなので、人物の絵ではなく文字の枠で示しています。
 ここでも人間の判断はありません。
 
 【実例】
-Issue #5 は、導入6枚から代表3枚を選び、同じ内容でデザインを2案作るという範囲にしました。6枚すべてへの展開や共通テーマの正式実装は、スコープ外として後の Issue に分けています。
-「開発可」が付いた Issue を起動係が見つけ、開発チームが開いて 13:04 に着手しました。
+#37 の範囲は、前提のページで抜き出した条件を含む、受け入れ条件10項目です。
+戦闘の途中で駒を増やしたり減らしたりする機能（#33）や、倒れた駒の表示（#34）はスコープ外として別の Issue に分けています。
+前提の #32 が取り込まれた後、PO が GitHub の #37 に「開発可」を付けました。Orca の起動係が「着手中」にして開発チームを起動し、2026-10-23 の 19:45 に着手しています。
 
-【時間】約50秒
+【時間】約40秒（見積もり）
 
 【出典】
 一般的な手順:
 - workflow.md ステップ2「Issueを切り出す」（Issue に書くこと、着手の合図）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L145-L169
 - workflow.md ステップ3「着手する」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L171-L175
 - README の役割の表（起動係は「開発可」の Issue があり、動いている開発チームがいないときだけ開発チームを開く）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md#L40-L45
-本プロジェクトの実例:
-- Issue #5 レポート 2章（目的と範囲・スコープ外）・3章（13:04 の着手、起動係から開いた Run）: https://github.com/dyamada-jaki/agent-dev-slide/blob/4c79405a64f13ec4359e6ceb57d1c871ba84b35f/docs/issue-reports/issue-5.md
+overstrata-board の実例:
+- Issue #37 レポート 2章（目的と範囲・前提・スコープ外）・3章（19:45 の着手、起動係による「着手中」）: https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-37.md
+- Issue #37: https://github.com/dyamada-jaki/overstrata-board/issues/37
 -->
 
 ---
@@ -364,12 +475,13 @@ Issue #5 は、導入6枚から代表3枚を選び、同じ内容でデザイン
     </table>
   </div>
   <div class="example">
-    <h3>実例: Issue #5</h3>
+    <h3>実例: overstrata-board #37</h3>
     <ul>
-      <li>開発者2人が、配色・書体・<br>形・人物の使い方を提案</li>
-      <li>人間は両案をそのまま承認。<br>見本のビルドは本編と別の<br>コマンドに分けるよう回答</li>
+      <li>2人の計画で、設定欄の置き場所が<br>分かれた: <b>駒の近く案</b>と<br><b>操作パネル案</b></li>
+      <li>人間は「それぞれの案のまま作り、<br>画面で見比べる」と承認</li>
+      <li>操作パネル案は「駒の近く」を<br>満たさないおそれ → 距離を測らせる</li>
     </ul>
-    <p class="meta">Issue #5 レポート 3章</p>
+    <p class="meta">#37 レポート 3章</p>
   </div>
 </div>
 
@@ -380,17 +492,21 @@ Issue #5 は、導入6枚から代表3枚を選び、同じ内容でデザイン
 Issue の曖昧さは計画に表れるので、コードになる前に見つけるのがいちばん安い、という考え方です。
 
 【実例】
-Issue #5 では、開発者2人がそれぞれ配色・書体・形（カードか罫線か）・人物の使い方を提案しました。
-人間は両案をそのまま承認し、見本を作るビルドは本編のビルドを変えずに別のコマンドに分けるよう答えました。
+#37 では、同じ Issue を開発者2人が別々に作る進め方をとりました。2人の計画で、移動力の設定欄をどこに出すかが分かれました。
+- 駒の近く案（Codex の計画）: 未配置の一覧では選んだ駒のすぐ下、盤面に置いた駒では選んだマスの上か下に重ねて出す
+- 操作パネル案（Claude Code の計画）: 盤面の下の操作パネルに1つだけ出す
+仕様では設定欄の細かい位置を「作った画面を見ながら調整する」としていたので、人間は 20:01 に「それぞれの案のまま作り、画面で見比べる」と承認しました。
+このとき、操作パネル案は「対象の駒の近くに表示する」という受け入れ条件に届かないおそれがありました。そこで、選んだ駒と欄の距離を実際に測って PR に書くよう指示しています。駒の近く案には、重ねた欄で隠れるマスの扱いを書くよう指示しました。
+ここで「どちらが優れているか」は決めていません。決めたのは、両方を作って比べる、ということです。
 
-【時間】約50秒
+【時間】約50秒（見積もり）
 
 【出典】
 一般的な手順:
 - workflow.md ステップ4「計画を承認する」（人間が確かめる点と分岐）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L177-L195
 - README「Issue 1本の流れ」（開発者2人がそれぞれ計画を立て、人間が④で承認）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md#L49-L71
-本プロジェクトの実例:
-- Issue #5 レポート 3章「計画の要約」「人間の回答（計画承認）」: https://github.com/dyamada-jaki/agent-dev-slide/blob/4c79405a64f13ec4359e6ceb57d1c871ba84b35f/docs/issue-reports/issue-5.md
+overstrata-board の実例:
+- Issue #37 レポート 3章「計画と承認」（20:01 の人間の承認、設定欄の位置、各案への追加指示）: https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-37.md
 -->
 
 ---
@@ -413,24 +529,34 @@ Issue #5 では、開発者2人がそれぞれ配色・書体・形（カード�
     <p class="stage-label">このプロセスでは</p>
     <table class="duty">
       <tr><th>担当</th><td><div class="actors">
-        <div class="actor"><img class="actor-figure" src="assets/roles/developer-1.png" alt="AI エージェントの開発者を表す、ノートパソコンで作業するデフォルメした人物（1人目）"><img class="actor-figure" src="assets/roles/developer-2.png" alt="AI エージェントの開発者を表す、ノートパソコンで作業するデフォルメした人物（2人目）"><span class="actor-name">開発者2人<br>（それぞれの worktree）</span></div>
+        <div class="actor"><img class="actor-figure" src="assets/roles/developer-1.png" alt="AI エージェントの開発者を表す、ノートパソコンで作業するデフォルメした人物（1人目）"><img class="actor-figure" src="assets/roles/developer-2.png" alt="AI エージェントの開発者を表す、ノートパソコンで作業するデフォルメした人物（2人目）"><span class="actor-name">開発者2人<br>（それぞれの<br>worktree）</span></div>
       </div></td></tr>
-      <tr><th>渡すもの</th><td>PR（何をしたか・確認結果）と<br>相手の PR へのレビュー</td></tr>
+      <tr><th>渡すもの</th><td>PR（何をしたか・<br>確認結果）と、相手の<br>PR へのレビュー</td></tr>
       <tr><th>人間が<br>決めること</th><td>なし（この間は待つ）</td></tr>
     </table>
   </div>
-  <div class="example">
-    <h3>実例: Issue #5（初回の2案）</h3>
-    <div class="shots">
+  <div class="example wide">
+    <h3>実例: 触る前 → 味方2を選んだ直後</h3>
+    <div class="shots phone pair">
       <div class="shot">
-        <img src="assets/issue-5-compare/pr6-c332c37-human.png" alt="Issue #5 の PR #6 初回版の人間の判断のページ。罫線と余白で区切り、判断は藍色">
-        <p>罫線と余白<br>判断は藍色</p>
-        <p class="ver">PR #6 初回・c332c37<br>（Codex）</p>
+        <div>
+          <p class="name">駒の近く案</p>
+          <p class="ver">PR #41</p>
+          <p>欄が一覧の中に<br>入り、並びが<br>組み替わる</p>
+        </div>
+        <img src="assets/issue-37-board/pr41-526f8f8-before.png" alt="駒の近く案の、駒を選ぶ前の画面。未配置の駒が味方4つ・敵4つの2行に並んでいる">
+        <span class="arrow">→</span>
+        <img src="assets/issue-37-board/pr41-526f8f8.png" alt="駒の近く案の、味方2を選んだ直後の画面。一覧の中に移動力の設定欄が入り、味方4が次の行へ押し出されている">
       </div>
       <div class="shot">
-        <img src="assets/issue-5-compare/pr7-b3e0c3e-human.png" alt="Issue #5 の PR #7 初回版の人間の判断のページ。カードで囲み、判断を金色で強調">
-        <p>カードで囲み<br>判断を金色で強調</p>
-        <p class="ver">PR #7 初回・b3e0c3e<br>（Claude Code）</p>
+        <div>
+          <p class="name">操作パネル案</p>
+          <p class="ver">PR #40</p>
+          <p>一覧の上に欄が<br>1つ出る。並びは<br>2行のまま</p>
+        </div>
+        <img src="assets/issue-37-board/pr40-b1902c4-before.png" alt="操作パネル案の、駒を選ぶ前の画面。未配置の駒が味方4つ・敵4つの2行に並んでいる">
+        <span class="arrow">→</span>
+        <img src="assets/issue-37-board/pr40-b1902c4.png" alt="操作パネル案の、味方2を選んだ直後の画面。一覧の上に移動力の設定欄が1つ出て、未配置の駒の並びは2行のまま変わらない">
       </div>
     </div>
   </div>
@@ -441,23 +567,29 @@ Issue #5 では、開発者2人がそれぞれ配色・書体・形（カード�
 ⑤ 実装では、開発者が自分の worktree で計画どおりに作り、確認コマンドを通して PR を出します。GitHub Actions でも同じ確認が回ります。この間、人間は待っています。
 ⑥ レビューでは、開発者2人が互いの PR を、受け入れ条件・仕様・回帰の観点でレビューします。
 今回は同じ Issue を2人が別々に作る「二重実装」で進めました。元テンプレートでは任意の進め方で、1本だけ実装する方法もあります。
-右は Issue #5 で出てきた初回の2案で、同じ「人間の判断」のページです。画像の中の文字は読まなくて大丈夫です。違いは下に書いたとおりで、PR #6 は罫線と余白で区切り、PR #7 はカードで囲んで判断を金色で強調しました。
+右は、2つの PR で同じ操作をした前後の画面です。上の行が駒の近く案、下の行が操作パネル案で、それぞれ左が駒を触る前、右が未配置の一覧で「味方2」を選んだ直後です。触る前は、どちらも味方4つ・敵4つが2行に並んでいます。画像の中の文字は読まなくて大丈夫です。
+駒の近く案では、選ぶと設定欄が一覧の中に入るので、駒の並びが組み替わり、味方4が次の行へ押し出されます。操作パネル案では、欄は一覧の上に1つ出て、一覧は全体が下へずれますが、4つずつ2行の並びは変わりません。その代わり、盤面に置いた駒からは離れます。
 
 【実例】
-PR #6（Codex）は 13:32、PR #7（Claude Code）は 13:38 にでき、どちらも確認コマンドと CI が成功しました。相互レビューの必須の指摘は、どちらも0件でした。
-このときは人間の指定で、独立した品質レビューも加えています（詳細はこの章では扱いません）。
-画像は、それぞれの PR の当時の版（PR #6 は c332c37、PR #7 は b3e0c3e）の原稿を Marp で描いて縮小したものです。後で直した採用修正版とは別の版です。
+- PR #41（駒の近く案、Codex）は head 526f8f8、PR #40（操作パネル案、Claude Code）は head b1902c4。どちらも確認コマンド・E2E・CI が成功した
+- 相互レビュー（20:49〜21:03）の結果、このときの受け入れ条件3（更新前の「対象の駒の近くに表示する」）について:
+  - PR #40 は満たさない（必須の指摘）。スマホ幅 375×667 で、盤面の上の方の駒と欄が約488px離れ、同時に見えない
+  - PR #41 は満たす。ただし、一覧の並びが組み替わって誤タップにつながる点と、盤面では欄が周りの18マスを覆う点が、推奨の指摘になった
+- この画像は比べた時点の版で、採用後の版ではありません。製品名は担当を示すだけで、モデルの優劣を比べたものではありません
 
-【時間】約60秒
+画像: overstrata-board の各版（PR #41 は 526f8f8、PR #40 は b1902c4）を手元で起動し、スマホ幅 375×667（2倍の解像度）で撮影。各案2枚で、「触る前」は味方4・敵4を用意した直後（まだ駒を選んでいない）、「選んだ直後」はそこから未配置の味方2を選んだ直後。切り抜く範囲は、選んだ直後の設定欄と未配置一覧を囲む範囲（横351 CSS px、縦は PR #41 が305・PR #40 が260）。駒の近く案の触る前も同じ範囲で切り抜いた。操作パネル案の触る前は、同じ範囲だと一覧が上にある分、上端で「未配置：8体」の見出しが半分切れるため、同じ大きさ（351×260）のまま、見出しの上に少し余白を取る位置（全ページ画像の y654）で切り抜き直した。下に確定ボタンと説明文が写る。切り抜いただけで、注記や色付けはしていない。触る前の2枚は Issue #17 の実機確認（人間の「駒を触る前の画像もあるとわかりやすい」）を受けて追加した。
+
+【時間】約75秒（見積もり。触る前の画像の説明で60秒から増やした）
 
 【出典】
 一般的な手順:
 - workflow.md ステップ5「実装」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L197-L204
 - workflow.md ステップ6「レビュー」（任意: 2つのエージェントで作らせて比べる、相互レビューの担当）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L206-L227
-本プロジェクトの実例:
-- Issue #5 レポート 3章（PR の完成時刻）・4章（初回2案の比較）・6章（レビューの結果）: https://github.com/dyamada-jaki/agent-dev-slide/blob/4c79405a64f13ec4359e6ceb57d1c871ba84b35f/docs/issue-reports/issue-5.md
-- 初回の PR #6 の原稿（c332c37）: https://github.com/dyamada-jaki/agent-dev-slide/blob/c332c3760316c7509452b0cc6be39d138d712368/slides/design-codex.md
-- 初回の PR #7 の原稿（b3e0c3e）: https://github.com/dyamada-jaki/agent-dev-slide/blob/b3e0c3e8964a764a424a131f004625d5f4b6697d/slides/samples/issue-5-claude/index.md
+overstrata-board の実例:
+- Issue #37 レポート 4章（実装の比較）・5章（受け入れ条件と検証、更新前の条件3）・6章（レビューと指摘の裏付け）: https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-37.md
+- PR #41 の比較した版（526f8f8）: https://github.com/dyamada-jaki/overstrata-board/tree/526f8f8340fe64b065ee8d618fc8852c237d8c64
+- PR #40 の比較した版（b1902c4）: https://github.com/dyamada-jaki/overstrata-board/tree/b1902c451de34eb2725c9da48dc3435bd7cbfa64
+- 相互レビュー（PR #40）: https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6364370949 、（PR #41）: https://github.com/dyamada-jaki/overstrata-board/pull/41#issuecomment-6364435883
 -->
 
 ---
@@ -477,25 +609,24 @@ PR #6（Codex）は 13:32、PR #7（Claude Code）は 13:38 にでき、どち�
 
 <div class="stage">
   <div class="general">
-    <p class="stage-label">実例: Issue #5 の往復（担当とすること）</p>
+    <p class="stage-label">実例: #37 の往復（担当とすること）</p>
     <table class="duty loop">
-      <tr><th>開発チーム</th><td><b>推薦</b>: PR #6 を土台に（c332c37）</td></tr>
-      <tr><th>PO</th><td><b>受け入れ確認</b>:「人間の判断が必要」</td></tr>
-      <tr class="decide"><th>人間</th><td><b>採用判断</b>: #6 の罫線に #7 の金色を足す</td></tr>
-      <tr><th>PO</th><td>仕様・Issue を更新（①②へ戻る）</td></tr>
-      <tr><th>開発者</th><td>修正（3480008）、相互レビューで再確認</td></tr>
-      <tr><th>PO</th><td><b>受け入れ</b>（2回目）→ 人間の承認後に⑦へ</td></tr>
+      <tr><th>開発チーム</th><td><b>推薦</b>: PR #41（駒の近く案）</td></tr>
+      <tr><th>PO</th><td><b>受け入れ確認</b>: #41 を受け入れ</td></tr>
+      <tr class="decide"><th>人間</th><td><b>採用判断</b>: 触り比べて #40 を選ぶ</td></tr>
+      <tr><th>PO・開発者</th><td>置き場所の条件を更新／並行して README を修正</td></tr>
+      <tr><th>開発者・<br>開発チーム</th><td>更新後の条件で再レビュー、推薦を #40 へ</td></tr>
+      <tr><th>PO</th><td><b>受け入れ</b>（#40）→ 人間の承認後に⑦へ</td></tr>
     </table>
   </div>
   <div class="example">
-    <h3>採用修正版</h3>
-    <div class="shots">
-      <div class="shot">
-        <img src="assets/issue-5-compare/pr6-3480008-human.png" alt="Issue #5 の PR #6 採用修正版の人間の判断のページ。罫線で区切り、判断を金色で強調">
-        <p>罫線のまま、判断を金色で強調。<br>下部の1行は発表ノートへ</p>
-        <p class="ver">PR #6 修正版・3480008</p>
-      </div>
-    </div>
+    <h3>置き場所の条件の変更</h3>
+    <ul>
+      <li>変更前: 設定欄は、<br>対象の駒の近くに表示する</li>
+      <li>変更後: 操作パネルに1つ表示し、<br>駒名・陣営色の丸・番号で<br>対象を示す</li>
+      <li>画面は作り直していない。<br>#40 の追加の修正は README の1行</li>
+    </ul>
+    <p class="meta">#37 レポート 6・7章</p>
   </div>
 </div>
 
@@ -503,31 +634,34 @@ PR #6（Codex）は 13:32、PR #7（Claude Code）は 13:38 にでき、どち�
 【話すこと】
 ⑥ の後半は、3つの確認を分けて進みます。開発チームの推薦、PO の受け入れ確認、そして人間の採用判断です。
 推薦は、開発チームがレビューを踏まえて「どちらを採るか」を推すことです。PO はコードを見ず、受け入れ条件・仕様・使う人の目で確かめます。採用する PR を決めるのは、2つ目の判断として人間です。
-Issue #5 は一直線には進みませんでした。PO は「人間の判断が必要」と返し、人間が修正の方針を選びました。条件が変わったので、PO が先に仕様と Issue を更新し、それから開発者が直しました。再確認のあと、PO が2回目で受け入れています。
-右が採用した修正版です。罫線の案を土台にしたまま、判断を金色で強調し、下部の1行コメントは発表ノートに移しました。人間は「main に残すのは #6 だけ」とも決めています。
+#37 は一直線には進みませんでした。開発チームは、当時の受け入れ条件をすべて満たす #41 を推薦し、PO も #41 を受け入れました。ところが人間がスマホで両方を触り比べ、#40 を選びました。
+選ばれた #40 は「駒の近く」という条件を満たしていません。そこで、作りを直すのではなく、PO が受け入れ条件3を、目的に照らして「操作パネルに1つ出し、駒名・陣営色・番号で対象を示す」に更新しました。開発者はそれと並行して、レビューで指摘されていた README の1行を直しました。画面そのものは作り直していません。
+更新後の条件で再レビューし、推薦を #40 に変え、PO がもう一度確認しています。PO の受け入れは採用の決定ではなく、最後に採用を決めるのは人間です。
 
 【実例】
-- 13時台: 開発チームが、相互レビューと指摘の裏付けを踏まえて PR #6 を土台として推薦。表紙に人物がなく役割を混同させないこと、ヨナの参照元を記録していることを根拠にし、デザインの好みは人間が決めるとした
-- 13:56: PO の受け入れ確認（1回目）は「人間の判断が必要」。差し戻しではない
-- 14時台: 人間が「カードはとてもAIっぽさが良くも悪くも出るので、罫線にしてみましょうか。また、下部の１行コメントも無しでいいです」と答え、判断を金色で強調する、main に残すのは #6 だけ、を選んだ
-- 14:38: PO が Issue #5 と spec.md などを更新（03383d7）。その後に修正を開始
-- 修正1（78842cd）と修正2（3480008）、相互レビュー担当の再確認で必須の指摘0
-- 15:08: PO が受け入れ（2回目）
-推薦・PO の受け入れ確認・人間の採用判断は別の作業で、PO の受け入れはマージの決定ではありません。
+時刻は #37 レポートの記録（JST）に従う。
+- 21:06 まで: 開発チームが #41 を推薦（当時の条件1〜10を満たし、必須の指摘なし）。21:10: PO が #41 を受け入れ（1回目）。PO は、一覧の並びが組み替わる点などを、人間に実機で確かめてほしいこととして渡した
+- 〜21:35: 人間がスマホ実機で両 PR を触り比べた。原文:「駒の近くには無いですが、逆に #41 は駒の近くにあるために、駒の位置がズレるのが UI 的に使いにくく感じました。私は今の #40 の UI の方が使いやすいです」
+- 21:36〜21:52（並行）: PO が Issue #37 の受け入れ条件3と spec.md を更新（3bac3e9）。開発者が README の「移動力は全駒5マス」を直した（629709a）。#40 の b1902c4 から 629709a への差分は README の1行だけ
+- 21:52〜21:56: 相互レビュー担当が 629709a を更新後の条件で再確認。21:56 に開発チームが推薦を #40 に変更
+- 21:57〜22:02: PO が #40（629709a）を受け入れ（#40 には初回）
+これは PO の差し戻しではなく（差し戻しは0回）、人間が使い勝手を見て判断した変更です。どちらのモデルが優れているかの判断でもありません。
 
-【時間】約75秒
+【時間】約75秒（見積もり）
 
 【出典】
 一般的な手順:
 - README「Issue 1本の流れ」（相互レビュー → 開発チームが推す PR を選ぶ → PO の受け入れ確認 → ⑥ 採用する PR を決める）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md#L49-L71
 - workflow.md ステップ6（推薦後に PO が受け入れの一次判断をする）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L206-L227
 - workflow.md ステップ4の分岐（仕様の穴は PO に戻し、spec.md・Issue を直してから進める）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L177-L195
-本プロジェクトの実例:
-- Issue #5 レポート 6章（一次判断）・8章（PO の受け入れ確認、人間の判断、判断の後の修正と再確認）: https://github.com/dyamada-jaki/agent-dev-slide/blob/4c79405a64f13ec4359e6ceb57d1c871ba84b35f/docs/issue-reports/issue-5.md
-- 開発チームの推薦: https://github.com/dyamada-jaki/agent-dev-slide/pull/6#issuecomment-6460995440
-- PO の受け入れ確認（1回目）: https://github.com/dyamada-jaki/agent-dev-slide/pull/6#issuecomment-6461020528
-- PO の受け入れ確認（2回目）: https://github.com/dyamada-jaki/agent-dev-slide/pull/6#issuecomment-6462049792
-- 採用修正版の原稿（3480008）: https://github.com/dyamada-jaki/agent-dev-slide/blob/3480008867440677afcb0b29e8a0b8aa06a08c00/slides/design-codex.md
+overstrata-board の実例:
+- Issue #37 レポート 6章（最初の推薦と PO の受け入れ確認）・7章（人間の判断、条件更新、README の修正、再確認、推薦の変更、PO の受け入れ2回目）・9章（README の修正と仕様更新は並行、21:36→21:52）: https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-37.md
+- 最初の PO の受け入れ（#41）: https://github.com/dyamada-jaki/overstrata-board/pull/41#issuecomment-6364548520
+- 人間の判断と条件3の変更前後（Issue のコメント）: https://github.com/dyamada-jaki/overstrata-board/issues/37#issuecomment-6365106903
+- 仕様の更新（spec.md 2.2 の変更前後）: https://github.com/dyamada-jaki/overstrata-board/commit/3bac3e9ed1b884765a3519157b634c1bb128e2e3
+- 採用版 629709a（b1902c4 との差分は README）: https://github.com/dyamada-jaki/overstrata-board/tree/629709a1f9825a8974f8e4d20cf6208eb6f5c463
+- 再レビュー: https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365375650 、推薦の変更: https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365395577 、変更後の PO の受け入れ: https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365485501
+- 人間の実機確認の記録（開発チームの代筆）: https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365962809
 -->
 
 ---
@@ -557,13 +691,14 @@ Issue #5 は一直線には進みませんでした。PO は「人間の判断�
     </table>
   </div>
   <div class="example">
-    <h3>実例: Issue #5</h3>
+    <h3>実例: overstrata-board #37</h3>
     <ul>
-      <li>人間の承認後、開発チームが<br>PR #6 修正版をマージ。PR #7 は<br>ブランチを残して閉じた</li>
-      <li>改善 A〜C は採用・反映済み、<br>D は継続観測</li>
-      <li>次へ: Issue #8 で共通デザインを<br>整え、導入6枚に適用する</li>
+      <li>人間の承認後、開発チームが<br>#40 をマージ。<br>#41 はブランチを残して閉じた</li>
+      <li>改善 F: 実機確認の結果は会話で<br>聞き、開発チームが PR に代筆する</li>
+      <li>改善 G: 条件と合わない作りが<br>選ばれたら、PO に仕様の更新を頼む</li>
+      <li>人間が F・G を採用し、手順書に反映</li>
     </ul>
-    <p class="meta">Issue #5 レポート 9〜12章</p>
+    <p class="meta">#37 レポート 8〜10章</p>
   </div>
 </div>
 
@@ -574,11 +709,15 @@ Issue #5 は一直線には進みませんでした。PO は「人間の判断�
 採用した改善と、その効果を確かめたことは分けて扱います。
 
 【実例】
-- 15:54: 実機確認の記録がないことを示したうえで、人間が「このまま実行する」と承認。開発チームが PR #6（3480008）を squash でマージし（main e0d645a）、PR #7 はブランチを残して閉じた。修正版の実機確認の結果は記録されていない
-- ふりかえりの改善案4件のうち、人間が「A〜Cを採用してください」と回答。A 承認した計画の要点を PR 本文に残す、B Orca のブラウザで確かめられないときの代わりの方法、C 人物の外見の根拠を計画で求める、を手順書に反映した。D 小さな差分の再確認を軽くする、は変更せず継続観測。効果は次の Issue で確かめることにした
-- PO への申し送りから、共通デザインを整えて導入6枚に適用する Issue #8 につながった
+- 22:22: 人間が実機確認の結果を会話で伝え、開発チームが PR #40 に代筆した。端末・ブラウザ・接続経路・項目ごとの結果は「記載なし」と書いている
+- 22:26: 開発チームが PR #40（head 629709a、CI 成功を直前に再確認）を squash でマージし、main e3311d4。PR #41 は「人間がスマホ実機で見比べ、駒の位置がずれない #40 の UI を選んだため」としてクローズし、ブランチは残した。worktree・コンテナなどを片付けた
+- ふりかえりの改善案2件を、人間が 22:40 に採用した
+  - 改善 F: #32 と #37 の2回続けて、人間は実機確認の結果を会話で伝え、開発チームが代筆した。そこで、会話で聞いて開発チームが代筆する形を標準にする（伝えられた内容だけを書き、未記載の項目は「記載なし」と書く）
+  - 改善 G: 人間が受け入れ条件に合わない作りを選んだとき、人間の判断を原文のまま PO に送り、Issue と spec.md の更新を頼む。修正はそれと並行してよい。再確認と PO の確認は更新後の条件で行う（当時の overstrata-board の手順書への反映内容）
+- F・G は overstrata-board の dual-implement スキルに反映した（9b7eae7）。効果は次の Issue で確かめることにしており、ここでは効果を確認済みとは扱わない
+- PO への申し送り: 後続の候補2つ（使われなくなったサンプルの整理、設定欄の陣営色の自動確認）を1つの Issue にまとめられるよう整理する
 
-【時間】約60秒
+【時間】約60秒（見積もり）
 
 【出典】
 一般的な手順:
@@ -586,7 +725,9 @@ Issue #5 は一直線には進みませんでした。PO は「人間の判断�
 - workflow.md ステップ7「マージ」・ステップ8「ふりかえりと還流」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L229-L266
 - finish-issue 手順3（マージ・後片付けの実行内容を人間に確認する）・手順4（マージする）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/.claude/skills/finish-issue/SKILL.md#L46-L60
 - 記載の不一致: 同じ版の workflow.md ステップ6（225行目）には「マージ（⑦）は人間がする」とある。README の流れ図・ステップ7・finish-issue は、人間の承認後に開発チームがマージする構成で、このスライドは後者で説明する（参照版・元資料は変更していない）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L225
-本プロジェクトの実例:
-- Issue #5 レポート 9章（完了処理）・10章（ふりかえり）・11章（改善案と人間の判断）・12章（PO への申し送り）: https://github.com/dyamada-jaki/agent-dev-slide/blob/4c79405a64f13ec4359e6ceb57d1c871ba84b35f/docs/issue-reports/issue-5.md
-- Issue #8（共通デザインを整え、導入6枚に適用する）: https://github.com/dyamada-jaki/agent-dev-slide/issues/8
+overstrata-board の実例:
+- Issue #37 レポート 8章（完了処理）・9章（ふりかえりと改善案、人間の判断）・10章（PO への申し送り）: https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-37.md
+- 採用のコミット（main e3311d4）: https://github.com/dyamada-jaki/overstrata-board/commit/e3311d43c6f125adec76eafe0d683e6d62fa74bb
+- 改善 F・G の反映（9b7eae7）: https://github.com/dyamada-jaki/overstrata-board/commit/9b7eae763cfc199080f09653f65c31a1cf01e072
+- 完了と申し送り: https://github.com/dyamada-jaki/overstrata-board/issues/37#issuecomment-6366665330
 -->
