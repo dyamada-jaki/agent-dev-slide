@@ -48,8 +48,9 @@ Issue #5 で採用した見本（`e0d645a` の [見本原稿](../slides/design-c
 |---|---|---|
 | 表紙 | `<!-- _class: cover -->` と `# 題名`、`<p class="keywords">`・`<p class="subtitle">` | 1 |
 | 本文 | `## 見出し` に続けて本文。特別なクラスは不要 | 2〜14 |
-| 要旨の一文 | `<p class="statement">` | 2 |
-| 工程 | `<div class="flow">` の中に `<div class="step">` と `<div class="arrow">→</div>` を交互に置く | 2 |
+| 要旨の一文 | `<p class="statement">`（全体像のページでは28pxの1行） | 2 |
+| 全体像の図 | `<!-- _class: process-overview -->` と `.overview-intro`・`.overview-grid`。下の「全体像の図」 | 2 |
+| 工程 | `<div class="flow">` の中に `<div class="step">` と `<div class="arrow">→</div>` を交互に置く | 単独の工程図を置く場合 |
 | 3列 | `<div class="columns">` の中に `<div class="column">`（`<h3>`・`<ul>`・`<p class="meta">`）。順序を示すときだけ列の間に `<div class="arrow">→</div>` を置く。参照先 `.meta` は列の下端にそろう | 3（矢印あり） |
 | 3列（役割の人物つき） | `<div class="columns roles">` にし、各列の `<h3>` を `<div class="role-head">` で包んで、その前に `<img class="role-figure">` を置く（下の「役割の人物」） | 4 |
 | 左右 | `<div class="split">` の左に `<div class="person">`（`<h3>`・`<ul>`・`<p class="meta">`・`<img class="people">`）、`<div class="arrow">→</div>`、右に `<div class="judgements">` と `<div class="judgement">` | 5 |
@@ -74,6 +75,16 @@ Issue #5 で採用した見本（`e0d645a` の [見本原稿](../slides/design-c
 ```
 
 3列の高さは 430px に固定している。項目が多くて参照先が下にはみ出すときは、項目を減らすか、そのページの列だけ文字を小さくし、理由を記録する（導入6枚では 25px のまま収まった）。
+
+## 全体像の図
+
+2枚目は、工程を横に並べ、その下へ役割・イベントの共通点と考え方をそろえる。`process-overview` のページだけ要旨を28px・行間1.5・下余白20pxにする。工程の説明は図に集約し、冒頭の要旨では人間と AI の分担を1行で示す。
+
+- `.overview-intro` は28px。`.overview-grid` は左の行見出し120pxと、仕様づくり282px・実装〜マージ402px・ふりかえり260pxの3列。列間24pxで、左右72pxの余白内に収める。
+- `.label` は22px、`.phase` は27px・太字、本文は25px・行間1.4。各段は罫線と余白で区切り、カードや金色を追加しない。
+- `.duty` に役割と具体的な作業を置く。`.support` は3列にまたがり、開発チームが全体の進行を支援することを示す。`.event` は成果確認後の調整と、進め方のふりかえりを関係する工程の下に置く。`.pillar` は三本柱と具体的な行動を示す。
+- 列は説明上の配置で、役割の担当範囲や三本柱の適用範囲を工程ごとに限定する定義ではない。この点と正式なスクラムの役割・イベントとの違いは発表ノートで補う。
+- 最下段は本文の下端に近いため、手元の DOM 実測と CI の PDF（Noto）の両方で、文字切れ・はみ出しを確かめる。
 
 ## 次のスライドを足す手順
 
