@@ -204,7 +204,7 @@ table.recap th {
   font-size: 26px;
 }
 
-/* 工程のページ（次章）: 上端に8ステップの帯、左に一般の説明（担当・渡すもの・人間が決めること）、右に実例 */
+/* 工程のページ（次章）: 上端に8ステップの段階の行、左に一般の説明（担当・渡すもの・人間が決めること）、右に実例 */
 .steps {
   display: flex;
   gap: 8px;
@@ -329,10 +329,10 @@ tr.decide .actors { flex-wrap: nowrap; align-items: center; }
   max-height: 270px;
   box-sizing: border-box;
 }
-/* 本文の下に置く小さい画像（7枚目）: 説明を画像の右に並べて高さを抑える */
+/* 本文の下に置く小さい画像（7枚目の前提）: 説明を画像の右に並べて高さを抑える */
 .shots.phone.short .shot { display: flex; align-items: flex-end; gap: 16px; }
 .shots.phone.short img { max-height: 200px; flex: none; }
-/* 比較画像を大きく見せるページだけ、右の実例の列を広げる（10枚目） */
+/* 比較画像を大きく見せるページだけ、右の実例の列を広げる（12枚目） */
 .example.wide { flex-basis: 660px; }
 /* 往復の表（6行）: 高さに収めるため文字と余白を小さくする（docs/design.md） */
 table.duty.loop { font-size: 22px; }
