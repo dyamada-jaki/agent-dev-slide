@@ -350,3 +350,11 @@ table.duty.loop td { padding: 9px 10px; }
 table.duty.loop tr.decide td { font-size: 22px; }
 table.duty.loop b { color: var(--indigo); }
 table.duty.loop tr.decide b { color: var(--gold-text); }
+/* 2案の「触る前 → 選んだ直後」を案ごとに1行で並べる（12枚目）。左に案名・版・違いの説明、右に前後の画像 */
+.shots.phone.pair { flex-direction: column; gap: 14px; }
+.shots.phone.pair .shot { display: flex; align-items: center; gap: 8px; }
+.shots.phone.pair .shot > div { flex: 0 0 168px; }
+.shots.phone.pair .shot p { font-size: 18px; margin-top: 2px; }
+.shots.phone.pair .shot .name { font-size: 20px; font-weight: 700; color: var(--indigo); }
+.shots.phone.pair img { flex: none; height: 165px; width: auto; max-height: none; }
+.shots.phone.pair .arrow { flex: none; align-self: center; width: 20px; padding: 0; color: var(--muted); font-size: 20px; }
