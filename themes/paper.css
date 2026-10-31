@@ -203,3 +203,127 @@ table.recap th {
   color: var(--indigo);
   font-size: 26px;
 }
+
+/* 工程のページ（次章）: 上端に8ステップの帯、左に一般の説明（担当・渡すもの・人間が決めること）、右に実例 */
+.steps {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 20px;
+  color: var(--muted);
+}
+.steps li {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--rule);
+  text-align: center;
+}
+/* ④⑥⑧は人間の判断。どのページでも金の文字で示す */
+.steps .judge { color: var(--gold-text); }
+.steps .now { color: var(--indigo); font-weight: 700; border-bottom-color: var(--indigo); }
+.steps .judge.now { color: var(--gold-text); border-bottom-color: var(--gold-rule); }
+.steps + h2 { margin: 22px 0 26px; }
+
+.stage { display: flex; gap: 36px; }
+.general { flex: 1; min-width: 0; }
+.example {
+  flex: 0 0 470px;
+  border-left: 2px solid var(--rule);
+  padding-left: 28px;
+  font-size: 23px;
+}
+.stage-label {
+  font-size: 22px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.example h3 { font-size: 28px; margin: 0 0 12px; }
+.example li + li { margin-top: 8px; }
+.example .meta { margin-top: 12px; font-size: 20px; }
+
+table.duty {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 24px;
+}
+table.duty tr,
+table.duty th,
+table.duty td { background: transparent; border: 0; }
+table.duty th,
+table.duty td {
+  border-top: 1px solid var(--rule);
+  padding: 12px 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+table.duty tr:first-child th,
+table.duty tr:first-child td { border-top: 2px solid var(--rule); }
+table.duty th {
+  width: 120px;
+  color: var(--indigo);
+  font-size: 22px;
+}
+/* 人間の3つの判断の行だけ金色。役割の人物を置く担当の行には金色を使わない */
+table.duty tr.decide th,
+table.duty tr.decide td {
+  color: var(--gold-text);
+  border-top: 2px solid var(--gold-rule);
+  border-bottom: 2px solid var(--gold-rule);
+}
+table.duty tr.decide td { font-size: 26px; }
+
+/* 担当の行: 役割の人物（小）と役割名を並べる */
+.actors { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px 18px; }
+.actor { display: flex; align-items: flex-end; gap: 4px; }
+.actor-figure {
+  display: block;
+  flex: none;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  margin: 0;
+  background: transparent;
+}
+.actor-figure + .actor-figure { margin-left: -10px; }
+.actor-name { padding-bottom: 4px; }
+.actors .arrow { font-size: 24px; padding: 0 0 8px; align-self: flex-end; }
+.actors .meta { flex-basis: 100%; font-size: 20px; }
+/* 判断の行では挿絵と文字を同じ行に並べ、文字の側で折り返す */
+tr.decide .actors { flex-wrap: nowrap; align-items: center; }
+.decisions li + li { margin-top: 8px; }
+/* 人間（レナ・ヨナ）の小さい挿絵。3:2 を保つ */
+.people-small {
+  display: block;
+  flex: none;
+  width: 120px;
+  height: 80px;
+  object-fit: contain;
+  margin: 0;
+  background: transparent;
+}
+
+/* 実例の比較画像: 画像の中の文字は読ませず、違いは下の説明文で示す */
+.shots { display: flex; gap: 16px; margin-top: 12px; }
+.shot { flex: 1; min-width: 0; }
+.shot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  margin: 0;
+  border: 1px solid var(--rule);
+}
+.shot p { font-size: 20px; line-height: 1.4; margin-top: 6px; }
+.shot .ver { color: var(--muted); }
+/* 往復の表（6行）: 高さに収めるため文字と余白を小さくする（docs/design.md） */
+table.duty.loop { font-size: 22px; }
+table.duty.loop th,
+table.duty.loop td { padding: 9px 10px; }
+table.duty.loop tr.decide td { font-size: 22px; }
+table.duty.loop b { color: var(--indigo); }
+table.duty.loop tr.decide b { color: var(--gold-text); }
