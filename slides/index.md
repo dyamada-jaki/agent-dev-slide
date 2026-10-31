@@ -237,7 +237,7 @@ PO と開発チームを分けているのは、1つの端末にまとめると�
         <img src="assets/issue-37-board/board-c276d11.png" alt="overstrata-board の10×10の盤面。青と赤の丸い駒が置かれ、選んだ青の駒が動ける範囲の目安が薄い青で示されている">
         <div>
           <p>選んだ駒の<br>範囲の目安<br>（薄い青）</p>
-          <p class="ver">#37 の前の画面<br>c276d11・全駒5マス</p>
+          <p class="ver">#37 を作る前の画面<br>（全駒5マス）</p>
         </div>
       </div>
     </div>
@@ -541,7 +541,7 @@ overstrata-board の実例:
       <div class="shot">
         <div>
           <p class="name">駒の近く案</p>
-          <p class="ver">PR #41・<br>526f8f8</p>
+          <p class="ver">PR #41</p>
           <p>欄が一覧の中に<br>入り、並びが<br>組み替わる</p>
         </div>
         <img src="assets/issue-37-board/pr41-526f8f8-before.png" alt="駒の近く案の、駒を選ぶ前の画面。未配置の駒が味方4つ・敵4つの2行に並んでいる">
@@ -551,7 +551,7 @@ overstrata-board の実例:
       <div class="shot">
         <div>
           <p class="name">操作パネル案</p>
-          <p class="ver">PR #40・<br>b1902c4</p>
+          <p class="ver">PR #40</p>
           <p>一覧の上に欄が<br>1つ出る。並びは<br>2行のまま</p>
         </div>
         <img src="assets/issue-37-board/pr40-b1902c4-before.png" alt="操作パネル案の、駒を選ぶ前の画面。未配置の駒が味方4つ・敵4つの2行に並んでいる">
@@ -626,7 +626,7 @@ overstrata-board の実例:
       <li>変更後: 操作パネルに1つ表示し、<br>駒名・陣営色の丸・番号で<br>対象を示す</li>
       <li>画面は作り直していない。<br>#40 の追加の修正は README の1行</li>
     </ul>
-    <p class="meta">#37 レポート 6・7章、仕様更新 3bac3e9</p>
+    <p class="meta">#37 レポート 6・7章</p>
   </div>
 </div>
 
@@ -693,12 +693,12 @@ overstrata-board の実例:
   <div class="example">
     <h3>実例: overstrata-board #37</h3>
     <ul>
-      <li>人間の承認後、開発チームが<br>#40（629709a）をマージ（e3311d4）。<br>#41 はブランチを残して閉じた</li>
+      <li>人間の承認後、開発チームが<br>#40 をマージ。<br>#41 はブランチを残して閉じた</li>
       <li>改善 F: 実機確認の結果は会話で<br>聞き、開発チームが PR に代筆する</li>
       <li>改善 G: 条件と合わない作りが<br>選ばれたら、PO に仕様の更新を頼む</li>
       <li>人間が F・G を採用し、手順書に反映</li>
     </ul>
-    <p class="meta">#37 レポート 8〜10章、反映 9b7eae7</p>
+    <p class="meta">#37 レポート 8〜10章</p>
   </div>
 </div>
 
