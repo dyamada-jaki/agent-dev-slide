@@ -44,20 +44,22 @@ README の工程図（65行目）はマージと後片付けを開発チーム�
 
 ## 次章で使う本プロジェクトの実例
 
-Issue #9 で採用した次章は、元テンプレートの説明に添える具体例として Issue #5 を使う。2026-10-31 に後続 Issue で overstrata-board へ差し替える方針を決めたが、題材は未選定。以下は現在の成果物を裏付ける出典として保持する。テンプレートの一般的なルールと、実際に行った作業の記録を区別する。
+Issue #9 で採用した次章は、元テンプレートの説明に添える具体例として Issue #5 を使う。2026-10-31 に後続 Issue で overstrata-board へ差し替える方針を決めたが、題材は #37 に確定（下記）。以下は現在の成果物を裏付ける出典として保持する。テンプレートの一般的なルールと、実際に行った作業の記録を区別する。
 
 - [Issue #5 レポート](https://github.com/dyamada-jaki/agent-dev-slide/blob/4c79405a64f13ec4359e6ceb57d1c871ba84b35f/docs/issue-reports/issue-5.md): 計画承認（3章）、初回2案の比較（4章）、PO の確認と人間の判断・修正（8章）、完了処理（9章）、ふりかえりと改善の採否（10・11章）。実例の参照版は改善 A〜C 反映時の `4c79405a64f13ec4359e6ceb57d1c871ba84b35f`。
 - 初回比較の成果物: [PR #6 の原稿](https://github.com/dyamada-jaki/agent-dev-slide/blob/c332c3760316c7509452b0cc6be39d138d712368/slides/design-codex.md)（`c332c37`）と [PR #7 の原稿](https://github.com/dyamada-jaki/agent-dev-slide/blob/b3e0c3e8964a764a424a131f004625d5f4b6697d/slides/samples/issue-5-claude/index.md)（`b3e0c3e`）。採用修正版とは区別する。
 - 採用修正版: [PR #6 の原稿](https://github.com/dyamada-jaki/agent-dev-slide/blob/3480008867440677afcb0b29e8a0b8aa06a08c00/slides/design-codex.md)と同じ版の `docs/design-samples/issue-5-codex-preview/`。罫線・金色・下部2文のノート移動を反映した版。
 - 次への接続は [Issue #8](https://github.com/dyamada-jaki/agent-dev-slide/issues/8) の目的・範囲（共通デザインの整備と導入6枚への適用）を示す。今回の実例の時点で、その完了や効果を断定しない。
 
-## 実例差し替えの候補調査（未採用）
+## 次章で使う overstrata-board #37 の実例
 
-- 公開リポジトリ [overstrata-board](https://github.com/dyamada-jaki/overstrata-board) の main と手元の HEAD が `346606809993990ddf3cdb0244b0db9a59e42a7d` で一致することを確認した（2026-10-31）。読み取り専用でレポートを調査した。これは候補比較の参照版であり、スライド用の最終的な画面・原稿の採用版ではない。
-- [Issue #37 レポート](https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-37.md): 3章の計画、4章の2案、7章の人間の実機比較・条件更新・推薦変更、再受け入れと完了、改善 F/G。候補の主な画面は PR #40 `b1902c4`／#41 `526f8f8`、採用版は #40 `629709a`。採用版の差分は README であり、画面の作り直しではない。
-- [Issue #34 レポート](https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-34.md): 計画時の「モノクロ＋暗く」への条件変更、2案、受け入れ・完了と後続 #50 のきっかけ。実装後の条件変更と混同しない。
-- [Issue #50 レポート](https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-50.md): 実機での違和感を受けた空きマス選択の仕様変更、追加修正・再確認、改善案の見送りと採用。PO の差し戻し回数ではなく、人間による条件変更を含む記録として扱う。
-- 題材決定後、使用する Issue・PR・仕様更新・採用判断の記録と画像の版を固定し、一般の手順との対応を確認する。元プロジェクトの実際の修正順序と、このスライド制作で採用している手順を区別する。
+- 公開リポジトリ [overstrata-board](https://github.com/dyamada-jaki/overstrata-board) の main と手元の HEAD が `346606809993990ddf3cdb0244b0db9a59e42a7d` で一致することを確認した（2026-10-31）。読み取り専用でレポートを調査した。この版を #37 の完了・改善を読む記録の固定版とする。画面の比較は以下の当時の版を使う。
+- [Issue #37 レポート](https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-37.md): 3章の計画、4章の2案、7章の人間の実機比較・条件更新・推薦変更、再受け入れと完了、改善 F/G。比較する画面は PR #40 `b1902c4`／#41 `526f8f8`、採用版は #40 `629709a`。採用版の差分は README であり、画面の作り直しではない。
+- 比較画面のコード: [PR #40 初回版](https://github.com/dyamada-jaki/overstrata-board/tree/b1902c451de34eb2725c9da48dc3435bd7cbfa64)、[PR #41](https://github.com/dyamada-jaki/overstrata-board/tree/526f8f8340fe64b065ee8d618fc8852c237d8c64)。[PR #40 採用版](https://github.com/dyamada-jaki/overstrata-board/tree/629709a1f9825a8974f8e4d20cf6208eb6f5c463)との差分は README。採用版の SHA は GitHub の PR head とも照合済み。画像を再現するときは当時の版と操作・表示条件を記録する。
+- [条件変更のコメント](https://github.com/dyamada-jaki/overstrata-board/issues/37#issuecomment-6365106903)と [仕様更新 `3bac3e9`](https://github.com/dyamada-jaki/overstrata-board/commit/3bac3e9ed1b884765a3519157b634c1bb128e2e3): 人間の原文と条件3の変更。現行 Issue 本文だけで変更前の条件を推測しない。
+- [当初の PO 受け入れ（#41）](https://github.com/dyamada-jaki/overstrata-board/pull/41#issuecomment-6364548520)、[再レビュー（#40）](https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365375650)、[推薦変更](https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365395577)、[変更後の PO 受け入れ](https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365485501)、[実機確認の記録](https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365962809)。レポートと合わせ、発表ノートで対応付ける。
+- [採用コミット `e3311d4`](https://github.com/dyamada-jaki/overstrata-board/commit/e3311d43c6f125adec76eafe0d683e6d62fa74bb)、[改善 F/G 反映 `9b7eae7`](https://github.com/dyamada-jaki/overstrata-board/commit/9b7eae763cfc199080f09653f65c31a1cf01e072)、[完了と申し送り](https://github.com/dyamada-jaki/overstrata-board/issues/37#issuecomment-6366665330)。後の Issue の成果をこの時点での効果として混ぜない。
+- 元プロジェクトの実際の修正順序と、このスライド制作で採用している手順を区別する。条件変更の判断は人間、仕様更新は PO、修正と検証・推薦は開発者／開発チーム、最終的な採用は人間である。画像再現の際も元プロジェクトは変更しない。
 
 ## 使い方
 
