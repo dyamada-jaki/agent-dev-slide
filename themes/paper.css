@@ -327,3 +327,23 @@ table.duty.loop td { padding: 9px 10px; }
 table.duty.loop tr.decide td { font-size: 22px; }
 table.duty.loop b { color: var(--indigo); }
 table.duty.loop tr.decide b { color: var(--gold-text); }
+
+/* #17: 盤面の紹介と、設定欄・未配置一覧を同じ縮尺で比較する工程ページ */
+.board-intro { display: flex; gap: 18px; align-items: center; margin-top: 18px; }
+.board-intro img { width: 205px; height: auto; margin: 0; border: 1px solid var(--rule); }
+.board-intro p { flex: 1; font-size: 23px; }
+.board-compare { gap: 28px; }
+.board-compare .general { flex: 0 0 240px; }
+.board-compare .example { flex: 1; padding-left: 26px; }
+.compare-duty h3 { font-family: inherit; font-size: 22px; margin: 16px 0 4px; padding-top: 10px; border-top: 1px solid var(--rule); }
+.compare-duty p { font-size: 23px; }
+.compare-duty .actors { gap: 8px; }
+.board-shots { margin-top: 0; gap: 28px; }
+.board-shots .shot h3 { font-size: 28px; margin-bottom: 2px; }
+.board-shots .shot .ver { font-size: 21px; margin: 0 0 10px; }
+.board-shots .shot img { width: 252px; height: auto; aspect-ratio: auto; }
+.board-shots .shot > p:last-child { font-size: 23px; margin-top: 10px; }
+.condition-old { padding: 14px 0; border-top: 1px solid var(--rule); }
+.condition-new { padding: 14px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin-bottom: 18px; }
+table.duty.loop.board-loop th,
+table.duty.loop.board-loop td { padding: 7px 10px; }

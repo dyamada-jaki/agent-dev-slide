@@ -98,12 +98,21 @@ paginate: true
 
 - **8ステップの帯**: `<ol class="steps">` に `<li>` を8つ（①議論〜⑧ふりかえり）。そのページの段に `now` を付ける（藍の太字と藍の下線）。④⑥⑧は人間の判断なので常に `judge` を付け、金の文字で示す（人間が判断しないページでも金で出る）。`judge now` は金の太字と金の下線
 - **左「このプロセスでは」**: 元テンプレートの一般的な手順。`<table class="duty">` の3行（担当・渡すもの・人間が決めること）。人間の3つの判断（計画承認・採用判断・改善の採否）の行だけ `<tr class="decide">` にし、文字と上下の罫線を金にする。判断がないページは「なし」と通常の色で書く
-- **右「実例: …」**: 本プロジェクトの実例。左の罫線で一般の説明と分け、見出しに「実例」と書く。版や記録の節を `.meta` に書く
+- **右「実例: …」**: 出典で特定したプロジェクトの実例。左の罫線で一般の説明と分け、見出しに「実例」と書く。版や記録の節を `.meta` に書く
 - **担当の人物**: `<div class="actors">` の中に `<div class="actor">`（`<img class="actor-figure">` 72×72px と `<span class="actor-name">`）。開発者は `actor-figure` を2つ続ける。人間（レナ・ヨナ）は `<img class="people-small">`（120×80px、3:2）。金色を役割の人物の行に使わないため、人間の挿絵は担当の行か判断の行（`decide`）に置き、役割の人物は判断の行に置かない
 - **比較画像**: `<div class="shots">` に `<div class="shot">`（`<img>` と説明 `<p>`、版 `<p class="ver">`）。画像の中の文字は読ませず、違いを説明文で書く
 - **往復の表**: 1ページに6行の表が要るときは `<table class="duty loop">`。高さに収めるため 22px・上下 9px の余白にしている（11枚目。本文の下端の上限 664px に対し、Orca のブラウザ 1280×720 で測ったページ内の下端は 608px）
 
 8ステップの帯と見出しで約 190px を使うので、表と実例の列に使える高さは約 470px（7〜12枚目の下端の実測は 545〜608px）。項目を足したら手元の画像と CI の PDF で確かめる。
+
+### Issue #17 の盤面紹介と比較
+
+- 7枚目は `.board-intro` に盤面の切り抜きと目的を置く。既存の工程ページ・担当の表は維持する。
+- 10枚目だけ `.stage.board-compare` にし、左240pxの `.compare-duty` に担当（開発者2人）・渡すもの・人間が決めることを縦に置く。右の `.shots.board-shots` で2案を並べ、設定欄と未配置一覧の面積を優先する。
+- 比較画像は元画面375×812から同じ矩形（x16、y526、343×410）を切り抜く。テーマの画像幅は252px、縦横比は維持。1280×720の Orca ブラウザで実測した外枠込み寸法は2枚とも254×303.21875px。詳細は [素材の記録](../slides/assets/issue-17-board/README.md) と PR に残す。画像内の文字に依存せず、位置と一覧の横並びの変化を下の23pxの本文で伝える。
+- 10枚目の見出しは案名、ラベルは PR 番号と版だけ。製品名はノートに置く。人物の絵と製品名は対応させない。
+- 11枚目は `.board-loop` で6行の上下余白を7pxにし、条件更新と README 修正の並行関係・再確認を収める。`.condition-old`・`.condition-new` は通常の罫線で変更前後を分ける。金色は人間の判断に保つ。
+- 追加素材は [issue-17-board/](../slides/assets/issue-17-board/README.md)。固定版の実画面の撮影と矩形での切り抜きだけで、生成画像や UI の描き直しではない。#5 の見本・#9 の比較記録・旧画像は保持する。
 
 ## 日本語の改行
 
@@ -123,7 +132,7 @@ paginate: true
 | 使用ファイル | 区別 |
 |---|---|
 | [human-decisions.png](../slides/assets/issue-5-codex/human-decisions.png) | Issue #5 で新規生成し縮小した透過 PNG（記録は [説明書](design-samples/issue-5-codex.md)）。Issue #8 では本編5枚目からそのまま再利用し、Issue #9 では次章の7・9・12枚目に小さく（120×80px）再利用した。再生成・編集はしていない |
-| [issue-5-compare/](../slides/assets/issue-5-compare/) の3枚 | Issue #9 で、次章の比較用に作った縮小画像。`pr6-c332c37-human.png`・`pr7-b3e0c3e-human.png` は、Issue #5 の各 PR の当時の版を `git archive` で取り出し、`npx marp --no-stdin --allow-local-files --images png` で元の5枚目（人間の判断のページ）を 1280×720 に描いた画像。`pr6-3480008-human.png` は採用修正版の記録 `docs/design-samples/issue-5-codex-preview/03-human.png`（同じ手順で 3480008 から描いた画像とバイト単位で一致）。どれも `sips -z 360 640` で 640×360 に縮小しただけ。ファイル名の SHA が版を示す |
+| [issue-5-compare/](../slides/assets/issue-5-compare/) の3枚 | Issue #17 以降の本編からは参照しない。過去の比較記録として保持。Issue #9 で、次章の比較用に作った縮小画像。`pr6-c332c37-human.png`・`pr7-b3e0c3e-human.png` は、Issue #5 の各 PR の当時の版を `git archive` で取り出し、`npx marp --no-stdin --allow-local-files --images png` で元の5枚目（人間の判断のページ）を 1280×720 に描いた画像。`pr6-3480008-human.png` は採用修正版の記録 `docs/design-samples/issue-5-codex-preview/03-human.png`（同じ手順で 3480008 から描いた画像とバイト単位で一致）。どれも `sips -z 360 640` で 640×360 に縮小しただけ。ファイル名の SHA が版を示す |
 | [roles/po.png](../slides/assets/roles/po.png)・[team.png](../slides/assets/roles/team.png)・[developer-1.png](../slides/assets/roles/developer-1.png)・[developer-2.png](../slides/assets/roles/developer-2.png) | Issue #12 で新規生成した透過 PNG。生成は Codex CLI の組み込み画像生成（`codex exec` の `$imagegen`、2026-10-28）で、画風の参照に human-decisions.png、人物をそろえる参照に先に作った po.png（開発者2人目は developer-1.png も）を渡した。team.png は同じ生成の中で Codex が右手の位置を直している。編集は macOS の `sips -z 400 400` による 1254×1254 から 400×400 への縮小だけ（1:1 と透過を保持） |
 
 ## 役割の人物
@@ -134,7 +143,7 @@ AI エージェントの3つの役割を表す人物。Issue #12 で本編4枚�
 |---|---|---|
 | PO | `assets/roles/po.png` | 黒髪の短い髪。立って、開いた冊子（仕様）を読む |
 | 開発チーム | `assets/roles/team.png` | 栗色の一つ結び。板に付箋を左から順に貼る（進行の整理） |
-| 開発者 | `assets/roles/developer-1.png`・`developer-2.png` | 明るい茶色の短髪（左向き）と、濃い色のおかっぱ（右向き）。それぞれ自分の机でノートパソコンを打つ。どちらが Claude Code・Codex かは決めていない（Issue #9 でも対応させず、製品名は PR の説明文で示した） |
+| 開発者 | `assets/roles/developer-1.png`・`developer-2.png` | 明るい茶色の短髪（左向き）と、濃い色のおかっぱ（右向き）。それぞれ自分の机でノートパソコンを打つ。どちらが Claude Code・Codex かは決めていない（Issue #17 でも対応させず、比較画面の本文は案名と PR 番号・版、製品名はノートで示す） |
 
 - 4人とも名前を持たない。外見は Issue #12 の計画で提案して承認されたもので、Overstrata の正式設定・作中の役職との対応ではない。画風だけを #5 の挿絵（レナ・ヨナ）にそろえている。
 - 全員が同じ藍灰色の上着と茶色の帯を着る。人間を表すレナ・ヨナ（防具・外套）との区別を助けるが、区別の主は見出し・役割名・本文に置く。

@@ -44,7 +44,7 @@ README の工程図（65行目）はマージと後片付けを開発チーム�
 
 ## 次章で使う本プロジェクトの実例
 
-Issue #9 で採用した次章は、元テンプレートの説明に添える具体例として Issue #5 を使う。2026-10-31 に後続 Issue で overstrata-board へ差し替える方針を決めたが、題材は #37 に確定（下記）。以下は現在の成果物を裏付ける出典として保持する。テンプレートの一般的なルールと、実際に行った作業の記録を区別する。
+Issue #9 で採用した当時の次章は、元テンプレートの説明に添える具体例として Issue #5 を使った。Issue #17 では overstrata-board #37 へ差し替える。以下は #9 の比較・採用の記録を裏付ける出典として保持し、新しい本編の実例とは区別する。テンプレートの一般的なルールと、実際に行った作業の記録を区別する。
 
 - [Issue #5 レポート](https://github.com/dyamada-jaki/agent-dev-slide/blob/4c79405a64f13ec4359e6ceb57d1c871ba84b35f/docs/issue-reports/issue-5.md): 計画承認（3章）、初回2案の比較（4章）、PO の確認と人間の判断・修正（8章）、完了処理（9章）、ふりかえりと改善の採否（10・11章）。実例の参照版は改善 A〜C 反映時の `4c79405a64f13ec4359e6ceb57d1c871ba84b35f`。
 - 初回比較の成果物: [PR #6 の原稿](https://github.com/dyamada-jaki/agent-dev-slide/blob/c332c3760316c7509452b0cc6be39d138d712368/slides/design-codex.md)（`c332c37`）と [PR #7 の原稿](https://github.com/dyamada-jaki/agent-dev-slide/blob/b3e0c3e8964a764a424a131f004625d5f4b6697d/slides/samples/issue-5-claude/index.md)（`b3e0c3e`）。採用修正版とは区別する。
@@ -60,6 +60,12 @@ Issue #9 で採用した次章は、元テンプレートの説明に添える�
 - [当初の PO 受け入れ（#41）](https://github.com/dyamada-jaki/overstrata-board/pull/41#issuecomment-6364548520)、[再レビュー（#40）](https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365375650)、[推薦変更](https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365395577)、[変更後の PO 受け入れ](https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365485501)、[実機確認の記録](https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365962809)。レポートと合わせ、発表ノートで対応付ける。
 - [採用コミット `e3311d4`](https://github.com/dyamada-jaki/overstrata-board/commit/e3311d43c6f125adec76eafe0d683e6d62fa74bb)、[改善 F/G 反映 `9b7eae7`](https://github.com/dyamada-jaki/overstrata-board/commit/9b7eae763cfc199080f09653f65c31a1cf01e072)、[完了と申し送り](https://github.com/dyamada-jaki/overstrata-board/issues/37#issuecomment-6366665330)。後の Issue の成果をこの時点での効果として混ぜない。
 - 元プロジェクトの実際の修正順序と、このスライド制作で採用している手順を区別する。条件変更の判断は人間、仕様更新は PO、修正と検証・推薦は開発者／開発チーム、最終的な採用は人間である。画像再現の際も元プロジェクトは変更しない。
+
+### Issue #17 の画面再現と素材
+
+比較版の実画面を、公開リポジトリの新しい一時 clone で再現した。元プロジェクトの既存 clone・worktree・開発サーバー・コンテナは変更していない。操作・表示幅・切り抜き矩形・元画像・位置の測定は [素材 README](../slides/assets/issue-17-board/README.md) に記録する。最新画面や生成画像は使っていない。
+
+11枚目の時系列はレポート9章の「README の修正・PO の仕様更新（並行）21:36→21:52」に従う。README のコミット21:36・push21:52、仕様更新3bac3e9のコミット21:40を、どちらが先という直列の説明にはしない。改善 G は board の [9b7eae7 の手順8の7.](https://github.com/dyamada-jaki/overstrata-board/blob/9b7eae763cfc199080f09653f65c31a1cf01e072/.claude/skills/dual-implement/SKILL.md)（修正は並行してよく、再確認・PO確認は更新後の条件）を説明する。このスライド制作で使う現行手順とは区別する。
 
 ## 使い方
 
