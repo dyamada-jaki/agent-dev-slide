@@ -320,6 +320,20 @@ tr.decide .actors { flex-wrap: nowrap; align-items: center; }
 }
 .shot p { font-size: 20px; line-height: 1.4; margin-top: 6px; }
 .shot .ver { color: var(--muted); }
+/* スマホ幅の画面の切り抜き: 16:9 の枠に押し込まず、縦横比のまま高さの上限で収める（docs/design.md） */
+.shots.phone img {
+  aspect-ratio: auto;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 270px;
+  box-sizing: border-box;
+}
+/* 本文の下に置く小さい画像（7枚目）: 説明を画像の右に並べて高さを抑える */
+.shots.phone.short .shot { display: flex; align-items: flex-end; gap: 16px; }
+.shots.phone.short img { max-height: 200px; flex: none; }
+/* 比較画像を大きく見せるページだけ、右の実例の列を広げる（10枚目） */
+.example.wide { flex-basis: 660px; }
 /* 往復の表（6行）: 高さに収めるため文字と余白を小さくする（docs/design.md） */
 table.duty.loop { font-size: 22px; }
 table.duty.loop th,

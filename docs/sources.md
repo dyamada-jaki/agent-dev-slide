@@ -42,9 +42,9 @@ README の工程図（65行目）はマージと後片付けを開発チーム�
 - キャラクターの参照資料が必要なら、隣接する `overstrata` プロジェクトの既存資料を読み取り専用で確認する。未公開資料の本文・生成指示を本リポジトリへ転載しない。
 - 見本で使う画像は、使用ファイルと生成・編集した素材の区別を保守用に記録する。参照元の列挙は求めない。表情・ポーズ、デフォルメの程度は計画で提示する。
 
-## 次章で使う本プロジェクトの実例
+## Issue #9 の次章で使った本プロジェクトの実例（記録）
 
-Issue #9 で採用した次章は、元テンプレートの説明に添える具体例として Issue #5 を使う。2026-10-31 に後続 Issue で overstrata-board へ差し替える方針を決めたが、題材は #37 に確定（下記）。以下は現在の成果物を裏付ける出典として保持する。テンプレートの一般的なルールと、実際に行った作業の記録を区別する。
+Issue #9 で採用した次章（main `19656aa`）は、元テンプレートの説明に添える具体例として Issue #5 を使った。Issue #17 で次章の実例を overstrata-board #37（下記）に差し替えたため、以下は現行の原稿ではなく、#9 で採用した版を裏付ける出典の記録として保持する。テンプレートの一般的なルールと、実際に行った作業の記録を区別する。
 
 - [Issue #5 レポート](https://github.com/dyamada-jaki/agent-dev-slide/blob/4c79405a64f13ec4359e6ceb57d1c871ba84b35f/docs/issue-reports/issue-5.md): 計画承認（3章）、初回2案の比較（4章）、PO の確認と人間の判断・修正（8章）、完了処理（9章）、ふりかえりと改善の採否（10・11章）。実例の参照版は改善 A〜C 反映時の `4c79405a64f13ec4359e6ceb57d1c871ba84b35f`。
 - 初回比較の成果物: [PR #6 の原稿](https://github.com/dyamada-jaki/agent-dev-slide/blob/c332c3760316c7509452b0cc6be39d138d712368/slides/design-codex.md)（`c332c37`）と [PR #7 の原稿](https://github.com/dyamada-jaki/agent-dev-slide/blob/b3e0c3e8964a764a424a131f004625d5f4b6697d/slides/samples/issue-5-claude/index.md)（`b3e0c3e`）。採用修正版とは区別する。
@@ -59,6 +59,7 @@ Issue #9 で採用した次章は、元テンプレートの説明に添える�
 - [条件変更のコメント](https://github.com/dyamada-jaki/overstrata-board/issues/37#issuecomment-6365106903)と [仕様更新 `3bac3e9`](https://github.com/dyamada-jaki/overstrata-board/commit/3bac3e9ed1b884765a3519157b634c1bb128e2e3): 人間の原文と条件3の変更。現行 Issue 本文だけで変更前の条件を推測しない。
 - [当初の PO 受け入れ（#41）](https://github.com/dyamada-jaki/overstrata-board/pull/41#issuecomment-6364548520)、[再レビュー（#40）](https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365375650)、[推薦変更](https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365395577)、[変更後の PO 受け入れ](https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365485501)、[実機確認の記録](https://github.com/dyamada-jaki/overstrata-board/pull/40#issuecomment-6365962809)。レポートと合わせ、発表ノートで対応付ける。
 - [採用コミット `e3311d4`](https://github.com/dyamada-jaki/overstrata-board/commit/e3311d43c6f125adec76eafe0d683e6d62fa74bb)、[改善 F/G 反映 `9b7eae7`](https://github.com/dyamada-jaki/overstrata-board/commit/9b7eae763cfc199080f09653f65c31a1cf01e072)、[完了と申し送り](https://github.com/dyamada-jaki/overstrata-board/issues/37#issuecomment-6366665330)。後の Issue の成果をこの時点での効果として混ぜない。
+- 画面の再現（Issue #17）: 7枚目は #37 着手前の main [`c276d11`](https://github.com/dyamada-jaki/overstrata-board/tree/c276d11e5da42c7664ffa41693d5c9cb762ac7d0)（#32 の PR #38 を取り込んだ版、全駒5マス固定）、10枚目は比較した版 `526f8f8`・`b1902c4` を、公開リポジトリの新しい clone で起動して撮影した。表示幅は 375×667（元の実機比較・レビューと同じスマホ幅）。操作と切り抜きは [design.md](design.md) の「画像の置き方」と各ページのノートに記録した。元プロジェクトの既存の clone・worktree・コンテナは使っていない。
 - 元プロジェクトの実際の修正順序と、このスライド制作で採用している手順を区別する。条件変更の判断は人間、仕様更新は PO、修正と検証・推薦は開発者／開発チーム、最終的な採用は人間である。画像再現の際も元プロジェクトは変更しない。
 
 ## 使い方
