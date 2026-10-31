@@ -26,20 +26,33 @@ agent-dev-template というテンプレートが用意している開発プロ�
 
 ---
 
+<!-- _class: process-overview -->
+
 ## 何をするプロセスか
 
-<p class="statement">人間が判断し、AI エージェント（Claude Code と Codex）が<br>仕様づくりから実装・レビュー・マージ・ふりかえりまでを進める</p>
+<p class="statement">人間が判断し、AI エージェント（Claude Code と Codex）が進める</p>
 
-<div class="flow">
-  <div class="step">仕様づくり</div>
-  <div class="arrow">→</div>
-  <div class="step">実装</div>
-  <div class="arrow">→</div>
-  <div class="step">レビュー</div>
-  <div class="arrow">→</div>
-  <div class="step">マージ</div>
-  <div class="arrow">→</div>
-  <div class="step">ふりかえり</div>
+<p class="overview-intro">スクラムの考え方・役割・イベントを取り入れる</p>
+
+<div class="overview-grid">
+  <div class="label">工程</div>
+  <div class="phase">仕様づくり →</div>
+  <div class="phase">実装 → レビュー → マージ →</div>
+  <div class="phase">ふりかえり</div>
+  <div class="label">役割の<br>共通点</div>
+  <div class="duty"><b>PO</b><br>作る内容と<br>優先順位を整理</div>
+  <div class="duty"><b>開発者</b><br>成果を制作</div>
+  <div class="duty"></div>
+  <div></div>
+  <div class="support"><b>開発チーム</b>：全体の進行を支援</div>
+  <div class="label">イベントの<br>共通点</div>
+  <div class="event"></div>
+  <div class="event">成果を確認して<br>次の作業を調整</div>
+  <div class="event">進め方を<br>ふりかえる</div>
+  <div class="label">考え方</div>
+  <div class="pillar"><b>透明性</b><br>仕様と記録を共有する</div>
+  <div class="pillar"><b>検査</b><br>小さく作って確かめる</div>
+  <div class="pillar"><b>適応</b><br>改善を次へ反映する</div>
 </div>
 
 <!--
@@ -47,10 +60,25 @@ agent-dev-template というテンプレートが用意している開発プロ�
 agent-dev-template は、このプロセスを一式そろえたテンプレート
 一言でいうと、人間が判断し、AI エージェントが仕様づくりからふりかえりまでを進めるためのプロセスです。
 エージェントは Claude Code と Codex の2種類を使います。
-各工程の細かい手順は、このあと「Issue 1本の流れ」で説明します。ここでは「人間は判断、エージェントは作業」という分担だけ覚えてください。
+上の矢印は、仕様づくりから実装・レビュー・マージ、ふりかえりまでの工程です。
+役割では、PO が作る内容と優先順位を整理し、開発者が成果を制作し、開発チームが全体の進行を支えます。
+イベントでは、成果を確認して次の作業を調整すること、進め方をふりかえることを取り入れています。
+考え方は、透明性として仕様と記録を共有し、検査として小さく作って確かめ、適応として改善を次へ反映することです。
+各工程の細かい手順と人間が判断する場面は、このあとのページと「Issue 1本の流れ」で説明します。
+
+【スクラムとの対比】
+固定版テンプレートの事実: 全体仕様と Issue を使って小さく作り、検証・レビューと人間の判断を経て、ふりかえりの改善を次へ反映します。判断や検証の記録も共有します。PO は人間と仕様・Issue を作り、着手順を決めます。開発チームは Issue の進行を支え、開発者は自分の worktree で成果を作ります。成果の確認では PR レビュー・PO の受け入れ確認・人間の採用判断を分け、Issue ごとに進め方をふりかえります。
+スクラムガイドの定義: 透明性は関係者が作業や情報を見られること、検査は成果やゴールへの進捗の確認、適応は学びに応じた成果や進め方の調整です（印刷4〜5ページ）。PO は価値の最大化とバックログ管理、スクラムマスターはスクラムの確立とチームの有効性、開発者は利用可能な成果の制作に責任を持ちます（印刷6〜7ページ）。スプリントレビューは成果を確認して今後の適応を決め、スプリントレトロスペクティブは進め方を検査して改善を計画するイベントです（印刷10〜11ページ）。
+この資料での比較: 本文には、仕様と記録の共有・小さく作って確認・改善の反映という3つの行動、内容と優先順位の整理・進行支援・成果の制作という役割の共通点、成果確認後の調整・進め方のふりかえりというイベントの共通点を示しています。これは更新後の spec.md 2.3 で合意した説明方針です。AI の PO にスクラムの PO の責任をそのまま移したという説明にはせず、開発チームをスクラムチーム全体やスクラムマスターと同一視しません。スプリントレビューを PR の採用承認と同一視せず、本プロセスのふりかえりが Issue ごとで、改善の採否を人間が決める違いも残します。
+図の列は、主に関係する工程をそろえて読むための配置です。PO や開発者が担当する工程を限定したり、三本柱を工程ごとに分割したりする定義ではありません。透明性は全工程に通じ、成果確認後の調整にも適応が関係します。開発チームの進行支援は全体にまたがる行で示しています。役割やイベントとの厳密な違いは、3〜6枚目のノートにも分けて記録しています。
 
 【出典】
 - README 冒頭「人間が判断し、AI エージェント（Claude Code と Codex）が仕様づくりから実装・レビュー・マージ・ふりかえりまでを進めるための、プロセス一式のテンプレートです。」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
+- workflow.md 冒頭・ステップ5〜8（検証・レビュー・記録・改善の反映）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
+- スクラムガイド2020年11月版「スクラムの理論」「透明性」「検査」「適応」（印刷4〜5ページ）: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf#page=5
+- スクラムガイド2020年11月版「スクラムチーム」「開発者」「プロダクトオーナー」「スクラムマスター」（印刷6〜7ページ）: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf#page=7
+- スクラムガイド2020年11月版「スプリントレビュー」「スプリントレトロスペクティブ」（印刷10〜11ページ）: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf#page=11
+- 本資料の比較方針: 更新後の spec.md 2.3（合意済みの対応表と、役割・イベントを本文で伝える条件）: https://github.com/dyamada-jaki/agent-dev-slide/blob/cd49545e112cbb967fbd867e2458928c16a22d21/docs/spec.md
 -->
 
 ---
@@ -95,10 +123,17 @@ Spec は、作るもの全体について「何を・なぜ・どこまで」作
 Issue は、その仕様から今回作る部分だけを取り出した作業の単位です。今回実装する作業の目的・範囲（やらないこと）・受け入れ条件を書きます。1〜3本ずつ出して、終わったら次を切ります。
 Orca は、複数の AI エージェントの端末と worktree をまとめて扱うアプリで、Issue を1本ずつ実装する作業環境になります。
 
+【スクラムとの対比: Spec・Issue】
+固定版テンプレートの事実: Spec は作るもの全体の仕様、Issue は今回作る部分の目的・範囲・受け入れ条件です。PO が Issue の着手順を決めます。
+スクラムガイドの定義（印刷8・12ページ）: プロダクトバックログは改善に必要なものの順序付き一覧、スプリントバックログは目的・選んだ作業・実行計画です。スプリントは1か月以内の固定期間です。
+この資料での比較: 目的や作業内容を明らかにして着手順を決める点に共通点を見ます。全体仕様の Spec をプロダクトバックログと呼んだり、作業単位の Issue 1本をスプリントと呼んだりはしません。Orca はこれらを扱う作業環境として説明します。
+
 【出典】
 - workflow.md 冒頭（spec.md は作るもの全体の仕様、Issue はそこから今回作る部分だけを取り出したもの、Orca で1本ずつ実装）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
 - workflow.md ステップ2「Issueを切り出す」（Issue に書くこと: 目的、受け入れ条件、スコープ外）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
 - README 冒頭（Orca の説明）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
+- スクラムガイド2020年11月版「スプリント」（印刷8ページ）・「プロダクトバックログ」「スプリントバックログ」（印刷12ページ）: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf#page=9
+- 比較の根拠: spec.md 2.3 の Spec・Issue の行: https://github.com/dyamada-jaki/agent-dev-slide/blob/dc2d8550e4a18ebcaabaec5f499c7a4e380d6f7c/docs/spec.md
 -->
 
 ---
@@ -155,9 +190,16 @@ PO は人間と議論して仕様と Issue を書き、開発チームが推薦�
 PO と開発チームを分けているのは、1つの端末にまとめると文脈がすぐあふれ、開発中にプロダクトの検討を進めにくくなるためです。
 （開発チームを自動で開く「起動係」という仕組みもありますが、3つの役割には含めないので後のパートで扱います。）
 
+【スクラムとの対比: PO・開発チーム・開発者】
+固定版テンプレートの事実: PO は人間と仕様・Issue を作り、着手順を決め、推薦された PR を受け入れ確認します。開発チームは Issue の進行と比較・推薦・完了処理を担うコーディネーターです。開発者は自分の worktree で成果を作り、レビューします。重要な判断は人間が担います。
+スクラムガイドの定義（印刷6〜7ページ）: スクラムチームは PO・スクラムマスター・開発者からなります。PO は価値の最大化とバックログ管理に最終責任を持ちます。スクラムマスターはスクラムの確立とチームの有効性に責任を持ち、開発者は利用可能な成果を作ります。
+この資料での比較: PO が作る内容と優先順位を整理し、開発チームが進行を支え、開発者が成果を作る点を取り上げます。スクラムの PO の責任をそのまま AI に移したという説明にはしません。このプロセスの「開発チーム」はコーディネーターの名前であり、スクラムチーム全体やスクラムマスターと同一の役割として扱いません。
+
 【出典】
 - workflow.md の PO・開発チーム・開発者の担当を表にした節: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
 - README の PO・開発チーム・開発者の役割と受け渡しを説明した節（役割の表、PO と開発チームを分ける理由）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
+- スクラムガイド2020年11月版「スクラムチーム」「開発者」「プロダクトオーナー」「スクラムマスター」（印刷6〜7ページ）: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf#page=7
+- 比較の根拠: spec.md 2.3 の PO・開発チーム・開発者の行: https://github.com/dyamada-jaki/agent-dev-slide/blob/dc2d8550e4a18ebcaabaec5f499c7a4e380d6f7c/docs/spec.md
 -->
 
 ---
@@ -190,9 +232,17 @@ PO と開発チームを分けているのは、1つの端末にまとめると�
 この3つの判断は人間が行い、それ以外の作業はエージェントが進めます。
 それぞれの判断がどのタイミングで来るかは、次の「Issue 1本の流れ」で説明します。
 
+【スクラムとの対比: 成果の確認・人間の判断】
+固定版テンプレートの事実: PR のレビュー、PO の受け入れ確認、人間の採用判断は別の作業です。開発者がレビューし、開発チームが推薦し、PO が仕様・受け入れ条件に照らして確認したあと、人間が採用を判断します。
+スクラムガイドの定義（印刷10〜11ページ）: スプリントレビューは、チームとステークホルダーが成果を検査し、今後の適応を考えるイベントです。
+この資料での比較: 成果を見て次の作業を調整する点に共通点を見ます。スプリントレビューを PR の採用承認と同一視せず、この画面の3つの判断をスクラムのイベント名に置き換えません。
+
 【出典】
 - README「Issue 1本の流れ」（「六角形が人間の判断です。それ以外はエージェントが進めます。」「人間がすることは、PO との議論と、④⑥⑧の3つの判断です。」）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md#issue-1本の流れ
 - workflow.md の PO・開発チーム・開発者の担当を表にした節（人間が判断するのは3つの場面: ④計画承認、⑥採用の判断、⑧改善の採否）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
+- workflow.md ステップ6（レビュー・推薦・受け入れ確認・採用判断の分担）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
+- スクラムガイド2020年11月版「スプリントレビュー」（印刷10〜11ページ）: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf#page=11
+- 比較の根拠: spec.md 2.3 の成果の確認・人間の判断の行: https://github.com/dyamada-jaki/agent-dev-slide/blob/dc2d8550e4a18ebcaabaec5f499c7a4e380d6f7c/docs/spec.md
 -->
 
 ---
@@ -203,18 +253,32 @@ PO と開発チームを分けているのは、1つの端末にまとめると�
   <tr><th>何を</th><td>人間が判断し、AI エージェントが仕様からふりかえりまで進める</td></tr>
   <tr><th>何で</th><td>Spec から今回作る部分を Issue に切り出し、Orca で作る</td></tr>
   <tr><th>誰が</th><td>PO・開発チーム・開発者の3つの役割と、判断を担う人間</td></tr>
+  <tr><th>考え方</th><td>仕様と記録を共有し、小さく作って確かめ、<br>改善を次へ反映する</td></tr>
 </table>
 
 <p class="next">次: Issue 1本の流れ ― 仕様から切り出した Issue が、どう進んでいくか</p>
 
 <!--
 【話すこと】
-ここまでをまとめると、何をするか・何を使うか・誰が担うか、の3点です。
+ここまでをまとめると、何をするか・何を使うか・誰が担うか、そしてスクラムから取り入れた考え方・役割・イベントです。
+仕様と記録を共有し、小さく作って確かめ、改善を次へ反映します。
+内容と優先順位の整理・進行の支援・成果の制作という分担、成果を確認して次の作業を調整すること、進め方のふりかえりも取り入れています。
 次は、Issue 1本が切り出されてから、計画・実装・レビュー・マージ・ふりかえりへ進む流れを見ていきます。
+
+【スクラムとの対比: 区切り・ふりかえり】
+固定版テンプレートの事実: 区切りでは、複数の Issue の成果をつなぎ、仕様で決めた目的の達成を利用者が確認します。ふりかえりは Issue ごとに行い、開発チームが記録から改善案を示し、人間が採否を決め、採用した改善を次へ反映します。
+スクラムガイドの定義（印刷8・11ページ）: スプリントは1か月以内の固定期間です。スプリントレトロスペクティブは、進め方を検査し、品質と効果の改善を計画するイベントです。
+この資料での比較: 区切りには複数の成果をつないで目的の達成を確かめる点、ふりかえりには進め方を見直して改善する点に共通点を見ます。区切りと固定期間のスプリントとの対応は定義しません。Issue ごとのふりかえりと人間による改善の採否も、スクラムのイベントとの違いとして残します。
+
+【話す時間の目安（見積もり）】
+導入は既存4分にスクラムの本文説明1分15秒と違いの代表例45秒を足して6分。更新前の見積もり5分30秒から、2枚目の役割・イベントと図の説明に30秒を追加しています。次章7〜14枚目の7分35秒と合わせて13分35秒、質疑1分25秒で15分を見込みます。実測ではなく、人間の次の通し確認で確かめます。比較ノートは参照用の詳細を含むため、全項目を読み上げる想定ではありません。
 
 【出典】
 - README 冒頭・役割と受け渡しの節・「Issue 1本の流れ」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
 - workflow.md 冒頭・3つの役割の節: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
+- workflow.md の区切りの確認を説明した節・ステップ8（ふりかえりと改善の反映）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
+- スクラムガイド2020年11月版「スプリント」（印刷8ページ）・「スプリントレトロスペクティブ」（印刷11ページ）: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf#page=9
+- 比較の根拠: spec.md 2.3 の区切り・ふりかえりの行（時間配分は本資料の発表用見積もり）: https://github.com/dyamada-jaki/agent-dev-slide/blob/dc2d8550e4a18ebcaabaec5f499c7a4e380d6f7c/docs/spec.md
 -->
 
 ---

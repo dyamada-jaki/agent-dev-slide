@@ -358,3 +358,16 @@ table.duty.loop tr.decide b { color: var(--gold-text); }
 .shots.phone.pair .shot .name { font-size: 20px; font-weight: 700; color: var(--indigo); }
 .shots.phone.pair img { flex: none; height: 165px; width: auto; max-height: none; }
 .shots.phone.pair .arrow { flex: none; align-self: center; width: 20px; padding: 0; color: var(--muted); font-size: 20px; }
+
+/* 全体像: 工程の列に役割・イベント・考え方をそろえる。2枚目専用 */
+section.process-overview .statement { font-size: 28px; line-height: 1.5; margin-bottom: 20px; }
+.overview-intro { font-size: 28px; color: var(--indigo); margin-bottom: 6px; }
+.overview-grid { display: grid; grid-template-columns: 120px 282px 402px 260px; column-gap: 24px; row-gap: 0; font-size: 25px; line-height: 1.4; }
+.overview-grid > div { min-width: 0; }
+.overview-grid .label { color: var(--muted); font-size: 22px; padding-top: 12px; }
+.overview-grid .phase { color: var(--indigo); font-weight: 700; font-size: 27px; border-top: 2px solid var(--indigo); padding: 10px 0 14px; white-space: nowrap; }
+.overview-grid .duty { border-top: 1px solid var(--rule); padding: 10px 0 6px; }
+.overview-grid b { color: var(--indigo); }
+.overview-grid .support { grid-column: 2 / 5; padding: 4px 0 4px; }
+.overview-grid .event { border-top: 1px solid var(--rule); padding: 10px 0 12px; }
+.overview-grid .pillar { border-top: 1px solid var(--rule); padding-top: 10px; }
