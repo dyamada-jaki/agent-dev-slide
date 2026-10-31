@@ -293,6 +293,15 @@ table.duty tr.decide td { font-size: 26px; }
 .actor-name { padding-bottom: 4px; }
 .actors .arrow { font-size: 24px; padding: 0 0 8px; align-self: flex-end; }
 .actors .meta { flex-basis: 100%; font-size: 20px; }
+/* 担当の行で人物にしない仕組み（GitHub・Orca の起動係）を文字の枠で示す。2行目は補足 */
+.actor-box {
+  border: 1px solid var(--rule);
+  padding: 4px 10px;
+  margin-bottom: 4px;
+  font-size: 22px;
+  line-height: 1.3;
+}
+.actor-box span { display: block; font-size: 18px; color: var(--muted); }
 /* 判断の行では挿絵と文字を同じ行に並べ、文字の側で折り返す */
 tr.decide .actors { flex-wrap: nowrap; align-items: center; }
 .decisions li + li { margin-top: 8px; }

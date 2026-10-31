@@ -402,8 +402,11 @@ overstrata-board の実例:
       <tr><th>担当</th><td><div class="actors">
         <div class="actor"><img class="actor-figure" src="assets/roles/po.png" alt="AI エージェントの PO を表す、開いた冊子を読むデフォルメした人物"><span class="actor-name">PO</span></div>
         <span class="arrow">→</span>
+        <div class="actor-box">GitHub<span>Issue と「開発可」</span></div>
+        <span class="arrow">→</span>
+        <div class="actor-box">Orca の起動係<span>定期実行で起動</span></div>
+        <span class="arrow">→</span>
         <div class="actor"><img class="actor-figure" src="assets/roles/team.png" alt="AI エージェントの開発チームを表す、板に付箋を順に貼るデフォルメした人物"><span class="actor-name">開発チーム</span></div>
-        <p class="meta">間で起動係（仕組み）が開発チームを開く</p>
       </div></td></tr>
       <tr><th>渡すもの</th><td>Issue（目的・受け入れ条件・<br>スコープ外）と「開発可」</td></tr>
       <tr><th>人間が<br>決めること</th><td>なし（着手の順番は PO が決める）</td></tr>
@@ -414,7 +417,7 @@ overstrata-board の実例:
     <ul>
       <li>範囲: 前提で示した条件を含む<br>受け入れ条件10項目</li>
       <li>スコープ外: 戦闘途中の駒の増減、<br>倒れた駒の表示（別の Issue）</li>
-      <li>#32 の完了後に「開発可」。<br>起動係が開発チームを開き、<br>19:45 に着手した</li>
+      <li>#32 の完了後に「開発可」。<br>Orca の起動係が開発チームを<br>起動し、19:45 に着手した</li>
     </ul>
     <p class="meta">#37 レポート 2・3章</p>
   </div>
@@ -423,13 +426,14 @@ overstrata-board の実例:
 <!--
 【話すこと】
 ② 切り出しでは、PO が spec.md から今すぐ作る部分を Issue にします。目的・受け入れ条件・スコープ外を書き、PR 1本で終わる大きさにします。
-着手してよい Issue に PO が「開発可」のラベルを付けると、③ 着手です。Orca の定期実行の「起動係」が、動いている開発チームがいないときだけ、開発チームを開きます。起動係は3つの役割に含めない仕組みなので、人物の絵は付けていません。
+PO は GitHub に Issue を書き、着手してよい Issue に「開発可」のラベルを付けます。担当の行の真ん中の GitHub の枠がこれです。
+すると ③ 着手です。Orca の定期実行の「起動係」が、「開発可」の Issue があり、動いている開発チームがいないときだけ、開発チームを起動します。担当の行の「Orca の起動係」の枠がこれです。GitHub と起動係は3つの役割に含めない仕組みなので、人物の絵ではなく文字の枠で示しています。
 ここでも人間の判断はありません。
 
 【実例】
 #37 の範囲は、前提のページで抜き出した条件を含む、受け入れ条件10項目です。
 戦闘の途中で駒を増やしたり減らしたりする機能（#33）や、倒れた駒の表示（#34）はスコープ外として別の Issue に分けています。
-前提の #32 が取り込まれた後、PO が「開発可」を付けました。起動係が「着手中」にして開発チームを開き、2026-10-23 の 19:45 に着手しています。
+前提の #32 が取り込まれた後、PO が GitHub の #37 に「開発可」を付けました。Orca の起動係が「着手中」にして開発チームを起動し、2026-10-23 の 19:45 に着手しています。
 
 【時間】約40秒（見積もり）
 
