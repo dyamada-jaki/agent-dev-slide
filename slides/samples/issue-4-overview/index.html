@@ -11,35 +11,39 @@
 h1,h2,p{margin:0}h1{position:absolute;left:64px;top:44px;color:var(--indigo);font-family:"Yu Mincho","YuMincho","Noto Serif CJK JP",serif;font-size:42px;line-height:1.35}
 .intent{position:absolute;left:66px;top:108px;font-size:23px;letter-spacing:.01em}.intent span{color:var(--indigo);font-weight:600}
 .actor{position:absolute;display:flex;align-items:center;gap:20px;border:1.5px solid var(--rule);background:var(--paper)}.actor img{object-fit:contain;flex-shrink:0}.actor h2{font-size:28px;line-height:1.4;color:var(--indigo)}.actor p{font-size:21px;line-height:1.65}.actor .tag{font-size:17px;color:var(--muted);font-weight:400;margin-left:10px}
-.human{left:76px;top:160px;width:460px;height:126px;padding:4px 20px;gap:22px}.human img{width:90px;height:116px}.human h2{color:var(--gold)}.human p{color:var(--gold)}
-.po{left:856px;top:160px;width:348px;height:126px;padding:4px 16px;gap:18px}.po img{width:88px;height:118px;object-fit:cover}.po p{font-size:20px}
-.dialogue{position:absolute;top:203px;left:558px;width:276px;text-align:center;font-size:20px;color:var(--muted);background:var(--paper)}
+.human{left:64px;top:160px;width:308px;height:126px;padding:4px 12px;gap:12px}.human img{width:74px;height:116px}.human p{font-size:19px}.human h2{color:var(--gold)}.human p{color:var(--gold)}
+.po{left:444px;top:160px;width:294px;height:126px;padding:4px 12px;gap:12px}.po img{width:70px;height:114px;object-fit:cover}.po p{font-size:19px}
+.dialogue{position:absolute;top:205px;left:380px;width:56px;text-align:center;font-size:18px;color:var(--muted);background:var(--paper)}.exchange{position:absolute;left:746px;width:176px;text-align:center;font-size:17px;color:var(--indigo);background:var(--paper)}.issue-transfer{top:187px}.result-transfer{top:234px}
 .judgment{position:absolute;top:316px;width:248px;text-align:center;color:var(--gold);font-size:22px;font-weight:600;background:var(--paper)}
 .j1{left:76px}.j2{left:656px}.j3{left:946px}
 .stage{position:absolute;top:352px;width:248px;height:145px;padding:12px 0;text-align:center;border:1.5px solid var(--indigo);background:var(--paper)}.stage h2{font-size:28px;color:var(--indigo);line-height:1.4}.stage p{font-size:19px;margin-top:10px;color:var(--ink);line-height:1.6}.stage .human-action{color:var(--gold)}.stage .sequence{line-height:1.25;margin-top:5px}.stage .down{color:var(--muted);font-size:18px}
 .s1{left:76px}.s2{left:366px}.s3{left:656px}.s4{left:946px}
-.developers{left:350px;top:510px;width:280px;height:110px;padding:6px 10px;gap:12px;text-align:left}.developers .portraits{height:88px;display:flex;justify-content:center;gap:0;flex-shrink:0}.developers img{width:46px;height:88px}.developers h2{font-size:23px;margin-top:5px}.developers .tag{font-size:17px}.developers p{font-size:18px}
-.team{left:690px;top:510px;width:360px;height:110px;padding:6px 12px;gap:14px}.team img{width:70px;height:96px}.team h2{font-size:25px}.team p{font-size:20px}
+.developers{left:430px;top:510px;width:420px;height:110px;padding:6px 24px;gap:26px;text-align:left}.developers .portraits{height:88px;display:flex;justify-content:center;gap:0;flex-shrink:0}.developers img{width:60px;height:88px}.developers h2{font-size:23px;margin-top:5px}.developers .tag{font-size:17px}.developers p{font-size:18px}
+.team{left:930px;top:160px;width:286px;height:126px;padding:4px 10px;gap:10px}.team img{width:64px;height:108px}.team h2{font-size:24px}.team p{font-size:19px}
 .return{position:absolute;left:318px;top:638px;width:648px;height:43px;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--indigo);background:var(--paper);font-size:21px;color:var(--indigo)}.handoff{position:absolute;left:1088px;top:543px;font-size:19px;line-height:1.6;color:var(--indigo)}
 .folio{position:absolute;bottom:19px;right:35px;color:var(--muted);font-size:16px}.wires{position:absolute;inset:0;width:1280px;height:720px}
 @page{size:1280px 720px;margin:0}@media print{html,body{width:1280px;height:720px;background:var(--paper);display:block}.slide{left:0;top:0;transform:none!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
 </style>
 </head>
 <body>
-<main class="slide" aria-label="開発プロセスの全体像。人間と AI の PO が対話し、計画から実装、成果の確認、ふりかえりへ進む。計画は開発者から開発チームを経て人間が承認。成果は AI の PO が受け入れ確認し、その後に人間が確認して採用を判断する。ふりかえりは開発チームが改善案を示し、人間が採否を判断する。結果を AI の PO へ申し送り、次の仕様・Issue へ反映する。">
+<main class="slide" aria-label="開発プロセスの全体像。人間と AI の PO が対話する。PO は Issue と着手条件を整え、開発チームは PO に成果の確認を依頼し、結果を申し送る。計画から実装、成果の確認、ふりかえりへ進む。計画は開発者から開発チームを経て人間が承認。成果は AI の PO が受け入れ確認し、その後に人間が確認して採用を判断する。ふりかえりは開発チームが改善案を示し、人間が採否を判断する。結果を AI の PO へ申し送り、次の仕様・Issue へ反映する。">
 <h1>人間と AI で進める開発の全体像</h1>
 <p class="intent">スクラムを実践できるよう、<span>役割とイベント</span>を取り入れる</p>
 <svg class="wires" viewBox="0 0 1280 720" aria-hidden="true">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 8 5 L 1 9" fill="none" stroke="#1F2B47" stroke-width="1.5"/></marker><marker id="soft-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 8 5 L 1 9" fill="none" stroke="#62626C" stroke-width="1.5"/></marker></defs>
 <!-- Human decisions are the only gold connections. -->
-<path d="M 382 286 V 301 M 200 313 V 301 H 1070 V 313 M 780 301 V 313" fill="none" stroke="#B8912F" stroke-width="2"/>
-<path d="M 536 238 H 856" fill="none" stroke="#62626C" stroke-width="1.5" marker-start="url(#soft-arrow)" marker-end="url(#soft-arrow)"/>
+<path d="M 218 286 V 301 M 200 313 V 301 H 1070 V 313 M 780 301 V 313" fill="none" stroke="#B8912F" stroke-width="2"/>
+<path d="M 372 238 H 444" fill="none" stroke="#62626C" stroke-width="1.5" marker-start="url(#soft-arrow)" marker-end="url(#soft-arrow)"/>
+<!-- Direct exchanges between PO and development coordinator; separate from the process flow. -->
+<g fill="none" stroke="#1F2B47" stroke-width="1.8" marker-end="url(#arrow)"><path d="M 738 218 H 930"/><path d="M 930 265 H 738"/></g>
 <!-- One development cycle, with the return path below the agents. -->
 <g fill="none" stroke="#1F2B47" stroke-width="2" marker-end="url(#arrow)"><path d="M 324 403 H 366"/><path d="M 614 403 H 656"/><path d="M 904 403 H 946"/><path d="M 1070 497 V 659 H 966"/><path d="M 318 659 H 200 V 497"/></g>
 <path d="M 490 497 V 510" fill="none" stroke="#D7D2C4" stroke-width="2"/>
 </svg>
-<div class="actor human"><img src="../../assets/human/rena-standing.png" alt="人間を表す、計画を確認するレナ1人の立ち姿"><div><h2>人間</h2><p>ステークホルダー・PO<br>作る方向と判断を担う</p></div></div>
-<p class="dialogue">対話して具体化する</p>
+<div class="actor human"><img src="../../assets/human/rena-standing.png" alt="人間を表す、計画を確認するレナ1人の立ち姿"><div><h2>人間</h2><p>ステークホルダーと<br>PO の役割を担う</p></div></div>
+<p class="dialogue">対話</p>
+<p class="exchange issue-transfer">Issue・受け入れ判定</p>
+<p class="exchange result-transfer">確認依頼・申し送り</p>
 <div class="actor po"><img src="../../assets/roles/po-distinct-v2.png" alt="AI の PO を表す、銀灰色の髪と丸眼鏡で冊子を抱えた人物"><div><h2>PO<span class="tag">AI</span></h2><p>仕様・Issue に整理<br>成果の受け入れ確認</p></div></div>
 <p class="judgment j1">計画を確認・承認</p><p class="judgment j2">成果を見て判断</p><p class="judgment j3">改善の採否を決める</p>
 <section class="stage s1"><h2>計画</h2><p>開発者 → 開発チーム<br>→ <span class="human-action">人間が承認</span></p></section>
@@ -47,7 +51,7 @@ h1,h2,p{margin:0}h1{position:absolute;left:64px;top:44px;color:var(--indigo);fon
 <section class="stage s3"><h2>成果の確認</h2><p class="sequence">AI の PO が受け入れ確認<br><span class="down">↓</span><br><span class="human-action">人間が確認・採用判断</span></p></section>
 <section class="stage s4"><h2>ふりかえり</h2><p>開発チームが改善案<br><span class="human-action">人間が採否を判断</span></p></section>
 <div class="actor developers"><div class="portraits"><img src="../../assets/roles/developer-1.png" alt="開発者1"><img src="../../assets/roles/developer-2.png" alt="開発者2"></div><div><h2>開発者<span class="tag">AI</span></h2><p>計画・実装<br>検証・レビュー</p></div></div>
-<div class="actor team"><img src="../../assets/roles/team.png" alt="開発チームを表す人物"><div><h2>開発チーム<span class="tag">AI</span></h2><p>全体の進行を主導<br>比較・完了処理を担う</p></div></div>
+<div class="actor team"><img src="../../assets/roles/team.png" alt="開発チームを表す人物"><div><h2>開発チーム<span class="tag">AI</span></h2><p>進行・比較を主導<br>完了処理を担う</p></div></div>
 <p class="handoff">結果を<br>申し送り</p><p class="return">AI の PO：結果を受け取り、次の仕様・Issue へ反映</p><p class="folio">2</p>
 </main>
 <script>
