@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>人間と AI で進める開発の全体像 — 構成検討用</title>
+<style>
+:root{--paper:#F6F4EE;--ink:#26262E;--indigo:#1F2B47;--muted:#62626C;--rule:#D7D2C4;--gold:#6E5418;--gold-line:#B8912F}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#242a35}body{display:grid;place-items:center;font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans JP",sans-serif;color:var(--ink)}
+.slide{position:absolute;left:50%;top:50%;width:1280px;height:720px;background:var(--paper);overflow:hidden;transform-origin:center}
+h1,h2,p{margin:0}h1{position:absolute;left:64px;top:44px;color:var(--indigo);font-family:"Yu Mincho","YuMincho","Noto Serif CJK JP",serif;font-size:42px;line-height:1.35}
+.intent{position:absolute;left:66px;top:108px;font-size:23px;letter-spacing:.01em}.intent span{color:var(--indigo);font-weight:600}
+.actor{position:absolute;display:flex;align-items:center;gap:20px}.actor img{object-fit:contain;flex-shrink:0}.actor h2{font-size:28px;line-height:1.4;color:var(--indigo)}.actor p{font-size:21px;line-height:1.65}.actor .tag{font-size:17px;color:var(--muted);font-weight:400;margin-left:10px}
+.human{left:74px;top:166px}.human img{width:165px;height:120px}.human h2{color:var(--gold)}.human p{color:var(--gold)}
+.po{left:866px;top:166px;gap:14px}.po img{width:88px;height:118px}.po p{font-size:20px}
+.dialogue{position:absolute;top:203px;left:616px;width:220px;text-align:center;font-size:20px;color:var(--muted);background:var(--paper)}
+.judgment{position:absolute;top:316px;width:248px;text-align:center;color:var(--gold);font-size:22px;font-weight:600;background:var(--paper)}
+.j1{left:76px}.j2{left:656px}.j3{left:946px}
+.stage{position:absolute;top:365px;width:248px;text-align:center}.stage h2{font-size:29px;color:var(--indigo);line-height:1.4}.stage p{font-size:20px;margin-top:10px;color:var(--muted);line-height:1.55}
+.s1{left:76px}.s2{left:366px}.s3{left:656px}.s4{left:946px}
+.developers{left:367px;top:482px;width:246px;display:block;text-align:center}.developers .portraits{height:89px;display:flex;justify-content:center;gap:4px}.developers img{width:70px;height:89px}.developers h2{font-size:23px;margin-top:5px}.developers .tag{font-size:17px}.developers p{font-size:18px}
+.team{left:727px;top:487px;gap:18px}.team img{width:83px;height:112px}.team h2{font-size:25px}.team p{font-size:20px}
+.return{position:absolute;left:494px;top:635px;padding:0 20px;background:var(--paper);font-size:22px;color:var(--indigo)}
+.folio{position:absolute;bottom:19px;right:35px;color:var(--muted);font-size:16px}.wires{position:absolute;inset:0;width:1280px;height:720px}
+@page{size:1280px 720px;margin:0}@media print{html,body{width:1280px;height:720px;background:var(--paper);display:block}.slide{left:0;top:0;transform:none!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<main class="slide" aria-label="開発プロセスの全体像。人間と AI の PO が対話し、計画から実装、成果の確認、ふりかえりへ進む。人間が計画・成果・改善を判断し、改善を次の開発へ反映する。">
+<h1>人間と AI で進める開発の全体像</h1>
+<p class="intent">スクラムを実践できるよう、<span>役割とイベント</span>を取り入れる</p>
+<svg class="wires" viewBox="0 0 1280 720" aria-hidden="true">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 8 5 L 1 9" fill="none" stroke="#1F2B47" stroke-width="1.5"/></marker><marker id="soft-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 8 5 L 1 9" fill="none" stroke="#62626C" stroke-width="1.5"/></marker></defs>
+<!-- Human decisions are the only gold connections. -->
+<path d="M 382 274 V 301 M 200 313 V 301 H 1070 V 313 M 780 301 V 313" fill="none" stroke="#B8912F" stroke-width="2"/>
+<path d="M 616 238 H 836" fill="none" stroke="#62626C" stroke-width="1.5" marker-start="url(#soft-arrow)" marker-end="url(#soft-arrow)"/>
+<!-- One development cycle, with the return path below the agents. -->
+<g fill="none" stroke="#1F2B47" stroke-width="2" marker-end="url(#arrow)"><path d="M 327 391 H 352"/><path d="M 617 391 H 642"/><path d="M 907 391 H 932"/><path d="M 1070 448 V 651 H 200 V 448"/></g>
+<path d="M 490 447 V 472" fill="none" stroke="#D7D2C4" stroke-width="2"/>
+</svg>
+<div class="actor human"><img src="../../assets/issue-5-codex/human-decisions.png" alt="対話するレナとヨナ"><div><h2>人間</h2><p>ステークホルダー・PO<br>作る方向と判断を担う</p></div></div>
+<p class="dialogue">対話して具体化する</p>
+<div class="actor po"><img src="../../assets/roles/po.png" alt="AI の PO を表す人物"><div><h2>PO<span class="tag">AI</span></h2><p>判断を支え、<br>仕様・Issue に整理</p></div></div>
+<p class="judgment j1">計画を確認・調整</p><p class="judgment j2">成果を見て判断</p><p class="judgment j3">改善の採否を決める</p>
+<section class="stage s1"><h2>計画</h2><p>何を、どう作るか</p></section>
+<section class="stage s2"><h2>実装・検証</h2><p>作って、確かめる</p></section>
+<section class="stage s3"><h2>成果の確認</h2><p>目的に合っているか</p></section>
+<section class="stage s4"><h2>ふりかえり</h2><p>進め方を改善する</p></section>
+<div class="actor developers"><div class="portraits"><img src="../../assets/roles/developer-1.png" alt="開発者1"><img src="../../assets/roles/developer-2.png" alt="開発者2"></div><h2>開発者<span class="tag">AI</span></h2><p>計画・実装・検証・レビュー</p></div>
+<div class="actor team"><img src="../../assets/roles/team.png" alt="開発チームを表す人物"><div><h2>開発チーム<span class="tag">AI</span></h2><p>全体の進行を主導<br>比較・完了処理を担う</p></div></div>
+<p class="return">改善を次の開発へ</p><p class="folio">2</p>
+</main>
+<script>
+const slide=document.querySelector('.slide');
+function fit(){slide.style.transform=`translate(-50%,-50%) scale(${Math.min(innerWidth/1280,innerHeight/720)})`;}
+addEventListener('resize',fit);fit();
+</script>
+</body>
+</html>

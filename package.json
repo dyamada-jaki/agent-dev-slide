@@ -14,7 +14,8 @@
     "build": "node scripts/build.mjs",
     "build:pdf": "node scripts/build.mjs --pdf",
     "check": "npm run lint && npm run check:links && npm run check:guides && npm run build && npm run build:pdf",
-    "build:samples": "node scripts/build-design-sample.mjs"
+    "build:samples": "node scripts/build-design-sample.mjs",
+    "build:overview": "node scripts/build-overview-sample.mjs"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "4.5.1",
