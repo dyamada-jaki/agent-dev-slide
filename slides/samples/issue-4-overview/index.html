@@ -10,16 +10,16 @@
 .slide{position:absolute;left:50%;top:50%;width:1280px;height:720px;background:var(--paper);overflow:hidden;transform-origin:center}
 h1,h2,p{margin:0}h1{position:absolute;left:64px;top:44px;color:var(--indigo);font-family:"Yu Mincho","YuMincho","Noto Serif CJK JP",serif;font-size:42px;line-height:1.35}
 .intent{position:absolute;left:66px;top:108px;font-size:23px;letter-spacing:.01em}.intent span{color:var(--indigo);font-weight:600}
-.actor{position:absolute;display:flex;align-items:center;gap:20px}.actor img{object-fit:contain;flex-shrink:0}.actor h2{font-size:28px;line-height:1.4;color:var(--indigo)}.actor p{font-size:21px;line-height:1.65}.actor .tag{font-size:17px;color:var(--muted);font-weight:400;margin-left:10px}
-.human{left:74px;top:166px}.human img{width:165px;height:120px}.human h2{color:var(--gold)}.human p{color:var(--gold)}
-.po{left:866px;top:166px;gap:14px}.po img{width:88px;height:118px}.po p{font-size:20px}
-.dialogue{position:absolute;top:203px;left:616px;width:220px;text-align:center;font-size:20px;color:var(--muted);background:var(--paper)}
+.actor{position:absolute;display:flex;align-items:center;gap:20px;border:1.5px solid var(--rule);background:var(--paper)}.actor img{object-fit:contain;flex-shrink:0}.actor h2{font-size:28px;line-height:1.4;color:var(--indigo)}.actor p{font-size:21px;line-height:1.65}.actor .tag{font-size:17px;color:var(--muted);font-weight:400;margin-left:10px}
+.human{left:76px;top:160px;width:460px;height:126px;padding:4px 20px;gap:22px}.human img{width:90px;height:116px}.human h2{color:var(--gold)}.human p{color:var(--gold)}
+.po{left:856px;top:160px;width:348px;height:126px;padding:4px 16px;gap:18px}.po img{width:88px;height:118px}.po p{font-size:20px}
+.dialogue{position:absolute;top:203px;left:558px;width:276px;text-align:center;font-size:20px;color:var(--muted);background:var(--paper)}
 .judgment{position:absolute;top:316px;width:248px;text-align:center;color:var(--gold);font-size:22px;font-weight:600;background:var(--paper)}
 .j1{left:76px}.j2{left:656px}.j3{left:946px}
-.stage{position:absolute;top:365px;width:248px;text-align:center}.stage h2{font-size:29px;color:var(--indigo);line-height:1.4}.stage p{font-size:20px;margin-top:10px;color:var(--muted);line-height:1.55}
+.stage{position:absolute;top:352px;width:248px;height:106px;padding:12px 0;text-align:center;border:1.5px solid var(--indigo);background:var(--paper)}.stage h2{font-size:29px;color:var(--indigo);line-height:1.4}.stage p{font-size:20px;margin-top:10px;color:var(--muted);line-height:1.55}
 .s1{left:76px}.s2{left:366px}.s3{left:656px}.s4{left:946px}
-.developers{left:367px;top:482px;width:246px;display:block;text-align:center}.developers .portraits{height:89px;display:flex;justify-content:center;gap:4px}.developers img{width:70px;height:89px}.developers h2{font-size:23px;margin-top:5px}.developers .tag{font-size:17px}.developers p{font-size:18px}
-.team{left:727px;top:487px;gap:18px}.team img{width:83px;height:112px}.team h2{font-size:25px}.team p{font-size:20px}
+.developers{left:350px;top:482px;width:280px;height:146px;padding:4px 0;display:block;text-align:center}.developers .portraits{height:76px;display:flex;justify-content:center;gap:4px}.developers img{width:64px;height:76px}.developers h2{font-size:23px;margin-top:5px}.developers .tag{font-size:17px}.developers p{font-size:18px}
+.team{left:690px;top:492px;width:360px;height:122px;padding:6px 12px;gap:14px}.team img{width:76px;height:106px}.team h2{font-size:25px}.team p{font-size:20px}
 .return{position:absolute;left:494px;top:635px;padding:0 20px;background:var(--paper);font-size:22px;color:var(--indigo)}
 .folio{position:absolute;bottom:19px;right:35px;color:var(--muted);font-size:16px}.wires{position:absolute;inset:0;width:1280px;height:720px}
 @page{size:1280px 720px;margin:0}@media print{html,body{width:1280px;height:720px;background:var(--paper);display:block}.slide{left:0;top:0;transform:none!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
@@ -32,13 +32,13 @@ h1,h2,p{margin:0}h1{position:absolute;left:64px;top:44px;color:var(--indigo);fon
 <svg class="wires" viewBox="0 0 1280 720" aria-hidden="true">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 8 5 L 1 9" fill="none" stroke="#1F2B47" stroke-width="1.5"/></marker><marker id="soft-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 8 5 L 1 9" fill="none" stroke="#62626C" stroke-width="1.5"/></marker></defs>
 <!-- Human decisions are the only gold connections. -->
-<path d="M 382 274 V 301 M 200 313 V 301 H 1070 V 313 M 780 301 V 313" fill="none" stroke="#B8912F" stroke-width="2"/>
-<path d="M 616 238 H 836" fill="none" stroke="#62626C" stroke-width="1.5" marker-start="url(#soft-arrow)" marker-end="url(#soft-arrow)"/>
+<path d="M 382 286 V 301 M 200 313 V 301 H 1070 V 313 M 780 301 V 313" fill="none" stroke="#B8912F" stroke-width="2"/>
+<path d="M 536 238 H 856" fill="none" stroke="#62626C" stroke-width="1.5" marker-start="url(#soft-arrow)" marker-end="url(#soft-arrow)"/>
 <!-- One development cycle, with the return path below the agents. -->
-<g fill="none" stroke="#1F2B47" stroke-width="2" marker-end="url(#arrow)"><path d="M 327 391 H 352"/><path d="M 617 391 H 642"/><path d="M 907 391 H 932"/><path d="M 1070 448 V 651 H 200 V 448"/></g>
-<path d="M 490 447 V 472" fill="none" stroke="#D7D2C4" stroke-width="2"/>
+<g fill="none" stroke="#1F2B47" stroke-width="2" marker-end="url(#arrow)"><path d="M 324 403 H 366"/><path d="M 614 403 H 656"/><path d="M 904 403 H 946"/><path d="M 1070 458 V 651 H 200 V 458"/></g>
+<path d="M 490 458 V 482" fill="none" stroke="#D7D2C4" stroke-width="2"/>
 </svg>
-<div class="actor human"><img src="../../assets/issue-5-codex/human-decisions.png" alt="対話するレナとヨナ"><div><h2>人間</h2><p>ステークホルダー・PO<br>作る方向と判断を担う</p></div></div>
+<div class="actor human"><img src="../../assets/human/rena-standing.png" alt="人間を表す、計画を確認するレナ1人の立ち姿"><div><h2>人間</h2><p>ステークホルダー・PO<br>作る方向と判断を担う</p></div></div>
 <p class="dialogue">対話して具体化する</p>
 <div class="actor po"><img src="../../assets/roles/po.png" alt="AI の PO を表す人物"><div><h2>PO<span class="tag">AI</span></h2><p>判断を支え、<br>仕様・Issue に整理</p></div></div>
 <p class="judgment j1">計画を確認・調整</p><p class="judgment j2">成果を見て判断</p><p class="judgment j3">改善の採否を決める</p>
