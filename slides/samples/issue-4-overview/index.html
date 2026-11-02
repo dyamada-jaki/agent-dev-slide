@@ -14,7 +14,7 @@ h1,h2,p{margin:0}h1{position:absolute;left:64px;top:44px;color:var(--indigo);fon
 .human{left:76px;top:144px;width:460px;height:118px;padding:4px 20px;gap:22px}.human img{width:90px;height:108px}.human h2{color:var(--gold)}.human p{color:var(--gold)}
 .po{left:856px;top:144px;width:348px;height:118px;padding:4px 16px;gap:18px}.po img{width:88px;height:110px;object-fit:cover}.po p{font-size:20px}
 .dialogue{position:absolute;top:187px;left:558px;width:276px;text-align:center;font-size:20px;color:var(--muted);background:var(--paper)}
-.stage{position:absolute;top:392px;width:248px;height:123px;padding:8px 0;text-align:center;border:1.5px solid var(--indigo);background:var(--paper)}.stage h2{font-size:28px;color:var(--indigo);line-height:1.4}.stage p{font-size:19px;margin-top:10px;color:var(--ink);line-height:1.6}.stage .human-action{color:var(--gold)}.stage .sequence{line-height:1.25;margin-top:5px}.stage .down{color:var(--muted);font-size:18px}
+.stage{position:absolute;top:392px;width:248px;height:123px;padding:8px 0;text-align:center;border:1.5px solid var(--indigo);background:var(--paper)}.stage h2{font-size:28px;color:var(--indigo);line-height:1.3}.stage p{font-size:19px;margin-top:4px;color:var(--ink);line-height:1.6}.stage .human-action{position:absolute;left:8px;right:8px;bottom:8px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--gold);background:#EDE2C5;border-bottom:2px solid var(--gold-line);font-size:20px;font-weight:700;line-height:1.2;white-space:nowrap}.stage .sequence{line-height:1.15;margin-top:4px}.stage .down{position:absolute;top:66px;left:0;right:0;color:var(--muted);font-size:14px;line-height:14px}
 .s1{left:76px}.s2{left:366px}.s3{left:656px}.s4{left:946px}
 .developers{left:76px;top:529px;width:280px;height:90px;padding:6px 10px;gap:12px;text-align:left}.developers .portraits{height:80px;display:flex;justify-content:center;gap:0;flex-shrink:0}.developers img{width:46px;height:80px}.developers h2{font-size:23px;margin-top:5px}.developers .tag{font-size:17px}.developers p{font-size:18px;line-height:1.35}
 .team{left:678px;top:630px;width:524px;height:48px;padding:0 12px;gap:14px;border:0}.team img{width:46px;height:48px}.team h2{font-size:21px;line-height:1.2}.team p{font-size:18px;line-height:1.3}.scope{position:absolute;left:52px;top:384px;width:1176px;height:250px;border:1.5px solid var(--rule)}.scope-label{position:absolute;left:76px;top:366px;padding:0 12px;background:var(--paper);font-size:19px;color:var(--indigo)}
@@ -46,10 +46,10 @@ h1,h2,p{margin:0}h1{position:absolute;left:64px;top:44px;color:var(--indigo);fon
 <p class="issue-write">作成・更新</p>
 <p class="issue-start">開発可で着手</p>
 <div class="actor po"><img src="../../assets/roles/po-distinct-v2.png" alt="AI の PO を表す、銀灰色の髪と丸眼鏡で冊子を抱えた人物"><div><h2>PO<span class="tag">AI</span></h2><p>仕様・Issue に整理<br>成果の受け入れ確認</p></div></div>
-<section class="stage s1"><h2>計画</h2><p>開発者 → 開発チーム<br>→ <span class="human-action">人間が承認</span></p></section>
+<section class="stage s1"><h2>計画</h2><p>開発者 → 開発チーム<br><strong class="human-action">人間が承認</strong></p></section>
 <section class="stage s2"><h2>実装・検証</h2><p>作って、確かめる<br>開発者どうしでレビュー</p></section>
-<section class="stage s3"><h2>成果の確認</h2><p class="sequence">AI の PO が受け入れ確認<br><span class="down">↓</span><br><span class="human-action">人間が確認・採用判断</span></p></section>
-<section class="stage s4"><h2>ふりかえり</h2><p>開発チームが改善案<br><span class="human-action">人間が採否を判断</span></p></section>
+<section class="stage s3"><h2>成果の確認</h2><p class="sequence">AI の PO が受け入れ確認<br><span class="down">↓</span><br><strong class="human-action">人間が確認・採用判断</strong></p></section>
+<section class="stage s4"><h2>ふりかえり</h2><p>開発チームが改善案<br><strong class="human-action">人間が採否を判断</strong></p></section>
 <div class="actor developers"><div class="portraits"><img src="../../assets/roles/developer-1.png" alt="開発者1"><img src="../../assets/roles/developer-2.png" alt="開発者2"></div><div><h2>開発者<span class="tag">AI</span></h2><p>計画・実装<br>検証・レビュー</p></div></div>
 <div class="actor team"><img src="../../assets/roles/team.png" alt="開発チームを表す人物"><div><h2>開発チーム<span class="tag">AI</span></h2><p>この流れ全体の進行・比較・完了を管理</p></div></div>
 <p class="handoff">結果を<br>申し送り</p><p class="return">AI の PO：結果を受け取り、次の仕様・Issue へ反映</p><p class="folio">2</p>
