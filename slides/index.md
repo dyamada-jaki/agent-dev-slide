@@ -17,40 +17,80 @@ description: agent-dev-template の開発プロセス
 
 <!--
 【話すこと】
-agent-dev-template というテンプレートが用意している開発プロセスの全体像を紹介します。
-最初の数分で「何をするプロセスか」と「登場する役割」を押さえ、そのあと Issue 1本の流れに進みます。
+agent-dev-template というテンプレートが用意している、人間と AI エージェントで進める開発プロセスを紹介します。
+この開発プロセスでは、スクラムを実践できるように、役割とイベントを可能な限り取り入れています。
+最初の数分で全体像と役割、スクラムのイベントとの対応を押さえ、そのあと実際の Issue 1本の流れに進みます。
+まず全体像を見てください。
+
+【時間】約20秒（見積もり）
 
 【出典】
+固定版の手順:
 - README 冒頭（題名「エージェント開発テンプレート（Spec × Issue × Orca）」）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
+設計者の意図:
+- 「スクラムを実践できるように、役割とイベントを可能な限り取り入れている」は、このテンプレートを作った人間が説明した設計意図（本プロジェクトの docs/spec.md 2.3「再計画で合意した説明の軸」）。元テンプレートの文書には書かれていない。
 -->
 
 ---
 
-## 何をするプロセスか
+<!-- _class: overview -->
 
-<p class="statement">人間が判断し、AI エージェント（Claude Code と Codex）が<br>仕様づくりから実装・レビュー・マージ・ふりかえりまでを進める</p>
+## 人間と AI で進める開発の全体像
 
-<div class="flow">
-  <div class="step">仕様づくり</div>
-  <div class="arrow">→</div>
-  <div class="step">実装</div>
-  <div class="arrow">→</div>
-  <div class="step">レビュー</div>
-  <div class="arrow">→</div>
-  <div class="step">マージ</div>
-  <div class="arrow">→</div>
-  <div class="step">ふりかえり</div>
+<div class="ov" role="figure" aria-label="開発プロセスの全体像。人間と AI の PO が対話し、PO が GitHub Issue を作成・更新する。開発可になった Issue をもとに開発チームが着手し、計画から実装、成果の確認、ふりかえりへ進む。計画は開発者から開発チームを経て人間が承認。成果は AI の PO が受け入れ確認し、その後に人間が確認して採用を判断する。ふりかえりは開発チームが改善案を示し、人間が採否を判断する。結果を AI の PO へ申し送り、次の仕様・Issue へ反映する。開発チームは枠で囲まれた開発の流れ全体を管理し、人間と AI の PO が上から関わる。">
+<p class="ov-intent">スクラムを実践できるよう、<span>役割とイベント</span>を取り入れる</p>
+<div class="ov-scope"></div>
+<svg class="ov-wires" viewBox="0 0 1280 720" aria-hidden="true">
+<defs><marker id="ov-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 8 5 L 1 9" fill="none" stroke="#1F2B47" stroke-width="1.5"/></marker><marker id="ov-soft-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 8 5 L 1 9" fill="none" stroke="#62626C" stroke-width="1.5"/></marker></defs>
+<path d="M 382 262 V 286 H 1030 V 262 M 382 286 H 52 V 384" fill="none" stroke="#1F2B47" stroke-width="1.8"/>
+<path d="M 536 222 H 856" fill="none" stroke="#62626C" stroke-width="1.5" marker-start="url(#ov-soft-arrow)" marker-end="url(#ov-soft-arrow)"/>
+<g fill="none" stroke="#1F2B47" stroke-width="1.8" marker-end="url(#ov-arrow)"><path d="M 1130 262 V 336 H 764"/><path d="M 516 336 H 200 V 392"/></g>
+<g fill="none" stroke="#1F2B47" stroke-width="2" marker-end="url(#ov-arrow)"><path d="M 324 443 H 366"/><path d="M 614 443 H 656"/><path d="M 904 443 H 946"/><path d="M 1070 515 V 544 H 1000 V 565"/><path d="M 1078 586 H 1250 V 370 H 740 V 357"/></g>
+<path d="M 200 515 V 522 H 490 V 515 M 216 522 V 529" fill="none" stroke="#D7D2C4" stroke-width="2"/>
+</svg>
+<div class="ov-actor ov-human"><img src="assets/human/rena-standing.png" alt="人間を表す、計画を確認するレナ1人の立ち姿"><div><h3>人間</h3><p>ステークホルダー・PO<br>作る方向と判断を担う</p></div></div>
+<p class="ov-dialogue">対話して具体化する</p>
+<p class="ov-issue">GitHub Issue</p>
+<p class="ov-issue-write">作成・更新</p>
+<p class="ov-issue-start">開発可で着手</p>
+<div class="ov-actor ov-po"><img src="assets/roles/po-distinct-v2.png" alt="AI の PO を表す、銀灰色の髪と丸眼鏡で冊子を抱えた人物"><div><h3>PO<span class="ov-tag">AI</span></h3><p>仕様・Issue に整理<br>成果の受け入れ確認</p></div></div>
+<div class="ov-stage ov-s1"><h3>計画</h3><p>開発者 → 開発チーム<br><strong class="ov-human-action">人間が承認</strong></p></div>
+<div class="ov-stage ov-s2"><h3>実装・検証</h3><p>作って、確かめる<br>開発者どうしでレビュー</p></div>
+<div class="ov-stage ov-s3"><h3>成果の確認</h3><p class="ov-sequence">AI の PO が受け入れ確認<br><span class="ov-down">↓</span><br><strong class="ov-human-action">人間が確認・採用判断</strong></p></div>
+<div class="ov-stage ov-s4"><h3>ふりかえり</h3><p>開発チームが改善案<br><strong class="ov-human-action">人間が採否を判断</strong></p></div>
+<div class="ov-actor ov-developers"><div class="ov-portraits"><img src="assets/roles/developer-1.png" alt="開発者1"><img src="assets/roles/developer-2.png" alt="開発者2"></div><div><h3>開発者<span class="ov-tag">AI</span></h3><p>計画・実装<br>検証・レビュー</p></div></div>
+<div class="ov-actor ov-team"><img src="assets/roles/team.png" alt="開発チームを表す人物"><div><h3>開発チーム<span class="ov-tag">AI</span></h3><p>この流れ全体の進行・比較・完了を管理</p></div></div>
+<p class="ov-handoff">結果を<br>申し送り</p><p class="ov-return">AI の PO：結果を受け取り、次の仕様・Issue へ反映</p>
 </div>
 
 <!--
 【話すこと】
-agent-dev-template は、このプロセスを一式そろえたテンプレート
-一言でいうと、人間が判断し、AI エージェントが仕様づくりからふりかえりまでを進めるためのプロセスです。
-エージェントは Claude Code と Codex の2種類を使います。
-各工程の細かい手順は、このあと「Issue 1本の流れ」で説明します。ここでは「人間は判断、エージェントは作業」という分担だけ覚えてください。
+画面のすべての文字や線は読み上げず、上段 → Issue → 4つの工程 → 金色 → 次への反映の順で案内します。
+まず上段です。人間が、AI の PO と何を作るかを相談します。PO はプロダクトオーナーの略です。このプロセスでは、人間も作る方向を判断し、AI の PO が仕様や作業へ具体化します。
+中央の GitHub Issue には、今回作る範囲と完成の条件をまとめます。着手できる状態（「開発可」）になったら開発が始まります。
+下の流れ全体を開発チームが管理します。開発者が計画を立て、実装・検証・レビューを進めます。成果は AI の PO も受け入れ確認します。
+この開発の流れで人間が判断するのが、金色の3か所です。計画を承認する。実物を確認して採用を決める。そして、ふりかえりで改善案を採るか決める。
+最後に、結果を AI の PO に申し送り、次の仕様や Issue に反映します。作って終わりにせず、次の開発につなげます。
+Issue の中身と、AI が作業する環境は次のページで説明します。
+
+話し方の注意: 「人間は3回クリックするだけ」「人間の関与はこの3か所だけ」とは説明しない。上段の相談や、必要な修正の判断もある。図は通常の流れをまとめたもので、採用・マージの実行内容の承認などの詳細は後の実例で示す。
+
+補足（聞かれたら）:
+- 計画の承認を通常 AI の PO に依頼する手順はない。仕様の不足が見つかった場合は PO に戻して人間と決め直す。承認した計画と確認事項の決着は記録に残り、PO が成果の受け入れ確認のときに読む。
+- PO の受け入れ確認で差し戻しとなった場合は、修正・レビューを経て再確認する。図は通常の進行だけを示す。
+- 通常は「開発可」の Issue を、Orca の定期実行（起動係）が見つけて開発チームを起動する。Issue を作っただけで、未確定の課題まで実装が始まるわけではない。
+- ふりかえりの全結果を PO が事前に承認するわけではない。改善の採否は人間が判断し、仕様や Issue の案を PO に申し送る。
+
+【時間】約90秒（見積もり）
 
 【出典】
-- README 冒頭「人間が判断し、AI エージェント（Claude Code と Codex）が仕様づくりから実装・レビュー・マージ・ふりかえりまでを進めるための、プロセス一式のテンプレートです。」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
+固定版の手順:
+- workflow.md の PO・開発チーム・開発者の担当を表にした節（PO は Issue を切って「開発可」を付け、推薦を受け入れ確認する。開発チームは実装・レビューをさせ、PO の確認を経て人間に報告し、ふりかえりを行う。人間が判断するのは④計画承認・⑥PO の受け入れ確認のあとの採用判断・⑧改善の採否）、ステップ4・6・8: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
+- dual-implement の計画提示と PO への受け入れ依頼: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/.claude/skills/dual-implement/SKILL.md
+- accept-review（PO の受け入れ確認と判定の返信）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/.claude/skills/accept-review/SKILL.md
+- finish-issue（ふりかえり、改善の採否、PO への申し送り）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/.claude/skills/finish-issue/SKILL.md
+設計者の意図と当てはめ（解釈）:
+- 上の一文と、人間がステークホルダーと PO の役割を担うという説明は、本プロジェクトの docs/spec.md 2.3（人間の説明と合意）による。図の構成は本プロジェクトの見本 slides/samples/issue-4-overview（採用版 ae2f691）。
 -->
 
 ---
@@ -90,12 +130,16 @@ agent-dev-template は、このプロセスを一式そろえたテンプレー�
 
 <!--
 【話すこと】
-Spec から今回作る部分を Issue に切り出し、Orca で1本ずつ作る
+全体図の中央にあった GitHub Issue を起点に、この流れで共有する情報と、AI が作業する環境を、Spec・Issue・Orca の3つに分けて説明します。
 Spec は、作るもの全体について「何を・なぜ・どこまで」作るかを書いた仕様で、まだ作らない部分も書いておけます。
 Issue は、その仕様から今回作る部分だけを取り出した作業の単位です。今回実装する作業の目的・範囲（やらないこと）・受け入れ条件を書きます。1〜3本ずつ出して、終わったら次を切ります。
 Orca は、複数の AI エージェントの端末と worktree をまとめて扱うアプリで、Issue を1本ずつ実装する作業環境になります。
+では、この流れを誰が担うのかを次のページで見ます。
+
+【時間】約40秒（見積もり）
 
 【出典】
+固定版の手順:
 - workflow.md 冒頭（spec.md は作るもの全体の仕様、Issue はそこから今回作る部分だけを取り出したもの、Orca で1本ずつ実装）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
 - workflow.md ステップ2「Issueを切り出す」（Issue に書くこと: 目的、受け入れ条件、スコープ外）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
 - README 冒頭（Orca の説明）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
@@ -103,118 +147,143 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
 
 ---
 
-## 3つの役割（どれも AI エージェント）
+## 人間と AI の役割分担
 
-<div class="columns roles">
-  <div class="column">
-    <div class="role-head">
-      <img class="role-figure" src="assets/roles/po.png" alt="AI エージェントの PO を表す、開いた冊子を読むデフォルメした人物">
-      <h3>PO</h3>
+<div class="role-map">
+  <div class="role-row">
+    <div class="role-box human">
+      <img class="role-portrait tall" src="assets/human/rena-standing.png" alt="人間を表す、計画を確認するレナ1人の立ち姿">
+      <div>
+        <h3>人間</h3>
+        <p>ステークホルダーと PO の役割<br>作る方向・優先順位・<br>採用を判断する</p>
+      </div>
     </div>
-    <ul>
-      <li>人間と議論して<br>spec.md と Issue を書く</li>
-      <li>着手してよい Issue に<br>「開発可」を付ける</li>
-      <li>推薦された PR を<br>受け入れ確認する<br>（コードは見ない）</li>
-    </ul>
-    <p class="meta">長く使う</p>
-  </div>
-  <div class="column">
-    <div class="role-head">
-      <img class="role-figure" src="assets/roles/team.png" alt="AI エージェントの開発チームを表す、板に付箋を順に貼るデフォルメした人物">
-      <h3>開発チーム</h3>
+    <p class="role-dialogue">⇄<br>対話して<br>具体化する</p>
+    <div class="role-box">
+      <img class="role-portrait" src="assets/roles/po-distinct-v2.png" alt="AI の PO を表す、銀灰色の髪と丸眼鏡で冊子を抱えた人物">
+      <div>
+        <h3>PO<span class="role-tag">AI</span></h3>
+        <p>人間との対話を<br>仕様・Issue に整理する<br>成果を受け入れ確認する</p>
+      </div>
     </div>
-    <ul>
-      <li>Issue 1本を<br>最後まで進める</li>
-      <li>開発者2人の実装を比べ、<br>採る PR を推薦する</li>
-      <li>後片付けとふりかえり</li>
-    </ul>
-    <p class="meta">Issue ごとに開いて閉じる</p>
   </div>
-  <div class="column">
-    <div class="role-head">
-      <img class="role-figure" src="assets/roles/developer-1.png" alt="AI エージェントの開発者を表す、ノートパソコンで作業するデフォルメした人物（1人目）">
-      <img class="role-figure" src="assets/roles/developer-2.png" alt="AI エージェントの開発者を表す、ノートパソコンで作業するデフォルメした人物（2人目）">
-      <h3>開発者</h3>
+  <div class="role-row">
+    <div class="role-box">
+      <img class="role-portrait" src="assets/roles/team.png" alt="AI の開発チームを表す、板に付箋を順に貼るデフォルメした人物">
+      <div>
+        <h3>開発チーム<span class="role-tag">AI</span></h3>
+        <p>Issue ごとの進行・<br>実装案の比較・<br>完了処理を管理する</p>
+      </div>
     </div>
-    <ul>
-      <li>自分の worktree で<br>計画・実装・PR・レビュー</li>
-      <li>Claude Code と Codex が<br>1人ずつ</li>
-    </ul>
-    <p class="meta">実装からマージまで</p>
+    <div class="role-box">
+      <div class="role-pair">
+        <img class="role-portrait" src="assets/roles/developer-1.png" alt="AI の開発者を表す、ノートパソコンで作業するデフォルメした人物（1人目）">
+        <img class="role-portrait" src="assets/roles/developer-2.png" alt="AI の開発者を表す、ノートパソコンで作業するデフォルメした人物（2人目）">
+      </div>
+      <div>
+        <h3>開発者<span class="role-tag">AI</span></h3>
+        <p>計画・実装・検証・<br>相互レビュー</p>
+      </div>
+    </div>
   </div>
+  <p class="role-note">AI は PO・開発チーム・開発者の3つの役割。独立したスクラムマスターは置いていない</p>
 </div>
 
 <!--
 【話すこと】
-人間はこの3つの役割に含めない（次のページ）
-絵の人物は AI エージェントの3つの役割を表します。次のページの2人は人間です。
-エージェントは3つの役割に分かれます。
-PO は人間と議論して仕様と Issue を書き、開発チームが推薦する PR を受け入れ条件・仕様・使う人の目で確かめます。コードは見ません。
-開発チームは Issue 1本を最後まで進めます。開発者2人に同じ Issue を別々に実装させ、互いにレビューさせて、どちらを採るかを推薦します。
-開発者は自分の worktree で計画・実装・PR・レビューを行います。
-PO と開発チームを分けているのは、1つの端末にまとめると文脈がすぐあふれ、開発中にプロダクトの検討を進めにくくなるためです。
-（開発チームを自動で開く「起動係」という仕組みもありますが、3つの役割には含めないので後のパートで扱います。）
+全体図の登場人物を、誰が何を担うかで整理します。工程の順序は前のページで見たので、ここでは担当だけを見ます。
+上段は人間と AI の PO です。人間はステークホルダーとして成果を確かめ、PO の役割も担って、作る方向・優先順位・採用を判断します。AI の PO は、人間との対話を仕様と Issue に整理し、開発チームが推薦した成果を、受け入れ条件・仕様・使う人の目で確認します。コードは見ません。
+下段は開発を進める AI です。開発チームは Issue 1本を最後まで進め、開発者2人の実装案を比べ、完了処理とふりかえりを行います。開発者は自分の worktree で計画・実装・検証を行い、互いの PR をレビューします。Claude Code と Codex が1人ずつです。
+AI は PO・開発チーム・開発者の3つの役割に分かれます。PO と開発チームを分けているのは、1つの端末にまとめると文脈がすぐあふれ、開発中にプロダクトの検討を進めにくくなるためです。
+スクラムには進め方を支えるスクラムマスターという役割がありますが、このプロセスには独立した役割として置いていません。
+では、この役割がスクラムのどのイベントで、何を確かめるのかを次のページで見ます。
+
+補足（聞かれたら）: 設計者の認識では、開発チームは進行を主導する性格が強いため、スクラムマスターとは別の役割として「開発チーム」と名付けた。強いて言えば、開発チームの働きにスクラムマスターの要素も含まれる、という程度の関係で、開発チームとスクラムマスターを同じ役割としては扱わない。
+（開発チームを自動で開く「起動係」という仕組みもありますが、3つの役割には含めない仕組みなので後のパートで扱います。）
+
+【時間】約60秒（見積もり）
 
 【出典】
+固定版の手順:
 - workflow.md の PO・開発チーム・開発者の担当を表にした節: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
 - README の PO・開発チーム・開発者の役割と受け渡しを説明した節（役割の表、PO と開発チームを分ける理由）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
+スクラムの定義:
+- スクラムガイド2020年11月版 日本語訳「スクラムチーム」（スクラムマスター・プロダクトオーナー・開発者の説明責任）: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf
+設計者の意図と当てはめ（解釈）:
+- 人間がステークホルダーと PO の役割を担うこと、独立したスクラムマスターを置いていないこと、開発チームとスクラムマスターの関係は、本プロジェクトの docs/spec.md 2.3（人間の説明と合意）による。元テンプレートが明記した対応ではない。
 -->
 
 ---
 
-## 人間は3つの役割に含めず、<br>判断を担う
+## スクラムのイベントを開発の流れに取り入れる
 
-<div class="split">
-  <div class="person">
-    <h3>人間</h3>
-    <ul>
-      <li>PO と議論する</li>
-      <li>3つの判断をする</li>
-    </ul>
-    <p class="meta">役割には数えない</p>
-    <img class="people" src="assets/issue-5-codex/human-decisions.png" alt="人間の判断を表す、資料を見比べるデフォルメしたレナとヨナ">
-  </div>
-  <div class="arrow">→</div>
-  <div class="judgements">
-    <div class="judgement">1. 計画を承認する</div>
-    <div class="judgement">2. 採用する PR を決める</div>
-    <div class="judgement">3. 改善の採否を決める</div>
-  </div>
-</div>
+<p class="event-lead">固定期間は設けず、Issue ごとにスプリントの流れを踏襲する</p>
 
-<!--
-【話すこと】
-3つの判断は人間が行う。それ以外はエージェントが進める
-人間は3つの役割のどれにも含めません。
-人間がすることは、PO との議論と、3つの判断です。実装前の計画を承認する、採用する PR を決める、ふりかえりで出た改善の採否を決める。
-この3つの判断は人間が行い、それ以外の作業はエージェントが進めます。
-それぞれの判断がどのタイミングで来るかは、次の「Issue 1本の流れ」で説明します。
-
-【出典】
-- README「Issue 1本の流れ」（「六角形が人間の判断です。それ以外はエージェントが進めます。」「人間がすることは、PO との議論と、④⑥⑧の3つの判断です。」）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md#issue-1本の流れ
-- workflow.md の PO・開発チーム・開発者の担当を表にした節（人間が判断するのは3つの場面: ④計画承認、⑥採用の判断、⑧改善の採否）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
--->
-
----
-
-## ここまでのまとめ
-
-<table class="recap">
-  <tr><th>何を</th><td>人間が判断し、AI エージェントが仕様からふりかえりまで進める</td></tr>
-  <tr><th>何で</th><td>Spec から今回作る部分を Issue に切り出し、Orca で作る</td></tr>
-  <tr><th>誰が</th><td>PO・開発チーム・開発者の3つの役割と、判断を担う人間</td></tr>
+<table class="events">
+  <tr><th></th><th>このプロセスで行うこと</th><th>次へ進むために決めること</th></tr>
+  <tr><th>スプリント<br>プランニング</th><td>開発者の計画を開発チームが示し、<br><strong class="judge">人間が作りたいものと照らして確認・調整する</strong></td><td>何をどう作るかを合意して着手する</td></tr>
+  <tr><th>スプリント<br>レビュー</th><td>AI の PO の受け入れ確認のあと、<br><strong class="judge">人間が成果を確かめ、目的に合うかを判断する</strong></td><td>採用するか、修正や仕様の見直しが必要かを決める</td></tr>
+  <tr><th>スプリント<br>レトロスペクティブ</th><td>開発チームが進め方をふりかえり、<br><strong class="judge">人間が改善案の採否を判断する</strong></td><td>採用した改善を次の進め方へ反映する</td></tr>
 </table>
 
-<p class="next">次: Issue 1本の流れ ― 仕様から切り出した Issue が、どう進んでいくか</p>
+<p class="event-note">デイリースクラムは取り入れていない。開発者どうしのコードレビューは実装・検証の作業で、成果の確認とは別</p>
 
 <!--
 【話すこと】
-ここまでをまとめると、何をするか・何を使うか・誰が担うか、の3点です。
-次は、Issue 1本が切り出されてから、計画・実装・レビュー・マージ・ふりかえりへ進む流れを見ていきます。
+全体図の金色の3か所を、スクラムのイベントの名前で見直します。ここで見るのは「何を確かめ、次に何を決めるか」です。
+このプロセスには、スプリントのような固定の期間はありません。その代わり、Issue 1本ごとに、計画して作り、成果を確かめ、進め方をふりかえる、というスプリントの流れを踏襲しています。
+スプリントプランニングに当たるのが、計画の確認です。開発者が立てた計画を開発チームが示し、人間が作りたいものと照らして確認・調整します。何をどう作るかを合意してから着手します。計画の承認を AI の PO に頼む手順はありません。
+スプリントレビューに当たるのが、成果の確認です。まず AI の PO が受け入れ条件や仕様と照らして受け入れ確認し、そのあと人間が実物を確かめて、目的に合うかを判断します。採用するか、修正や仕様の見直しが必要かを決めます。
+スプリントレトロスペクティブに当たるのが、ふりかえりです。開発チームが進め方をふりかえって改善案を出し、人間が採否を判断します。採用した改善は次の進め方へ反映し、仕様についての発見は AI の PO に申し送ります。
+なお、毎日の進み具合を確かめるデイリースクラムは取り入れていません。
+もう1つ、開発者どうしのコードレビューは、実装・検証の中で行う作業です。人間が成果を確かめるスプリントレビューとは別のものです。
+
+補足（聞かれたら）: 3つのイベントの対応は、このプロセスでの実践をスクラムの言葉で説明したもの。元テンプレートの手順名（④計画承認・⑥レビュー・⑧ふりかえり）とスクラムのイベントを、同じ定義として扱っているわけではない。
+
+【時間】約60秒（見積もり）
 
 【出典】
-- README 冒頭・役割と受け渡しの節・「Issue 1本の流れ」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
-- workflow.md 冒頭・3つの役割の節: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
+固定版の手順:
+- workflow.md ステップ4「計画を承認する」（開発チームが計画を示し、人間が Issue と見比べて確認・承認する。仕様の穴は PO に戻す）・ステップ6「レビュー」（PO の受け入れ確認の後に人間に報告）・ステップ8「ふりかえりと還流」（改善案の採否を人間に確認し、承認された改善を反映）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
+- workflow.md の PO・開発チーム・開発者の担当を表にした節（人間が判断するのは④計画承認・⑥PO の受け入れ確認のあとの採用判断・⑧改善の採否）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
+スクラムの定義:
+- スクラムガイド2020年11月版 日本語訳「スクラムイベント」（スプリント、スプリントプランニング、デイリースクラム、スプリントレビュー、スプリントレトロスペクティブ）: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf
+設計者の意図と当てはめ（解釈）:
+- 固定期間を設けずスプリントの流れを踏襲すること、人間による成果確認をスプリントレビューの実践と捉えること、デイリースクラムを取り入れていないことは、本プロジェクトの docs/spec.md 2.3（人間の説明と合意）による。
+-->
+
+---
+
+## 共有し、確かめ、次へ反映する
+
+<p class="stage-label">スクラムの三本柱と、このプロセスの活動</p>
+
+<table class="recap">
+  <tr><th>透明性</th><td>仕様・Issue・記録を共有する</td></tr>
+  <tr><th>検査</th><td>計画・成果・進め方を確かめる</td></tr>
+  <tr><th>適応</th><td>判断を仕様・作業・手順へ反映する</td></tr>
+</table>
+
+<p class="next">次: 実際の Issue で、課題と完成条件から見ていく</p>
+
+<!--
+【話すこと】
+ここまでの活動を、スクラムの三本柱である透明性・検査・適応でまとめます。
+透明性: 仕様（Spec）・Issue・記録を GitHub に置いて、人間と AI が同じものを見ます。
+検査: 計画・成果・進め方を、プランニング・レビュー・レトロスペクティブで確かめます。
+適応: そこで決めたことを、仕様・作業・手順へ反映して次の開発につなげます。
+三本柱は、ここまで見た役割とイベントの活動をまとめたもので、それだけで役割やイベントの説明の代わりになるものではありません。
+では、この流れが実際の判断でどう動くかを、実際の Issue で、課題と完成条件から見ていきます。
+
+【時間】約30秒（見積もり）
+
+【出典】
+スクラムの定義:
+- スクラムガイド2020年11月版 日本語訳「スクラムの理論」（透明性・検査・適応）: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf
+固定版の手順:
+- workflow.md 冒頭・ステップ4・6・8（仕様・Issue・レポートに残す、計画・成果・改善を確かめる、ふりかえりで分かったことを戻す先へ反映する）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
+設計者の意図と当てはめ（解釈）:
+- 3つの活動と三本柱の対応は、本プロジェクトの docs/spec.md 2.3 で人間と合意した説明。元テンプレートが明記した対応ではない。
 -->
 
 ---
