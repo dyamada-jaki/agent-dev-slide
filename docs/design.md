@@ -48,7 +48,7 @@ Issue #5 で採用した見本（`e0d645a` の [見本原稿](../slides/design-c
 | 型 | 書き方 | 使っているページ |
 |---|---|---|
 | 表紙 | `<!-- _class: cover -->` と `# 題名`、`<p class="keywords">`・`<p class="subtitle">` | 1 |
-| 本文 | `## 見出し` に続けて本文。特別なクラスは不要 | 2〜14 |
+| 本文 | `## 見出し` に続けて本文。特別なクラスは不要 | 3〜14 |
 | 全体図 | `<!-- _class: overview -->` と `## 見出し`、続けて `<div class="ov">` の中に絶対位置の部品（`ov-` で始まるクラス）と線の `<svg class="ov-wires">`。下の「全体図」 | 2 |
 | 3列 | `<div class="columns">` の中に `<div class="column">`（`<h3>`・`<ul>`・`<p class="meta">`）。順序を示すときだけ列の間に `<div class="arrow">→</div>` を置く。参照先 `.meta` は列の下端にそろう | 3（矢印あり） |
 | 役割分担 | `<div class="role-map">` に `<div class="role-row">` を2つ（上段に人間・`<p class="role-dialogue">`・PO、下段に開発チーム・開発者）と `<p class="role-note">`。各役割は `<div class="role-box">`（人間は `role-box human`）に `<img class="role-portrait">` と、`<h3>`（AI の役割は `<span class="role-tag">AI</span>`）・`<p>` を包んだ `<div>`。下の「役割の人物」 | 4 |
