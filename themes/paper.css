@@ -358,3 +358,465 @@ table.duty.loop tr.decide b { color: var(--gold-text); }
 .shots.phone.pair .shot .name { font-size: 20px; font-weight: 700; color: var(--indigo); }
 .shots.phone.pair img { flex: none; height: 165px; width: auto; max-height: none; }
 .shots.phone.pair .arrow { flex: none; align-self: center; width: 20px; padding: 0; color: var(--muted); font-size: 20px; }
+
+
+/* 導入2枚目: 採用した全体図の1280×720の座標と構図を維持する。
+ * 見本 slides/samples/issue-4-overview/index.html の図。既存の工程ページへ影響させない。
+ */
+section.overview-page {
+  padding: 0;
+}
+section.overview-page::after {
+  display: none;
+}
+.overview {
+  position: absolute;
+  inset: 0;
+  width: 1280px;
+  height: 720px;
+  overflow: hidden;
+  background: var(--paper);
+  word-break: normal;
+}
+.overview, .overview * {
+  box-sizing: border-box;
+}
+.overview h1, .overview h2 {
+  padding: 0;
+  border: 0;
+  letter-spacing: normal;
+}
+.overview img {
+  display: block;
+  margin: 0;
+  border: 0;
+  background: transparent;
+}
+.overview h1, .overview h2, .overview p {
+  margin: 0;
+}
+.overview h1 {
+  position: absolute;
+  left: 64px;
+  top: 44px;
+  color: var(--indigo);
+  font-family: "Yu Mincho","YuMincho","Noto Serif CJK JP",serif;
+  font-size: 42px;
+  line-height: 1.35;
+}
+.overview .intent {
+  position: absolute;
+  left: 66px;
+  top: 108px;
+  font-size: 23px;
+  letter-spacing: .01em;
+}
+.overview .intent span {
+  color: var(--indigo);
+  font-weight: 600;
+}
+.overview .actor {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1.5px solid var(--rule);
+  background: var(--paper);
+}
+.overview .actor img {
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.overview .actor h2 {
+  font-size: 28px;
+  line-height: 1.4;
+  color: var(--indigo);
+}
+.overview .actor p {
+  font-size: 21px;
+  line-height: 1.65;
+}
+.overview .actor .tag {
+  font-size: 17px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 10px;
+}
+.overview .human {
+  left: 76px;
+  top: 144px;
+  width: 460px;
+  height: 118px;
+  padding: 4px 20px;
+  gap: 22px;
+}
+.overview .human img {
+  width: 90px;
+  height: 108px;
+}
+.overview .human h2 {
+  color: var(--gold-text);
+}
+.overview .human p {
+  color: var(--gold-text);
+}
+.overview .po {
+  left: 856px;
+  top: 144px;
+  width: 348px;
+  height: 118px;
+  padding: 4px 16px;
+  gap: 18px;
+}
+.overview .po img {
+  width: 88px;
+  height: 110px;
+  object-fit: cover;
+}
+.overview .po p {
+  font-size: 20px;
+}
+.overview .dialogue {
+  position: absolute;
+  top: 187px;
+  left: 558px;
+  width: 276px;
+  text-align: center;
+  font-size: 20px;
+  color: var(--muted);
+  background: var(--paper);
+}
+.overview .overview-step {
+  position: absolute;
+  top: 392px;
+  width: 248px;
+  height: 123px;
+  padding: 8px 0;
+  text-align: center;
+  border: 1.5px solid var(--indigo);
+  background: var(--paper);
+}
+.overview .overview-step h2 {
+  font-size: 28px;
+  color: var(--indigo);
+  line-height: 1.3;
+}
+.overview .overview-step p {
+  font-size: 19px;
+  margin-top: 4px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.overview .overview-step .human-action {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-text);
+  background: #EDE2C5;
+  border-bottom: 2px solid var(--gold-rule);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.overview .overview-step .sequence {
+  line-height: 1.15;
+  margin-top: 4px;
+}
+.overview .overview-step .down {
+  position: absolute;
+  top: 66px;
+  left: 0;
+  right: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 14px;
+}
+.overview .s1 {
+  left: 76px;
+}
+.overview .s2 {
+  left: 366px;
+}
+.overview .s3 {
+  left: 656px;
+}
+.overview .s4 {
+  left: 946px;
+}
+.overview .developers {
+  left: 76px;
+  top: 529px;
+  width: 280px;
+  height: 90px;
+  padding: 6px 10px;
+  gap: 12px;
+  text-align: left;
+}
+.overview .developers .portraits {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+.overview .developers img {
+  width: 46px;
+  height: 80px;
+}
+.overview .developers h2 {
+  font-size: 23px;
+  margin-top: 5px;
+}
+.overview .developers .tag {
+  font-size: 17px;
+}
+.overview .developers p {
+  font-size: 18px;
+  line-height: 1.35;
+}
+.overview .team {
+  left: 678px;
+  top: 630px;
+  width: 524px;
+  height: 48px;
+  padding: 0 12px;
+  gap: 14px;
+  border: 0;
+}
+.overview .team img {
+  width: 46px;
+  height: 48px;
+}
+.overview .team h2 {
+  font-size: 21px;
+  line-height: 1.2;
+}
+.overview .team p {
+  font-size: 18px;
+  line-height: 1.3;
+}
+.overview .scope {
+  position: absolute;
+  left: 52px;
+  top: 384px;
+  width: 1176px;
+  height: 250px;
+  border: 1.5px solid var(--rule);
+}
+.overview .scope-label {
+  position: absolute;
+  left: 76px;
+  top: 366px;
+  padding: 0 12px;
+  background: var(--paper);
+  font-size: 19px;
+  color: var(--indigo);
+}
+.overview .return {
+  position: absolute;
+  left: 430px;
+  top: 565px;
+  width: 648px;
+  height: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--indigo);
+  background: var(--paper);
+  font-size: 21px;
+  color: var(--indigo);
+}
+.overview .handoff {
+  position: absolute;
+  left: 1088px;
+  top: 520px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--indigo);
+}
+.overview .issue {
+  position: absolute;
+  left: 516px;
+  top: 315px;
+  width: 248px;
+  height: 42px;
+  border: 1.5px solid var(--indigo);
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--indigo);
+}
+.overview .issue-write {
+  position: absolute;
+  left: 1144px;
+  top: 280px;
+  font-size: 18px;
+  color: var(--indigo);
+}
+.overview .issue-start {
+  position: absolute;
+  left: 278px;
+  top: 346px;
+  width: 160px;
+  text-align: center;
+  font-size: 18px;
+  color: var(--indigo);
+}
+.overview .folio {
+  position: absolute;
+  bottom: 19px;
+  right: 35px;
+  color: var(--muted);
+  font-size: 16px;
+}
+.overview .wires {
+  position: absolute;
+  inset: 0;
+  width: 1280px;
+  height: 720px;
+}
+
+/* 導入4枚目: 上段は人間とPOの対話、下段は進行と制作の担当。 */
+.responsibilities {
+  display: grid;
+  gap: 24px;
+}
+.role-pair, .role-workers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  position: relative;
+}
+.responsibility {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border: 1px solid var(--rule);
+  min-height: 170px;
+  min-width: 0;
+}
+.responsibility > div {
+  min-width: 0;
+}
+.responsibility h3 {
+  font-size: 30px;
+  margin: 0 0 8px;
+  white-space: nowrap;
+}
+.responsibility h3 span {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 8px;
+}
+.responsibility p {
+  font-size: 23px;
+  line-height: 1.55;
+}
+.responsibility .role-context {
+  color: var(--indigo);
+  font-size: 21px;
+  margin-bottom: 4px;
+}
+.responsibility-figure {
+  flex: none;
+  display: block;
+  width: 96px;
+  height: 134px;
+  object-fit: contain;
+  margin: 0;
+  background: transparent;
+}
+.responsibility-figure.po-figure {
+  object-fit: cover;
+}
+.responsibility-developers {
+  display: flex;
+  flex: none;
+}
+.responsibility-developers .responsibility-figure {
+  width: 56px;
+}
+.role-dialogue {
+  position: absolute;
+  left: 50%;
+  top: 55px;
+  transform: translateX(-50%);
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.4;
+  text-align: center;
+}
+.role-note {
+  font-size: 23px;
+  color: var(--muted);
+  margin-top: 24px;
+}
+
+/* 導入5枚目: 活動と判断結果を分け、人間が行う部分だけ金色・太字にする。 */
+.events-page h2 {
+  font-size: 38px;
+  margin-bottom: 26px;
+}
+table.events {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 23px;
+  line-height: 1.5;
+  table-layout: fixed;
+}
+table.events tr, table.events th, table.events td {
+  background: transparent;
+  border: 0;
+}
+table.events th, table.events td {
+  padding: 13px 12px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--rule);
+}
+table.events th:first-child {
+  width: 262px;
+}
+table.events thead th {
+  border-top: 2px solid var(--indigo);
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 10px 12px;
+}
+table.events tbody th {
+  color: var(--indigo);
+  font-size: 24px;
+}
+.events .human-task {
+  color: var(--gold-text);
+  font-weight: 700;
+}
+.event-notes {
+  font-size: 22px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+/* 導入6枚目: ここまでの具体的な活動を三本柱へ結び付ける。 */
+table.principles {
+  margin-top: 20px;
+  font-size: 30px;
+}
+table.principles th, table.principles td {
+  padding: 25px 20px;
+}
