@@ -167,7 +167,8 @@ section.overview .ov-stage h3 { font-size: 28px; color: var(--indigo); line-heig
 section.overview .ov-stage p { font-size: 19px; margin-top: 4px; color: var(--ink); line-height: 1.6; }
 /* 人間が行う3つの作業: 太字・淡い金色の帯・金色の下線。3つの帯は各枠の下部の同じ高さにそろえる */
 section.overview .ov-human-action { position: absolute; left: 8px; right: 8px; bottom: 8px; height: 30px; display: flex; align-items: center; justify-content: center; color: var(--gold-text); background: #EDE2C5; border-bottom: 2px solid var(--gold-rule); font-size: 20px; font-weight: 700; line-height: 1.2; white-space: nowrap; }
-section.overview .ov-sequence { line-height: 1.15; margin-top: 4px; }
+/* 成果の確認の2段（1行目→「↓」→金色の帯）。.ov-stage p より詳細度を上げて行高 1.15 を効かせ、「↓」が1行目にも帯にも重ならないようにする（Issue #27） */
+section.overview .ov-stage .ov-sequence { line-height: 1.15; margin-top: 0; }
 section.overview .ov-down { position: absolute; top: 66px; left: 0; right: 0; color: var(--muted); font-size: 14px; line-height: 14px; }
 section.overview .ov-s1 { left: 76px; }
 section.overview .ov-s2 { left: 366px; }
