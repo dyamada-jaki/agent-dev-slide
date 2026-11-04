@@ -58,3 +58,4 @@ Issue の大きさに合わせて短くまとめ、次を確認できるよう�
 | [#9](issue-9.md) | 次章：Issue #5 の実例で Issue 1本の流れを説明する。Claude Code と Codex の二重実装 | PR #15 を採用・マージ（PR #16 は不採用。ブランチ保存） |
 | [#17](issue-17.md) | 次章の実例を overstrata-board #37 の移動力設定へ差し替える。Claude Code と Codex の二重実装 | PR #19 を採用・マージ（PR #18 は不採用。ブランチ保存） |
 | [#4](issue-4.md) | スクラムの用語と対比を導入に加える。Claude Code と Codex の二重実装 | 1回目は差し戻し（PR #20・#21 とも不採用。ブランチ保存）。2回目は PR #22（Claude Code）を採用・マージ（PR #23 は不採用。ブランチ保存） |
+| [#24](issue-24.md) | 導入を4枚に絞り、POと開発者の担当を補う。Claude Code と Codex の二重実装 | PR #25（Claude Code）を採用・マージ（PR #26 は不採用。ブランチ保存） |

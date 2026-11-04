@@ -48,7 +48,11 @@ case "$cmd" in
   remove-worktree)
     path=${1:?worktree のパス}
     [ "$path" != "$main_worktree" ] && [ "$path" != "$repo_root" ] || die "main の worktree は消さない: $path"
-    git worktree list --porcelain | grep -qx "worktree $path" || die "worktree として登録されていない: $path"
+    if ! git worktree list --porcelain | grep -qx "worktree $path"; then
+      # マージ時に Orca が先に消していることがある。登録もフォルダも無ければ消し済みとして成功にする
+      [ ! -e "$path" ] && { echo "worktree は既に消えている: $path"; exit 0; }
+      die "worktree として登録されていない（フォルダは残っている）: $path"
+    fi
     # 未コミットの変更（無視されたファイルは除く）があれば止める
     if [ -n "$(git -C "$path" status --porcelain)" ]; then
       git -C "$path" status -s >&2
