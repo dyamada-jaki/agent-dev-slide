@@ -12,7 +12,6 @@ description: agent-dev-template の開発プロセス
 
 # エージェント<br>開発プロセス
 
-<p class="keywords">Spec × Issue × Orca</p>
 <p class="subtitle">agent-dev-template の全体像と役割</p>
 
 <!--
@@ -26,7 +25,7 @@ agent-dev-template というテンプレートが用意している、人間と 
 
 【出典】
 固定版の手順:
-- README 冒頭（題名「エージェント開発テンプレート（Spec × Issue × Orca）」）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
+- README 冒頭（テンプレートの題名と概要）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
 設計者の意図:
 - 「スクラムを実践できるように、役割とイベントを可能な限り取り入れている」は、このテンプレートを作った人間が説明した設計意図（本プロジェクトの docs/spec.md 2.3「再計画で合意した説明の軸」）。元テンプレートの文書には書かれていない。
 -->
@@ -37,7 +36,7 @@ agent-dev-template というテンプレートが用意している、人間と 
 
 ## 人間と AI で進める開発の全体像
 
-<div class="ov" role="figure" aria-label="開発プロセスの全体像。人間と AI の PO が対話し、PO が GitHub Issue を作成・更新する。開発可になった Issue をもとに開発チームが着手し、計画から実装、成果の確認、ふりかえりへ進む。計画は開発者から開発チームを経て人間が承認。成果は AI の PO が受け入れ確認し、その後に人間が確認して採用を判断する。ふりかえりは開発チームが改善案を示し、人間が採否を判断する。結果を AI の PO へ申し送り、次の仕様・Issue へ反映する。開発チームは枠で囲まれた開発の流れ全体を管理し、人間と AI の PO が上から関わる。">
+<div class="ov" role="figure" aria-label="開発プロセスの全体像。人間と AI の PO が対話し、PO は人間と優先順位を検討して仕様・Issue に整理し、GitHub Issue を作成・更新する。人間は方向・優先順位・採用を判断する。開発可になった Issue をもとに開発チームが着手し、計画から実装、成果の確認、ふりかえりへ進む。開発者2人は同じ Issue を別々に計画・実装・検証し、互いにレビューする。計画は開発者から開発チームを経て人間が承認。成果は AI の PO が受け入れ確認し、その後に人間が確認して採用を判断する。ふりかえりは開発チームが改善案を示し、人間が採否を判断する。結果を AI の PO へ申し送り、次の仕様・Issue へ反映する。開発チームは枠で囲まれた開発の流れ全体を管理し、人間と AI の PO が上から関わる。">
 <p class="ov-intent">スクラムを実践できるよう、<span>役割とイベント</span>を取り入れる</p>
 <div class="ov-scope"></div>
 <svg class="ov-wires" viewBox="0 0 1280 720" aria-hidden="true">
@@ -46,19 +45,19 @@ agent-dev-template というテンプレートが用意している、人間と 
 <path d="M 536 222 H 856" fill="none" stroke="#62626C" stroke-width="1.5" marker-start="url(#ov-soft-arrow)" marker-end="url(#ov-soft-arrow)"/>
 <g fill="none" stroke="#1F2B47" stroke-width="1.8" marker-end="url(#ov-arrow)"><path d="M 1130 262 V 336 H 764"/><path d="M 516 336 H 200 V 392"/></g>
 <g fill="none" stroke="#1F2B47" stroke-width="2" marker-end="url(#ov-arrow)"><path d="M 324 443 H 366"/><path d="M 614 443 H 656"/><path d="M 904 443 H 946"/><path d="M 1070 515 V 544 H 1000 V 565"/><path d="M 1078 586 H 1250 V 370 H 740 V 357"/></g>
-<path d="M 200 515 V 522 H 490 V 515 M 216 522 V 529" fill="none" stroke="#D7D2C4" stroke-width="2"/>
+<path d="M 200 515 V 519 H 490 V 515 M 216 519 V 524" fill="none" stroke="#D7D2C4" stroke-width="2"/>
 </svg>
-<div class="ov-actor ov-human"><img src="assets/human/rena-standing.png" alt="人間を表す、計画を確認するレナ1人の立ち姿"><div><h3>人間</h3><p>ステークホルダー・PO<br>作る方向と判断を担う</p></div></div>
+<div class="ov-actor ov-human"><img src="assets/human/rena-standing.png" alt="人間を表す、計画を確認するレナ1人の立ち姿"><div><h3>人間</h3><p>ステークホルダー・PO<br>方向・優先順位・採用を判断</p></div></div>
 <p class="ov-dialogue">対話して具体化する</p>
 <p class="ov-issue">GitHub Issue</p>
 <p class="ov-issue-write">作成・更新</p>
 <p class="ov-issue-start">開発可で着手</p>
-<div class="ov-actor ov-po"><img src="assets/roles/po-distinct-v2.png" alt="AI の PO を表す、銀灰色の髪と丸眼鏡で冊子を抱えた人物"><div><h3>PO<span class="ov-tag">AI</span></h3><p>仕様・Issue に整理<br>成果の受け入れ確認</p></div></div>
+<div class="ov-actor ov-po"><img src="assets/roles/po-distinct-v2.png" alt="AI の PO を表す、銀灰色の髪と丸眼鏡で冊子を抱えた人物"><div><h3>PO<span class="ov-tag">AI</span></h3><p>人間と優先順位を検討<br>仕様・Issue に整理<br>成果の受け入れ確認</p></div></div>
 <div class="ov-stage ov-s1"><h3>計画</h3><p>開発者 → 開発チーム<br><strong class="ov-human-action">人間が承認</strong></p></div>
 <div class="ov-stage ov-s2"><h3>実装・検証</h3><p>作って、確かめる<br>開発者どうしでレビュー</p></div>
 <div class="ov-stage ov-s3"><h3>成果の確認</h3><p class="ov-sequence">AI の PO が受け入れ確認<br><span class="ov-down">↓</span><br><strong class="ov-human-action">人間が確認・採用判断</strong></p></div>
 <div class="ov-stage ov-s4"><h3>ふりかえり</h3><p>開発チームが改善案<br><strong class="ov-human-action">人間が採否を判断</strong></p></div>
-<div class="ov-actor ov-developers"><div class="ov-portraits"><img src="assets/roles/developer-1.png" alt="開発者1"><img src="assets/roles/developer-2.png" alt="開発者2"></div><div><h3>開発者<span class="ov-tag">AI</span></h3><p>計画・実装<br>検証・レビュー</p></div></div>
+<div class="ov-actor ov-developers"><div class="ov-portraits"><img src="assets/roles/developer-1.png" alt="開発者1"><img src="assets/roles/developer-2.png" alt="開発者2"></div><div><h3>開発者<span class="ov-tag">AI</span></h3><p>2人が同じ Issue を<br>別々に計画・実装・検証<br>互いにレビュー</p></div></div>
 <div class="ov-actor ov-team"><img src="assets/roles/team.png" alt="開発チームを表す人物"><div><h3>開発チーム<span class="ov-tag">AI</span></h3><p>この流れ全体の進行・比較・完了を管理</p></div></div>
 <p class="ov-handoff">結果を<br>申し送り</p><p class="ov-return">AI の PO：結果を受け取り、次の仕様・Issue へ反映</p>
 </div>
@@ -66,12 +65,12 @@ agent-dev-template というテンプレートが用意している、人間と 
 <!--
 【話すこと】
 画面のすべての文字や線は読み上げず、上段 → Issue → 4つの工程 → 金色 → 次への反映の順で案内します。
-まず上段です。人間が、AI の PO と何を作るかを相談します。PO はプロダクトオーナーの略です。このプロセスでは、人間も作る方向を判断し、AI の PO が仕様や作業へ具体化します。
+まず上段です。人間が、AI の PO と何を作るかを相談します。PO はプロダクトオーナーの略です。このプロセスでは、人間も作る方向・優先順位・採用を判断します。AI の PO は、何から作るか（優先順位）を人間と検討し、仕様や Issue に整理します。優先順位を決めるのは人間で、PO が単独で決めるわけではありません。
 中央の GitHub Issue には、今回作る範囲と完成の条件をまとめます。着手できる状態（「開発可」）になったら開発が始まります。
-下の流れ全体を開発チームが管理します。開発者が計画を立て、実装・検証・レビューを進めます。成果は AI の PO も受け入れ確認します。
+下の流れ全体を開発チームが管理します。左下の開発者は2人です。2人が同じ Issue を別々に計画・実装・検証し、互いの成果をレビューします。作業を分け合うのではなく、1つの Issue に2つの案ができ、開発チームがそれを比べます。成果は AI の PO も受け入れ確認します。
 この開発の流れで人間が判断するのが、金色の3か所です。計画を承認する。実物を確認して採用を決める。そして、ふりかえりで改善案を採るか決める。
 最後に、結果を AI の PO に申し送り、次の仕様や Issue に反映します。作って終わりにせず、次の開発につなげます。
-Issue の中身と、AI が作業する環境は次のページで説明します。
+Issue の中身と、AI が作業する環境は、このあと実例で見ます。次のページでは、誰が何を担うかを整理します。
 
 話し方の注意: 「人間は3回クリックするだけ」「人間の関与はこの3か所だけ」とは説明しない。上段の相談や、必要な修正の判断もある。図は通常の流れをまとめたもので、採用・マージの実行内容の承認などの詳細は後の実例で示す。
 
@@ -80,8 +79,9 @@ Issue の中身と、AI が作業する環境は次のページで説明しま�
 - PO の受け入れ確認で差し戻しとなった場合は、修正・レビューを経て再確認する。図は通常の進行だけを示す。
 - 通常は「開発可」の Issue を、Orca の定期実行（起動係）が見つけて開発チームを起動する。Issue を作っただけで、未確定の課題まで実装が始まるわけではない。
 - ふりかえりの全結果を PO が事前に承認するわけではない。改善の採否は人間が判断し、仕様や Issue の案を PO に申し送る。
+- 元テンプレートでは、同じ Issue を2人で作る進め方（二重実装）は任意。1本だけ実装する方法もある。このプロセスの説明と後の実例は2人で作る進め方。
 
-【時間】約90秒（見積もり）
+【時間】約95秒（見積もり。#24 で PO の優先順位の検討と開発者2人の説明を足し、90秒から増やした）
 
 【出典】
 固定版の手順:
@@ -89,60 +89,10 @@ Issue の中身と、AI が作業する環境は次のページで説明しま�
 - dual-implement の計画提示と PO への受け入れ依頼: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/.claude/skills/dual-implement/SKILL.md
 - accept-review（PO の受け入れ確認と判定の返信）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/.claude/skills/accept-review/SKILL.md
 - finish-issue（ふりかえり、改善の採否、PO への申し送り）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/.claude/skills/finish-issue/SKILL.md
+- workflow.md ステップ6「レビュー」（任意: 2つのエージェントで作らせて比べる。開発者どうしの相互レビュー）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L206-L227
 設計者の意図と当てはめ（解釈）:
 - 上の一文と、人間がステークホルダーと PO の役割を担うという説明は、本プロジェクトの docs/spec.md 2.3（人間の説明と合意）による。図の構成は本プロジェクトの見本 slides/samples/issue-4-overview（採用版 ae2f691）。
--->
-
----
-
-## Spec・Issue・Orca の関係
-
-<div class="columns">
-  <div class="column">
-    <h3>Spec</h3>
-    <ul>
-      <li>作るもの全体の仕様</li>
-      <li>「何を・なぜ・どこまで」<br>を書く</li>
-      <li>まだ作らない部分も<br>書いてよい</li>
-    </ul>
-    <p class="meta">docs/spec.md</p>
-  </div>
-  <div class="arrow">→</div>
-  <div class="column">
-    <h3>Issue</h3>
-    <ul>
-      <li>仕様から今回作る部分<br>だけを取り出した<br>作業の単位</li>
-      <li>目的・範囲・<br>受け入れ条件を書く</li>
-      <li>1〜3本ずつ出し、<br>終わったら次を切る</li>
-    </ul>
-    <p class="meta">GitHub Issue</p>
-  </div>
-  <div class="arrow">→</div>
-  <div class="column">
-    <h3>Orca</h3>
-    <ul>
-      <li>複数の AI エージェントの<br>端末と worktree を<br>まとめて扱うアプリ</li>
-      <li>Issue を1本ずつ<br>実装する作業環境</li>
-    </ul>
-    <p class="meta">エージェントの作業場所</p>
-  </div>
-</div>
-
-<!--
-【話すこと】
-全体図の中央にあった GitHub Issue を起点に、この流れで共有する情報と、AI が作業する環境を、Spec・Issue・Orca の3つに分けて説明します。
-Spec は、作るもの全体について「何を・なぜ・どこまで」作るかを書いた仕様で、まだ作らない部分も書いておけます。
-Issue は、その仕様から今回作る部分だけを取り出した作業の単位です。今回実装する作業の目的・範囲（やらないこと）・受け入れ条件を書きます。1〜3本ずつ出して、終わったら次を切ります。
-Orca は、複数の AI エージェントの端末と worktree をまとめて扱うアプリで、Issue を1本ずつ実装する作業環境になります。
-では、この流れを誰が担うのかを次のページで見ます。
-
-【時間】約40秒（見積もり）
-
-【出典】
-固定版の手順:
-- workflow.md 冒頭（spec.md は作るもの全体の仕様、Issue はそこから今回作る部分だけを取り出したもの、Orca で1本ずつ実装）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
-- workflow.md ステップ2「Issueを切り出す」（Issue に書くこと: 目的、受け入れ条件、スコープ外）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
-- README 冒頭（Orca の説明）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
+- PO の「人間と優先順位を検討」と、開発者の「2人が同じ Issue を別々に計画・実装・検証し、互いにレビュー」は、本プロジェクトの docs/spec.md 2.3「導入4枚への絞り込みと担当の補足」（人間の原文「POのやっていることとして、優先順位の検討を追加したい。また、開発者は同じものを別々に作っている事がわかる表現にしたいな。」）による。元テンプレートの workflow.md の担当の表では、PO は「人間と議論する、spec.md を書く、Issue を切って順番を決め「開発可」を付ける」担当（Issue の着手の順番は PO が決める）。何を作るかの優先順位を人間と検討し、人間が判断するという書き方は、本プロジェクトの説明（当てはめ）。
 -->
 
 ---
@@ -163,7 +113,7 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
       <img class="role-portrait" src="assets/roles/po-distinct-v2.png" alt="AI の PO を表す、銀灰色の髪と丸眼鏡で冊子を抱えた人物">
       <div>
         <h3>PO<span class="role-tag">AI</span></h3>
-        <p>人間との対話を<br>仕様・Issue に整理する<br>成果を受け入れ確認する</p>
+        <p>人間と優先順位を検討し、<br>仕様・Issue に整理する<br>成果を受け入れ確認する</p>
       </div>
     </div>
   </div>
@@ -182,7 +132,7 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
       </div>
       <div>
         <h3>開発者<span class="role-tag">AI</span></h3>
-        <p>計画・実装・検証・<br>相互レビュー</p>
+        <p>同じ Issue を2人が<br>別々に計画・実装・検証し、<br>互いにレビューする</p>
       </div>
     </div>
   </div>
@@ -192,16 +142,17 @@ Orca は、複数の AI エージェントの端末と worktree をまとめて�
 <!--
 【話すこと】
 全体図の登場人物を、誰が何を担うかで整理します。工程の順序は前のページで見たので、ここでは担当だけを見ます。
-上段は人間と AI の PO です。人間はステークホルダーとして成果を確かめ、PO の役割も担って、作る方向・優先順位・採用を判断します。AI の PO は、人間との対話を仕様と Issue に整理し、開発チームが推薦した成果を、受け入れ条件・仕様・使う人の目で確認します。コードは見ません。
-下段は開発を進める AI です。開発チームは Issue 1本を最後まで進め、開発者2人の実装案を比べ、完了処理とふりかえりを行います。開発者は自分の worktree で計画・実装・検証を行い、互いの PR をレビューします。Claude Code と Codex が1人ずつです。
+上段は人間と AI の PO です。人間はステークホルダーとして成果を確かめ、PO の役割も担って、作る方向・優先順位・採用を判断します。AI の PO は、何から作るか（優先順位）を人間と検討し、仕様と Issue に整理します。優先順位を判断するのは人間で、PO が単独で決めるわけではありません。PO は、開発チームが推薦した成果を、受け入れ条件・仕様・使う人の目で確認します。コードは見ません。
+下段は開発を進める AI です。開発チームは Issue 1本を最後まで進め、開発者2人の実装案を比べ、完了処理とふりかえりを行います。開発者は2人で、同じ Issue をそれぞれ自分の worktree で別々に計画・実装・検証し、互いの PR をレビューします。作業を分け合ったり、1つの実装を2人で書いたりするのではなく、同じ Issue から2つの案を作ります。Claude Code と Codex が1人ずつです。
 AI は PO・開発チーム・開発者の3つの役割に分かれます。PO と開発チームを分けているのは、1つの端末にまとめると文脈がすぐあふれ、開発中にプロダクトの検討を進めにくくなるためです。
 スクラムには進め方を支えるスクラムマスターという役割がありますが、このプロセスには独立した役割として置いていません。
 では、この役割がスクラムのどのイベントで、何を確かめるのかを次のページで見ます。
 
 補足（聞かれたら）: 設計者の認識では、開発チームは進行を主導する性格が強いため、スクラムマスターとは別の役割として「開発チーム」と名付けた。強いて言えば、開発チームの働きにスクラムマスターの要素も含まれる、という程度の関係で、開発チームとスクラムマスターを同じ役割としては扱わない。
 （開発チームを自動で開く「起動係」という仕組みもありますが、3つの役割には含めない仕組みなので後のパートで扱います。）
+補足（聞かれたら）: 元テンプレートでは、同じ Issue を2人で作る進め方（二重実装）は任意。1本だけ実装する方法もある。
 
-【時間】約60秒（見積もり）
+【時間】約65秒（見積もり。#24 で PO の優先順位の検討と開発者2人の説明を足し、60秒から増やした）
 
 【出典】
 固定版の手順:
@@ -211,6 +162,7 @@ AI は PO・開発チーム・開発者の3つの役割に分かれます。PO �
 - スクラムガイド2020年11月版 日本語訳「スクラムチーム」（スクラムマスター・プロダクトオーナー・開発者の説明責任）: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf
 設計者の意図と当てはめ（解釈）:
 - 人間がステークホルダーと PO の役割を担うこと、独立したスクラムマスターを置いていないこと、開発チームとスクラムマスターの関係は、本プロジェクトの docs/spec.md 2.3（人間の説明と合意）による。元テンプレートが明記した対応ではない。
+- PO の「人間と優先順位を検討し」と、開発者の「同じ Issue を2人が別々に計画・実装・検証し、互いにレビューする」は、docs/spec.md 2.3「導入4枚への絞り込みと担当の補足」（人間の原文は前のページのノート）による。元テンプレートの担当の表では、PO は「Issue を切って順番を決め「開発可」を付ける」担当。二重実装の出典は workflow.md ステップ6「任意: 2つのエージェントで作らせて比べる」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L206-L227
 -->
 
 ---
@@ -228,6 +180,8 @@ AI は PO・開発チーム・開発者の3つの役割に分かれます。PO �
 
 <p class="event-note">デイリースクラムは取り入れていない。開発者どうしのコードレビューは実装・検証の作業で、成果の確認とは別</p>
 
+<p class="next">次: 実際の Issue で、課題と完成条件から見ていく</p>
+
 <!--
 【話すこと】
 全体図の金色の3か所を、スクラムのイベントの名前で見直します。ここで見るのは「何を確かめ、次に何を決めるか」です。
@@ -237,10 +191,11 @@ AI は PO・開発チーム・開発者の3つの役割に分かれます。PO �
 スプリントレトロスペクティブに当たるのが、ふりかえりです。開発チームが進め方をふりかえって改善案を出し、人間が採否を判断します。採用した改善は次の進め方へ反映し、仕様についての発見は AI の PO に申し送ります。
 なお、毎日の進み具合を確かめるデイリースクラムは取り入れていません。
 もう1つ、開発者どうしのコードレビューは、実装・検証の中で行う作業です。人間が成果を確かめるスプリントレビューとは別のものです。
+では、この流れが実際の判断でどう動くかを、実際の Issue で、課題と完成条件から見ていきます。
 
 補足（聞かれたら）: 3つのイベントの対応は、このプロセスでの実践をスクラムの言葉で説明したもの。元テンプレートの手順名（④計画承認・⑥レビュー・⑧ふりかえり）とスクラムのイベントを、同じ定義として扱っているわけではない。
 
-【時間】約60秒（見積もり）
+【時間】約65秒（見積もり。#24 で三本柱のページを削除し、実例へのつなぎをこのページへ移したため60秒から増やした）
 
 【出典】
 固定版の手順:
@@ -254,45 +209,11 @@ AI は PO・開発チーム・開発者の3つの役割に分かれます。PO �
 
 ---
 
-## 共有し、確かめ、次へ反映する
-
-<p class="stage-label">スクラムの三本柱と、このプロセスの活動</p>
-
-<table class="recap">
-  <tr><th>透明性</th><td>仕様・Issue・記録を共有する</td></tr>
-  <tr><th>検査</th><td>計画・成果・進め方を確かめる</td></tr>
-  <tr><th>適応</th><td>判断を仕様・作業・手順へ反映する</td></tr>
-</table>
-
-<p class="next">次: 実際の Issue で、課題と完成条件から見ていく</p>
-
-<!--
-【話すこと】
-ここまでの活動を、スクラムの三本柱である透明性・検査・適応でまとめます。
-透明性: 仕様（Spec）・Issue・記録を GitHub に置いて、人間と AI が同じものを見ます。
-検査: 計画・成果・進め方を、プランニング・レビュー・レトロスペクティブで確かめます。
-適応: そこで決めたことを、仕様・作業・手順へ反映して次の開発につなげます。
-三本柱は、ここまで見た役割とイベントの活動をまとめたもので、それだけで役割やイベントの説明の代わりになるものではありません。
-では、この流れが実際の判断でどう動くかを、実際の Issue で、課題と完成条件から見ていきます。
-
-【時間】約30秒（見積もり）
-
-【出典】
-スクラムの定義:
-- スクラムガイド2020年11月版 日本語訳「スクラムの理論」（透明性・検査・適応）: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf
-固定版の手順:
-- workflow.md 冒頭・ステップ4・6・8（仕様・Issue・レポートに残す、計画・成果・改善を確かめる、ふりかえりで分かったことを戻す先へ反映する）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
-設計者の意図と当てはめ（解釈）:
-- 3つの活動と三本柱の対応は、本プロジェクトの docs/spec.md 2.3 で人間と合意した説明。元テンプレートが明記した対応ではない。
--->
-
----
-
 ## この章の題材: overstrata-board #37
 
 <div class="stage">
   <div class="general">
-    <p class="stage-label">board #37 の Issue の目的から（要約）</p>
+    <p class="stage-label">Issue（今回作る範囲と完成条件）の目的から（要約）</p>
     <table class="duty">
       <tr><th>何の<br>アプリか</th><td>マス目の盤面に駒を並べ、各駒が<br>動ける範囲の目安を表示するアプリ<br>（スマホ）。使うのはゲームの進行役</td></tr>
       <tr><th>今の<br>課題</th><td>用意した駒の移動力は、すべて<br>5マス固定。駒ごとに変えられない</td></tr>
@@ -320,7 +241,7 @@ AI は PO・開発チーム・開発者の3つの役割に分かれます。PO �
 
 <!--
 【話すこと】
-ここから Issue 1本の流れを見ていきます。例にするのは、別の開発プロジェクト overstrata-board の Issue #37 です。工程に入る前に、この Issue で何を作りたかったのかを、Issue の目的から抜き出して紹介します。
+ここから Issue 1本の流れを見ていきます。例にするのは、別の開発プロジェクト overstrata-board の Issue #37 です。Issue は、今回作る範囲と完成の条件を書いた GitHub の Issue で、全体図の中央にあったものです。工程に入る前に、この Issue で何を作りたかったのかを、Issue の目的から抜き出して紹介します（左の表は要約です）。
 overstrata-board は、マス目の盤面に駒を並べて、選んだ駒が動ける範囲の目安を表示するスマホ向けのアプリです。使うのはゲームの進行役です。ゲームの種類やルールの話はしません。
 右の画面のように、駒を選ぶと周りのマスが薄い色になります。これが「範囲の目安」で、アプリは移動を禁止しません。範囲の外へも動かせます。
 この時点の課題は、用意した駒の移動力（1回に動けるマス数）がすべて5マスに固定されていたことです。
@@ -331,9 +252,11 @@ board の仕様・Issue では、このアプリは TRPG「Overstrata」のプ�
 
 画像: overstrata-board の c276d11（#32 を取り込んだ main、#37 の着手前）を手元で起動し、スマホ幅 375×667（2倍の解像度）で、味方2・敵2を用意して盤面に置き、味方1を選んだ状態の盤面部分を切り抜いたもの。
 
-【時間】約60秒（見積もり）
+【時間】約65秒（見積もり。#24 で Issue の短い説明を足し、60秒から増やした）
 
 【出典】
+一般的な手順（Issue の説明）:
+- workflow.md 冒頭（Issue は spec.md から今回作る部分だけを取り出したもの）・ステップ2「Issueを切り出す」（Issue に書くこと: 目的、受け入れ条件、スコープ外）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
 overstrata-board の実例（本文は以下からの要約）:
 - Issue #37 の「目的」（GM が準備中に移動力を設定する、全駒5マス固定から駒ごとの値を移動範囲の目安へ反映する）・「前提・着手条件」・「#32からの引き継ぎ」・受け入れ条件1・2・6・8（範囲の外へも動かせ、移動力で移動を禁止しない）: https://github.com/dyamada-jaki/overstrata-board/issues/37
 - 条件変更の直前の仕様 d6b5d01 の1章（TRPG のプレイ中に使う戦闘ボード、ルールを強制せず範囲を見せるだけ）: https://github.com/dyamada-jaki/overstrata-board/blob/d6b5d015f79b8324d1a776882c7e1089e2ff1ecc/docs/spec.md#L11-L25
@@ -413,7 +336,7 @@ overstrata-board の実例:
         <div class="actor"><img class="actor-figure" src="assets/roles/po.png" alt="AI エージェントの PO を表す、開いた冊子を読むデフォルメした人物"><span class="actor-name">PO</span></div>
         <div class="actor"><img class="people-small" src="assets/issue-5-codex/human-decisions.png" alt="人間を表す、資料を見比べるデフォルメしたレナとヨナ"><span class="actor-name">人間</span></div>
       </div></td></tr>
-      <tr><th>渡すもの</th><td>spec.md（何を・なぜ・<br>どこまで作るか）</td></tr>
+      <tr><th>渡すもの</th><td>spec.md：作るもの全体の仕様<br>（何を・なぜ・どこまで作るか）</td></tr>
       <tr><th>人間が<br>決めること</th><td>作りたいものを PO と議論する<br>（3つの判断の前の段階）</td></tr>
     </table>
   </div>
@@ -431,17 +354,18 @@ overstrata-board の実例:
 【話すこと】
 ここから、題材の Issue #37 が8つの段階をどう進んだかを見ていきます。
 上部の段階の行は元テンプレートの8ステップで、金色の④⑥⑧が人間の判断です。各ページの左が一般的な手順、右が実例です。
-① 議論では、PO が人間と議論して、作るもの全体の仕様 spec.md を書きます。会話は消えますが、spec.md は残ります。
+① 議論では、PO が人間と議論して、作るもの全体の仕様 spec.md を書きます。何を・なぜ・どこまで作るかを書き、まだ作らない部分も書いておけます。会話は消えますが、spec.md は残ります。
 ここで人間がするのは議論で、3つの判断はまだ来ません。
 
 【実例】
 前提のページで紹介した課題（全駒5マス固定）と、したいこと（準備中に駒ごとに設定）は、この段階で人間（利用者）と PO が議論し、spec.md に書いたものです。
 前の Issue #32（駒の準備・配置）から移動力の設定を #37 に分けることを決め、PO が spec.md に記録しました。0〜9マス・初期値5マス、設定欄は「駒の近く」に出す、という合意もこのとき引き継いでいます。
 
-【時間】約35秒（見積もり）
+【時間】約40秒（見積もり。#24 で Spec の短い説明を足し、35秒から増やした）
 
 【出典】
 一般的な手順:
+- workflow.md 冒頭（spec.md は作るもの全体の仕様）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md
 - README「Issue 1本の流れ」の流れ図（①〜⑧、六角形が人間の判断）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md#L49-L71
 - workflow.md ステップ1「議論する」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L132-L143
 overstrata-board の実例:
@@ -480,6 +404,7 @@ overstrata-board の実例:
       <tr><th>渡すもの</th><td>Issue（目的・受け入れ条件・<br>スコープ外）と「開発可」</td></tr>
       <tr><th>人間が<br>決めること</th><td>なし（着手の順番は PO が決める）</td></tr>
     </table>
+    <p class="term">Orca: AI の端末と worktree を扱う作業環境</p>
   </div>
   <div class="example">
     <h3>実例: overstrata-board #37</h3>
@@ -496,7 +421,7 @@ overstrata-board の実例:
 【話すこと】
 ② 切り出しでは、PO が spec.md から今すぐ作る部分を Issue にします。目的・受け入れ条件・スコープ外を書き、PR 1本で終わる大きさにします。
 PO は GitHub に Issue を書き、着手してよい Issue に「開発可」のラベルを付けます。担当の行の真ん中の GitHub の枠がこれです。
-すると ③ 着手です。Orca の定期実行の「起動係」が、「開発可」の Issue があり、動いている開発チームがいないときだけ、開発チームを起動します。担当の行の「Orca の起動係」の枠がこれです。GitHub と起動係は3つの役割に含めない仕組みなので、人物の絵ではなく文字の枠で示しています。
+すると ③ 着手です。Orca は、AI エージェントの端末と worktree（作業用のフォルダ）をまとめて扱うアプリで、開発はその上で進みます。Orca の定期実行の「起動係」が、「開発可」の Issue があり、動いている開発チームがいないときだけ、開発チームを起動します。担当の行の「Orca の起動係」の枠がこれです。GitHub と起動係は3つの役割に含めない仕組みなので、人物の絵ではなく文字の枠で示しています。
 ここでも人間の判断はありません。
 
 【実例】
@@ -504,10 +429,11 @@ PO は GitHub に Issue を書き、着手してよい Issue に「開発可」�
 戦闘の途中で駒を増やしたり減らしたりする機能（#33）や、倒れた駒の表示（#34）はスコープ外として別の Issue に分けています。
 前提の #32 が取り込まれた後、PO が GitHub の #37 に「開発可」を付けました。Orca の起動係が「着手中」にして開発チームを起動し、2026-10-23 の 19:45 に着手しています。
 
-【時間】約40秒（見積もり）
+【時間】約45秒（見積もり。#24 で Orca の短い説明を足し、40秒から増やした）
 
 【出典】
 一般的な手順:
+- README 冒頭（Orca は複数の AI エージェントの端末と worktree をまとめて扱うアプリ）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md
 - workflow.md ステップ2「Issueを切り出す」（Issue に書くこと、着手の合図）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L145-L169
 - workflow.md ステップ3「着手する」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L171-L175
 - README の役割の表（起動係は「開発可」の Issue があり、動いている開発チームがいないときだけ開発チームを開く）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md#L40-L45
