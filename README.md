@@ -3,7 +3,9 @@
 [agent-dev-template](https://github.com/dyamada-jaki/agent-dev-template) の開発プロセスを、人に説明するための日本語スライドです。
 スライド自体も、Spec・Issue・Orca を使った同じプロセスで少しずつ制作します。
 
-現在の原稿は、LT の導入4枚と、実例で Issue 1本の流れを説明する8枚の全12枚です。見た目は共通デザイン（[themes/paper.css](themes/paper.css)、使い方は [docs/design.md](docs/design.md)）でそろえています。
+現在の原稿は、LT の導入4枚・実例への中表紙1枚と、Issue 1本の流れを説明する実例8枚の全13枚です。見た目は共通デザイン（[themes/paper.css](themes/paper.css)、使い方は [docs/design.md](docs/design.md)）でそろえています。
+
+説明時間は約11分55秒の見積もり（実測ではない）です。15分枠との差3分05秒を、ページの切り替え・補足・質疑の余裕として見込んでいます。各ページの配分は原稿の発表ノートにあります。
 
 ## すぐに試す
 

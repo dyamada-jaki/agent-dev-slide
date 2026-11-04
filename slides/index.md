@@ -47,27 +47,27 @@ agent-dev-template というテンプレートが用意している、人間と 
 <g fill="none" stroke="#1F2B47" stroke-width="2" marker-end="url(#ov-arrow)"><path d="M 324 443 H 366"/><path d="M 614 443 H 656"/><path d="M 904 443 H 946"/><path d="M 1070 515 V 544 H 1000 V 565"/><path d="M 1078 586 H 1250 V 370 H 740 V 357"/></g>
 <path d="M 200 515 V 519 H 490 V 515 M 216 519 V 524" fill="none" stroke="#D7D2C4" stroke-width="2"/>
 </svg>
-<div class="ov-actor ov-human"><img src="assets/human/rena-standing.png" alt="人間を表す、計画を確認するレナ1人の立ち姿"><div><h3>人間</h3><p>ステークホルダー・PO<br>方向・優先順位・採用を判断</p></div></div>
+<div class="ov-actor ov-human"><img src="assets/human/rena-standing.png" alt="人間を表す、計画を確認するレナ1人の立ち姿"><div><h3>人間</h3><p>PO と相談する</p></div></div>
 <p class="ov-dialogue">対話して具体化する</p>
 <p class="ov-issue">GitHub Issue</p>
 <p class="ov-issue-write">作成・更新</p>
 <p class="ov-issue-start">開発可で着手</p>
-<div class="ov-actor ov-po"><img src="assets/roles/po-distinct-v2.png" alt="AI の PO を表す、銀灰色の髪と丸眼鏡で冊子を抱えた人物"><div><h3>PO<span class="ov-tag">AI</span></h3><p>人間と優先順位を検討<br>仕様・Issue に整理<br>成果の受け入れ確認</p></div></div>
+<div class="ov-actor ov-po"><img src="assets/roles/po-distinct-v2.png" alt="AI の PO を表す、銀灰色の髪と丸眼鏡で冊子を抱えた人物"><div><h3>PO<span class="ov-tag">AI</span></h3><p>仕様から Issue へ</p></div></div>
 <div class="ov-stage ov-s1"><h3>計画</h3><p>開発者 → 開発チーム<br><strong class="ov-human-action">人間が承認</strong></p></div>
 <div class="ov-stage ov-s2"><h3>実装・検証</h3><p>作って、確かめる<br>開発者どうしでレビュー</p></div>
 <div class="ov-stage ov-s3"><h3>成果の確認</h3><p class="ov-sequence">AI の PO が受け入れ確認<br><span class="ov-down">↓</span><br><strong class="ov-human-action">人間が確認・採用判断</strong></p></div>
 <div class="ov-stage ov-s4"><h3>ふりかえり</h3><p>開発チームが改善案<br><strong class="ov-human-action">人間が採否を判断</strong></p></div>
-<div class="ov-actor ov-developers"><div class="ov-portraits"><img src="assets/roles/developer-1.png" alt="開発者1"><img src="assets/roles/developer-2.png" alt="開発者2"></div><div><h3>開発者<span class="ov-tag">AI</span></h3><p>2人が同じ Issue を<br>別々に計画・実装・検証<br>互いにレビュー</p></div></div>
-<div class="ov-actor ov-team"><img src="assets/roles/team.png" alt="開発チームを表す人物"><div><h3>開発チーム<span class="ov-tag">AI</span></h3><p>この流れ全体の進行・比較・完了を管理</p></div></div>
+<div class="ov-actor ov-developers"><div class="ov-portraits"><img src="assets/roles/developer-1.png" alt="開発者1"><img src="assets/roles/developer-2.png" alt="開発者2"></div><div><h3>開発者<span class="ov-tag">AI</span></h3><p>計画・実装へ</p></div></div>
+<div class="ov-actor ov-team"><img src="assets/roles/team.png" alt="開発チームを表す人物"><div><h3>開発チーム<span class="ov-tag">AI</span></h3><p>下段の流れ全体を管理</p></div></div>
 <p class="ov-handoff">結果を<br>申し送り</p><p class="ov-return">AI の PO：結果を受け取り、次の仕様・Issue へ反映</p>
 </div>
 
 <!--
 【話すこと】
 画面のすべての文字や線は読み上げず、上段 → Issue → 4つの工程 → 金色 → 次への反映の順で案内します。
-まず上段です。人間が、AI の PO と何を作るかを相談します。PO はプロダクトオーナーの略です。このプロセスでは、人間も作る方向・優先順位・採用を判断します。AI の PO は、何から作るか（優先順位）を人間と検討し、仕様や Issue に整理します。優先順位を決めるのは人間で、PO が単独で決めるわけではありません。
+まず上段です。人間が、AI の PO と何を作るかを相談し、仕様から今回の GitHub Issue へ具体化します。PO はプロダクトオーナーの略です。
 中央の GitHub Issue には、今回作る範囲と完成の条件をまとめます。着手できる状態（「開発可」）になったら開発が始まります。
-下の流れ全体を開発チームが管理します。左下の開発者は2人です。2人が同じ Issue を別々に計画・実装・検証し、互いの成果をレビューします。作業を分け合うのではなく、1つの Issue に2つの案ができ、開発チームがそれを比べます。成果は AI の PO も受け入れ確認します。
+下の流れ全体を開発チームが管理します。左下の開発者から、計画と実装へ線がつながっています。計画を人間が承認したら、実装・検証と開発者どうしのレビューへ進みます。成果は AI の PO の受け入れ確認を経て、人間が確認して採用を判断します。
 この開発の流れで人間が判断するのが、金色の3か所です。計画を承認する。実物を確認して採用を決める。そして、ふりかえりで改善案を採るか決める。
 最後に、結果を AI の PO に申し送り、次の仕様や Issue に反映します。作って終わりにせず、次の開発につなげます。
 Issue の中身と、AI が作業する環境は、このあと実例で見ます。次のページでは、誰が何を担うかを整理します。
@@ -81,7 +81,7 @@ Issue の中身と、AI が作業する環境は、このあと実例で見ま�
 - ふりかえりの全結果を PO が事前に承認するわけではない。改善の採否は人間が判断し、仕様や Issue の案を PO に申し送る。
 - 元テンプレートでは、同じ Issue を2人で作る進め方（二重実装）は任意。1本だけ実装する方法もある。このプロセスの説明と後の実例は2人で作る進め方。
 
-【時間】約95秒（見積もり。#24 で PO の優先順位の検討と開発者2人の説明を足し、90秒から増やした）
+【時間】約70秒（見積もり。担当の詳しい説明を3枚目へ分担し、関係と受け渡しを追う）
 
 【出典】
 固定版の手順:
@@ -180,7 +180,7 @@ AI は PO・開発チーム・開発者の3つの役割に分かれます。PO �
 
 <p class="event-note">デイリースクラムは取り入れていない。開発者どうしのコードレビューは実装・検証の作業で、成果の確認とは別</p>
 
-<p class="next">次: 実際の Issue で、課題と完成条件から見ていく</p>
+<p class="next">次: 実例「1つの Issue が進むまで」</p>
 
 <!--
 【話すこと】
@@ -191,11 +191,11 @@ AI は PO・開発チーム・開発者の3つの役割に分かれます。PO �
 スプリントレトロスペクティブに当たるのが、ふりかえりです。開発チームが進め方をふりかえって改善案を出し、人間が採否を判断します。採用した改善は次の進め方へ反映し、仕様についての発見は AI の PO に申し送ります。
 なお、毎日の進み具合を確かめるデイリースクラムは取り入れていません。
 もう1つ、開発者どうしのコードレビューは、実装・検証の中で行う作業です。人間が成果を確かめるスプリントレビューとは別のものです。
-では、この流れが実際の判断でどう動くかを、実際の Issue で、課題と完成条件から見ていきます。
+ここまでがプロセス全体の説明です。次の中表紙からは、1つの Issue が進む間に、実際にどんな判断があったかを見ていきます。
 
 補足（聞かれたら）: 3つのイベントの対応は、このプロセスでの実践をスクラムの言葉で説明したもの。元テンプレートの手順名（④計画承認・⑥レビュー・⑧ふりかえり）とスクラムのイベントを、同じ定義として扱っているわけではない。
 
-【時間】約65秒（見積もり。#24 で三本柱のページを削除し、実例へのつなぎをこのページへ移したため60秒から増やした）
+【時間】約65秒（見積もり。全体のイベントの説明から、実例の章へつなぐ）
 
 【出典】
 固定版の手順:
@@ -205,6 +205,28 @@ AI は PO・開発チーム・開発者の3つの役割に分かれます。PO �
 - スクラムガイド2020年11月版 日本語訳「スクラムイベント」（スプリント、スプリントプランニング、デイリースクラム、スプリントレビュー、スプリントレトロスペクティブ）: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf
 設計者の意図と当てはめ（解釈）:
 - 固定期間を設けずスプリントの流れを踏襲すること、人間による成果確認をスプリントレビューの実践と捉えること、デイリースクラムを取り入れていないことは、本プロジェクトの docs/spec.md 2.3（人間の説明と合意）による。
+-->
+
+---
+
+<!-- _class: chapter -->
+
+## 実例：<br>1つの Issue が進むまで
+
+<p class="chapter-subtitle">題材: overstrata-board #37</p>
+
+<!--
+【話すこと】
+ここからは overstrata-board の Issue #37 を題材に、この流れを具体的に見ます。まず課題と完成条件を確かめ、そのあと、実装案の比較と人間の判断を追います。
+
+【時間】約15秒（見積もり）
+全13枚の配分（すべて見積もり、実測ではない）:
+1〜5枚目は20・70・65・65・15秒で3分55秒。6〜13枚目は65・60・40・55・50・75・75・60秒で8分。
+合計11分55秒。15分枠との差3分05秒を、ページの切り替え・補足・質疑の余裕として見込む。全体図の担当の反復を減らして25秒短くし、中表紙に15秒を加えた。人間の通し説明での実測は別に確認する。
+
+【出典】
+- 章の切り替えと題名: 本プロジェクト docs/spec.md 2.3「役割説明の分担と実例への中表紙」（2026-11-04、人間との合意）
+- 題材の記録（課題と完成条件は次の2枚で説明）: https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-37.md
 -->
 
 ---
