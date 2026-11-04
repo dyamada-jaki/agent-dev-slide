@@ -378,6 +378,10 @@ table.duty tr.decide td {
   border-bottom: 2px solid var(--gold-rule);
 }
 table.duty tr.decide td { font-size: 26px; }
+/* 表の行を詰め、セルに20pxの補足行を置く（Issue #24 の PR #25 で8枚目の「人間が決めること」に使用） */
+table.duty.tight th,
+table.duty.tight td { padding-top: 8px; padding-bottom: 8px; }
+table.duty .sub { display: block; margin-top: 4px; font-size: 20px; line-height: 1.35; }
 
 /* 担当の行: 役割の人物（小）と役割名を並べる */
 .actors { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px 18px; }

@@ -391,7 +391,7 @@ overstrata-board の実例:
 <div class="stage">
   <div class="general">
     <p class="stage-label">このプロセスでは</p>
-    <table class="duty">
+    <table class="duty tight">
       <tr><th>担当</th><td><div class="actors">
         <div class="actor"><img class="actor-figure" src="assets/roles/po.png" alt="AI エージェントの PO を表す、開いた冊子を読むデフォルメした人物"><span class="actor-name">PO</span></div>
         <span class="arrow">→</span>
@@ -402,7 +402,7 @@ overstrata-board の実例:
         <div class="actor"><img class="actor-figure" src="assets/roles/team.png" alt="AI エージェントの開発チームを表す、板に付箋を順に貼るデフォルメした人物"><span class="actor-name">開発チーム</span></div>
       </div></td></tr>
       <tr><th>渡すもの</th><td>Issue（目的・受け入れ条件・<br>スコープ外）と「開発可」</td></tr>
-      <tr><th>人間が<br>決めること</th><td>なし（着手の順番は PO が決める）</td></tr>
+      <tr><th>人間が<br>決めること</th><td>この工程で追加の判断はなし<span class="sub">人間と相談して決めた優先順位を、<br>PO が Issue の着手順に具体化する</span></td></tr>
     </table>
     <p class="term">Orca: AI の端末と worktree を扱う作業環境</p>
   </div>
@@ -422,14 +422,15 @@ overstrata-board の実例:
 ② 切り出しでは、PO が spec.md から今すぐ作る部分を Issue にします。目的・受け入れ条件・スコープ外を書き、PR 1本で終わる大きさにします。
 PO は GitHub に Issue を書き、着手してよい Issue に「開発可」のラベルを付けます。担当の行の真ん中の GitHub の枠がこれです。
 すると ③ 着手です。Orca は、AI エージェントの端末と worktree（作業用のフォルダ）をまとめて扱うアプリで、開発はその上で進みます。Orca の定期実行の「起動係」が、「開発可」の Issue があり、動いている開発チームがいないときだけ、開発チームを起動します。担当の行の「Orca の起動係」の枠がこれです。GitHub と起動係は3つの役割に含めない仕組みなので、人物の絵ではなく文字の枠で示しています。
-ここでも人間の判断はありません。
+全体図と役割分担のページで、何から作るか（優先順位）は人間が PO と相談して決める、と話しました。この段階では、人間と相談して決めた優先順位を、AI の PO が Issue の着手の順番に具体化し、「開発可」を付けます。
+表の「人間が決めること」を「この工程で追加の判断はなし」としたのは、着手のこの工程で人間が新しく判断することはない、という意味です。優先順位の検討に人間が関わらない、という意味ではありません。
 
 【実例】
 #37 の範囲は、前提のページで抜き出した条件を含む、受け入れ条件10項目です。
 戦闘の途中で駒を増やしたり減らしたりする機能（#33）や、倒れた駒の表示（#34）はスコープ外として別の Issue に分けています。
 前提の #32 が取り込まれた後、PO が GitHub の #37 に「開発可」を付けました。Orca の起動係が「着手中」にして開発チームを起動し、2026-10-23 の 19:45 に着手しています。
 
-【時間】約45秒（見積もり。#24 で Orca の短い説明を足し、40秒から増やした）
+【時間】約55秒（見積もり。#24 で Orca の短い説明と、優先順位と着手順の関係を足し、40秒から増やした）
 
 【出典】
 一般的な手順:
@@ -437,6 +438,14 @@ PO は GitHub に Issue を書き、着手してよい Issue に「開発可」�
 - workflow.md ステップ2「Issueを切り出す」（Issue に書くこと、着手の合図）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L145-L169
 - workflow.md ステップ3「着手する」: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L171-L175
 - README の役割の表（起動係は「開発可」の Issue があり、動いている開発チームがいないときだけ開発チームを開く）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/README.md#L40-L45
+優先順位と着手順の関係（元テンプレートの固定版にある PO の担当）:
+- workflow.md の担当の表（PO は「人間と議論する、spec.md を書く、Issue を切って順番を決め「開発可」を付ける」）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L16
+- workflow.md ステップ2 の着手の合図（「順番を決めるのは PO で、起動係は番号の小さいものから拾う」）: https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/docs/workflow.md#L161
+- 元テンプレートは、Issue の着手の順番を PO が決めるとだけ書いている。優先順位を人間と相談して決めることは書いていない。
+優先順位と着手順の関係（この発表で合意した人間の関与。元テンプレートが明記した手順ではない）:
+- 2・3枚目の「人間と優先順位を検討」「人間が方向・優先順位・採用を判断」は、本プロジェクトの docs/spec.md 2.3「導入4枚への絞り込みと担当の補足」による（人間の原文は2枚目のノート）。
+- 「人間と相談して決めた優先順位を、AI の PO が Issue の着手順に具体化する」は、PR #25 の初回の受け入れ一次判断で PO が出した提案に、人間が原文「補足して。」と回答して決めた。docs/spec.md 2.3「PR #25 の受け入れ確認で合意した補足」: https://github.com/dyamada-jaki/agent-dev-slide/blob/d2f79415c2fd33b0bae8977bdeabdf23669c427c/docs/spec.md#L300 ・初回の受け入れ一次判断: https://github.com/dyamada-jaki/agent-dev-slide/pull/25#issuecomment-6631456304
+- 新しい承認の工程は加えていない。着手の合図（「開発可」）と起動係の動きは元テンプレートのまま。
 overstrata-board の実例:
 - Issue #37 レポート 2章（目的と範囲・前提・スコープ外）・3章（19:45 の着手、起動係による「着手中」）: https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-37.md
 - Issue #37: https://github.com/dyamada-jaki/overstrata-board/issues/37
