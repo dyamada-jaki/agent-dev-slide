@@ -85,7 +85,7 @@ section.cover h1 {
 section.cover .keywords { font-size: 32px; color: var(--indigo); }
 section.cover .subtitle { font-size: 28px; margin-top: 16px; }
 
-/* 3列: 項目名・箇条書き・参照先。参照先は列の下端にそろえる */
+/* 3列: 項目名・箇条書き・参照先。参照先は列の下端にそろえる（Issue #24 で本編から外したが、他の発表用に残す） */
 .columns {
   display: flex;
   gap: 22px;
@@ -143,7 +143,9 @@ section.overview .ov-human h3,
 section.overview .ov-human p { color: var(--gold-text); }
 section.overview .ov-po { left: 856px; top: 144px; width: 348px; height: 118px; padding: 4px 16px; gap: 18px; }
 section.overview .ov-po img { width: 88px; height: 110px; object-fit: cover; }
-section.overview .ov-po p { font-size: 20px; }
+/* PO の説明は3行（人間と優先順位を検討・仕様と Issue に整理・受け入れ確認）。Issue #24 で枠の大きさを変えずに文字と行間を詰めた */
+section.overview .ov-po h3 { line-height: 1.25; }
+section.overview .ov-po p { font-size: 19px; line-height: 1.35; }
 section.overview .ov-dialogue { position: absolute; top: 187px; left: 558px; width: 276px; text-align: center; font-size: 20px; color: var(--muted); background: var(--paper); }
 section.overview .ov-stage { position: absolute; top: 392px; width: 248px; height: 123px; padding: 8px 0; text-align: center; border: 1.5px solid var(--indigo); background: var(--paper); box-sizing: border-box; }
 section.overview .ov-stage h3 { font-size: 28px; color: var(--indigo); line-height: 1.3; }
@@ -156,11 +158,12 @@ section.overview .ov-s1 { left: 76px; }
 section.overview .ov-s2 { left: 366px; }
 section.overview .ov-s3 { left: 656px; }
 section.overview .ov-s4 { left: 946px; }
-section.overview .ov-developers { left: 76px; top: 529px; width: 280px; height: 90px; padding: 6px 10px; gap: 12px; text-align: left; }
+/* 開発者は3行（2人が同じ Issue を別々に作り、互いにレビュー）。Issue #24 で 280×90 から右と上へ広げた */
+section.overview .ov-developers { left: 76px; top: 524px; width: 340px; height: 102px; padding: 4px 10px; gap: 12px; text-align: left; }
 section.overview .ov-portraits { height: 80px; display: flex; justify-content: center; gap: 0; flex-shrink: 0; }
 section.overview .ov-developers img { width: 46px; height: 80px; }
-section.overview .ov-developers h3 { font-size: 23px; margin-top: 5px; }
-section.overview .ov-developers p { font-size: 18px; line-height: 1.35; }
+section.overview .ov-developers h3 { font-size: 23px; line-height: 1.2; }
+section.overview .ov-developers p { font-size: 18px; line-height: 1.3; }
 section.overview .ov-team { left: 678px; top: 630px; width: 524px; height: 48px; padding: 0 12px; gap: 14px; border: 0; }
 section.overview .ov-team img { width: 46px; height: 48px; }
 section.overview .ov-team h3 { font-size: 21px; line-height: 1.2; }
@@ -173,7 +176,7 @@ section.overview .ov-issue-write { position: absolute; left: 1144px; top: 280px;
 section.overview .ov-issue-start { position: absolute; left: 278px; top: 346px; width: 160px; text-align: center; font-size: 18px; color: var(--indigo); }
 section.overview .ov-wires { position: absolute; inset: 0; width: 1280px; height: 720px; }
 
-/* 役割分担（4枚目）: 上段に人間と AI の PO の対話、下段に開発チームと開発者。工程の順序は描かない */
+/* 役割分担（3枚目）: 上段に人間と AI の PO の対話、下段に開発チームと開発者。工程の順序は描かない */
 .role-map { display: flex; flex-direction: column; gap: 24px; }
 .role-row { display: flex; gap: 24px; align-items: center; }
 .role-box {
@@ -220,7 +223,7 @@ section.overview .ov-wires { position: absolute; inset: 0; width: 1280px; height
   color: var(--indigo);
 }
 
-/* イベント（5枚目）: スクラムのイベント・このプロセスで行うこと・次へ進むために決めること。人間が行う部分だけ金色の太字 */
+/* イベント（4枚目）: スクラムのイベント・このプロセスで行うこと・次へ進むために決めること。人間が行う部分だけ金色の太字 */
 .event-lead {
   margin: -14px 0 22px;
   font-size: 26px;
@@ -264,6 +267,8 @@ table.events .judge { color: var(--gold-text); font-weight: 700; }
   font-size: 21px;
   color: var(--muted);
 }
+/* イベントのページの末尾で実例へつなぐ1行（Issue #24 で三本柱のページから移した）。下端に収めるため上の余白を詰める */
+.event-note + .next { margin-top: 20px; padding-top: 12px; font-size: 24px; }
 
 /* まとめ表と次の案内: 罫線だけで区切る */
 table.recap {
@@ -339,6 +344,8 @@ table.recap th {
 .example h3 { font-size: 28px; margin: 0 0 12px; }
 .example li + li { margin-top: 8px; }
 .example .meta { margin-top: 12px; font-size: 20px; }
+/* 実例で初めて出る用語の短い説明（Issue #24 で8枚目の Orca に使用）。表の下に1行で置く */
+.general .term { margin-top: 14px; font-size: 20px; color: var(--muted); }
 
 table.duty {
   display: table;
@@ -371,6 +378,10 @@ table.duty tr.decide td {
   border-bottom: 2px solid var(--gold-rule);
 }
 table.duty tr.decide td { font-size: 26px; }
+/* 表の行を詰め、セルに20pxの補足行を置く（Issue #24 の PR #25 で8枚目の「人間が決めること」に使用） */
+table.duty.tight th,
+table.duty.tight td { padding-top: 8px; padding-bottom: 8px; }
+table.duty .sub { display: block; margin-top: 4px; font-size: 20px; line-height: 1.35; }
 
 /* 担当の行: 役割の人物（小）と役割名を並べる */
 .actors { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px 18px; }
@@ -433,10 +444,10 @@ tr.decide .actors { flex-wrap: nowrap; align-items: center; }
   max-height: 270px;
   box-sizing: border-box;
 }
-/* 本文の下に置く小さい画像（7枚目の前提）: 説明を画像の右に並べて高さを抑える */
+/* 本文の下に置く小さい画像（5枚目の前提）: 説明を画像の右に並べて高さを抑える */
 .shots.phone.short .shot { display: flex; align-items: flex-end; gap: 16px; }
 .shots.phone.short img { max-height: 200px; flex: none; }
-/* 比較画像を大きく見せるページだけ、右の実例の列を広げる（12枚目） */
+/* 比較画像を大きく見せるページだけ、右の実例の列を広げる（10枚目） */
 .example.wide { flex-basis: 660px; }
 /* 往復の表（6行）: 高さに収めるため文字と余白を小さくする（docs/design.md） */
 table.duty.loop { font-size: 22px; }
@@ -445,7 +456,7 @@ table.duty.loop td { padding: 9px 10px; }
 table.duty.loop tr.decide td { font-size: 22px; }
 table.duty.loop b { color: var(--indigo); }
 table.duty.loop tr.decide b { color: var(--gold-text); }
-/* 2案の「触る前 → 選んだ直後」を案ごとに1行で並べる（12枚目）。左に案名・版・違いの説明、右に前後の画像 */
+/* 2案の「触る前 → 選んだ直後」を案ごとに1行で並べる（10枚目）。左に案名・版・違いの説明、右に前後の画像 */
 .shots.phone.pair { flex-direction: column; gap: 14px; }
 .shots.phone.pair .shot { display: flex; align-items: center; gap: 8px; }
 .shots.phone.pair .shot > div { flex: 0 0 168px; }
