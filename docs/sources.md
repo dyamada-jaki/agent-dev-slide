@@ -51,7 +51,12 @@ Issue #9 で採用した次章（main `19656aa`）は、元テンプレートの
 - 採用修正版: [PR #6 の原稿](https://github.com/dyamada-jaki/agent-dev-slide/blob/3480008867440677afcb0b29e8a0b8aa06a08c00/slides/design-codex.md)と同じ版の `docs/design-samples/issue-5-codex-preview/`。罫線・金色・下部2文のノート移動を反映した版。
 - 次への接続は [Issue #8](https://github.com/dyamada-jaki/agent-dev-slide/issues/8) の目的・範囲（共通デザインの整備と導入6枚への適用）を示す。今回の実例の時点で、その完了や効果を断定しない。
 
-## 次章で使う overstrata-board #37 の実例
+## Issue #34 まで本編で使った overstrata-board #37 の実例（記録）
+
+Issue #34 で、この実例（中表紙と10〜17枚目）を本編から外した。以下は、削除前の版を裏付ける出典の記録と、より詳しい説明用のスライド（[Issue #31](https://github.com/dyamada-jaki/agent-dev-slide/issues/31) で検討）で再利用するための記録として保持する。実例の内容・記録を誤りとして撤回したものではない。この実例をそのまま完成済みの詳細版とは扱わない。
+
+- 削除前の固定版: [原稿（`c2dcebf`）](https://github.com/dyamada-jaki/agent-dev-slide/blob/c2dcebf6710afbda9e9f6bdc97bd6b34b3633449/slides/index.md)・[同版の仕様](https://github.com/dyamada-jaki/agent-dev-slide/blob/c2dcebf6710afbda9e9f6bdc97bd6b34b3633449/docs/spec.md)・[同版の全17枚の PDF](https://github.com/dyamada-jaki/agent-dev-slide/blob/c2dcebf6710afbda9e9f6bdc97bd6b34b3633449/docs/pdf/agent-dev-slide.pdf)（原稿は #30 採用の main `5e94659` から変わっていない）。
+- 画像 [slides/assets/issue-37-board/](../slides/assets/issue-37-board/) と、下記の出典・過去のレポートは削除していない。以下のページ番号は削除前の版の番号。
 
 - 公開リポジトリ [overstrata-board](https://github.com/dyamada-jaki/overstrata-board) の main と手元の HEAD が `346606809993990ddf3cdb0244b0db9a59e42a7d` で一致することを確認した（2026-10-31）。読み取り専用でレポートを調査した。この版を #37 の完了・改善を読む記録の固定版とする。画面の比較は以下の当時の版を使う。
 - [Issue #37 レポート](https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-37.md): 3章の計画、4章の2案、7章の人間の実機比較・条件更新・推薦変更、再受け入れと完了、改善 F/G。比較する画面は PR #40 `b1902c4`／#41 `526f8f8`、採用版は #40 `629709a`。採用版の差分は README であり、画面の作り直しではない。
@@ -66,6 +71,7 @@ Issue #9 で採用した次章（main `19656aa`）は、元テンプレートの
 ## 使い方
 
 - 読むための参照先。元リポジトリを変更しない。
-- 各スライドのノート（HTML コメント）に、説明内容を裏付ける資料の URL を残す。Overstrata の絵・キャラクター・画風の出典表記は上記のとおり不要。
+- 本編（`slides/index.md`）には発表ノートを置かない（Issue #34 で、人間の判断により1〜8枚目のノートを全部削除した）。説明内容を裏付ける資料は、この文書の固定版 URL と、設計者の判断を記す [spec.md](spec.md) で示す。1〜8枚目の根拠は、各ページの見出しと、[削除前の原稿（`c2dcebf`）](https://github.com/dyamada-jaki/agent-dev-slide/blob/c2dcebf6710afbda9e9f6bdc97bd6b34b3633449/slides/index.md)の同じ見出しのページのノート（【出典】）、[同版の仕様](https://github.com/dyamada-jaki/agent-dev-slide/blob/c2dcebf6710afbda9e9f6bdc97bd6b34b3633449/docs/spec.md)で追える。1〜8枚目の本文と順序は削除前の版と同じ。
+- Overstrata の絵・キャラクター・画風の出典表記は上記のとおり不要。
 - 参照版を更新するときは差分を読み、説明への影響と新しい SHA を記録する。最新版の仕様を推測で混ぜない。
 - 成果や効果を説明する場合、参照元に根拠がない数値・優劣を追加しない。
