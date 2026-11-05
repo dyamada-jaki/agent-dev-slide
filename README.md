@@ -5,6 +5,8 @@
 
 現在の原稿は、LT の導入4枚、実例へ切り替える中表紙1枚、実例で Issue 1本の流れを説明する8枚の全13枚です。見た目は共通デザイン（[themes/paper.css](themes/paper.css)、使い方は [docs/design.md](docs/design.md)）でそろえています。
 
+[**最新版の PDF を開く**](docs/pdf/agent-dev-slide.pdf)（[生成元・対象版](docs/pdf/README.md)）
+
 ## すぐに試す
 
 Node.js の版は `.nvmrc` を使います。PDF 出力には Google Chrome が必要です。
@@ -62,7 +64,7 @@ HTML 内のプレイヤー用リソースは CDN を参照する場合があり�
 - [取り出し元](docs/origin.md): テンプレートの由来
 
 原稿と設定を Git で管理し、生成物 `dist/` と依存 `node_modules/` はコミットしません。
-GitHub Actions は PR と main への push で同じ確認コマンドを実行し、HTML・PDF を artifact に保存します。ホスティングは行いません。
+GitHub Actions は PR と main への push で同じ確認コマンドを実行し、HTML・PDF を artifact に保存します。加えて、スライドの制作・修正ごとに、表示確認した共有用 PDF を `docs/pdf/agent-dev-slide.pdf` にコミットして PR から開けるようにします。採用後は冒頭のリンクから取得できます。ホスティングは行いません。
 
 ## 検討用のデザイン見本
 

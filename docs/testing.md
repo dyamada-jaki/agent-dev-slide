@@ -34,6 +34,16 @@ Orca のブラウザで、スクリーンショットがタイル状に重複す
 - ページ送り: Orca では `orca keypress --key ArrowRight`（`ArrowLeft`）でページが移ることを確かめる。それでも届かなければ、生成した HTML を headless Chrome などで開き、キーイベント（ArrowRight・ArrowLeft）を送って確かめる
 - PR や文書に置くプレビュー画像は、Marp の操作バーが写らない上記の `--images png` で作る。PR のプレビューは `docs/preview/issue-<番号>-<エージェント>/` にコミットし、PR 本文からリンクする（gh から PR に画像を添付できないため）
 
+### 毎回の PDF の共有
+
+2026-11-05、人間の「毎回PDFも出力して、GitHubにあげてほしい」に対応する。CI の artifact 保存に加え、スライドを制作・修正した PR では GitHub で開ける PDF を共有する。
+
+- 表示確認した本編 PDF を `docs/pdf/agent-dev-slide.pdf` に置き、原稿と同じ PR でコミット・push する。PR の修正で原稿・テーマ・画像・生成設定が変わった場合も更新する。PDF を直接編集せず、変更した原稿から再生成する。原稿や表示が変わらない文書だけの変更では再生成・差し替えは不要。
+- CI の成功した対象版の `slides` artifact にある `agent-dev-slide.pdf` を使う。`gh run download <run番号> --name slides --dir <一時ディレクトリ>` で取得し、表示確認後に上のパスへコピーする。CI が未完了のときは共有完了とせず、最終報告・PO 依頼までに PDF とリンクをそろえる。
+- `docs/pdf/README.md` に、PDF を生成した元コミットと CI run のリンクを記録する。PDF の追加コミットと生成元の SHA は異なるため、追加までの差分で原稿・テーマ・画像・生成設定が変わっていないことを確かめる。変わっていれば更新版で生成し直す。
+- PR 本文と人間への最終報告には、`https://github.com/dyamada-jaki/agent-dev-slide/blob/<PRのhead SHA>/docs/pdf/agent-dev-slide.pdf` を「PDF」として載せる。main の PDF は採用済みの版なので、未マージの PR の確認先として案内しない。
+- レビューでは PDF の対象版と原稿の対応、ページ数・表示、リンク先のファイルの存在を確認する。CI の PDF の確認は本節の共有用コピーと同じ生成物なら兼ねてよい。現在の head に対する確認と、生成元の違いは記録上区別する。
+
 ## 3. 実物と出典で確認する
 
 - 実際の Marp CLI と Chrome で生成する。生成物をモックに置き換えない。
