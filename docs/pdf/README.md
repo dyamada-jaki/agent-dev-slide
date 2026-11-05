@@ -2,8 +2,8 @@
 
 [agent-dev-slide.pdf](agent-dev-slide.pdf) が、現在のスライドを GitHub で開くための PDF です。
 
-- 原稿の版: `2a56200413f3712f15fe886b9892fc2887c6a91f`（Issue #30 の PR #32、導入を4つの活動の図に分けた全16枚。未マージ）
-- 生成元: [GitHub Actions run 42017262426](https://github.com/dyamada-jaki/agent-dev-slide/actions/runs/42017262426) の `slides` artifact 内の `agent-dev-slide.pdf`
+- 原稿の版: `10c18f1145cd3c8766d757ab78e2603b57f78086`（Issue #30 の PR #32、人間の実機確認後の修正で導入を5つの活動の図にした全17枚。未マージ）
+- 生成元: [GitHub Actions run 42029613681](https://github.com/dyamada-jaki/agent-dev-slide/actions/runs/42029613681) の `slides` artifact 内の `agent-dev-slide.pdf`
 - フォント: CI の Noto CJK
 - この PDF を置いたコミットでは、原稿・テーマ・画像・生成設定を変更していません。
 
