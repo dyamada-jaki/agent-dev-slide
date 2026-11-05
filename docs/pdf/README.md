@@ -2,10 +2,11 @@
 
 [agent-dev-slide.pdf](agent-dev-slide.pdf) が、現在のスライドを GitHub で開くための PDF です。
 
-- 原稿の版: `ee05a936fc0146bdaad94a47cb54231a92a79164`（Issue #30 の PR #32、2回目の実機確認後に5〜7枚目を直した全17枚。PR #32 を main `5e94659` へ採用済み）
-- 生成元: [GitHub Actions run 42047024678](https://github.com/dyamada-jaki/agent-dev-slide/actions/runs/42047024678) の `slides` artifact 内の `agent-dev-slide.pdf`
+- 原稿の版: `12619bcf5974bccfe3992d385713897e43f98509`（Issue #34 の PR #35。実例の章と発表ノートを外した本編の全8枚）
+- 生成元: [GitHub Actions run 42059421759](https://github.com/dyamada-jaki/agent-dev-slide/actions/runs/42059421759) の `slides` artifact 内の `agent-dev-slide.pdf`
 - フォント: CI の Noto CJK
 - この PDF を置いたコミットでは、原稿・テーマ・画像・生成設定を変更していません。
+- 実例を含む削除前の全17枚の PDF は、[固定版 `c2dcebf` の PDF](https://github.com/dyamada-jaki/agent-dev-slide/blob/c2dcebf6710afbda9e9f6bdc97bd6b34b3633449/docs/pdf/agent-dev-slide.pdf)（原稿 `ee05a93`、run 42047024678）で読めます。
 
 スライドを変更した PR では、表示確認した PDF でこのファイルを更新し、上の原稿の版・生成元も更新します。PR 本文と最終報告には、その PR のコミットを指す PDF のリンクを載せます。更新方法と確認条件は [testing.md](../testing.md) を参照してください。
 
