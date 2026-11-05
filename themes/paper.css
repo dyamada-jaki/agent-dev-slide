@@ -338,6 +338,11 @@ table.events .judge { color: var(--gold-text); font-weight: 700; }
 .act-who img + img { margin-left: -16px; }
 .act-who h3 { margin: 0; font-size: 28px; line-height: 1.3; }
 .act-box p { font-size: 22px; line-height: 1.5; }
+/* 開発者の枠で、2人のどちらかを示す名前（5・6枚目。Claude Code／Codex） */
+.act-box p.act-dev { margin: 0 0 4px; font-size: 18px; line-height: 1.3; font-weight: 700; color: var(--indigo); }
+.act-who .act-dev { margin: 2px 0 0; }
+.act-box.solo h3:has(+ .act-dev) { margin-bottom: 0; }
+.act-box.solo p.act-dev { margin: 0 0 2px; line-height: 1.2; }
 /* 差し戻し・条件の見直しなど、通常の流れから戻るときの補足 */
 .act-box .act-alt { margin-top: auto; padding-top: 10px; font-size: 18px; line-height: 1.4; color: var(--muted); }
 .act-box p + .act-alt { margin-top: auto; }
