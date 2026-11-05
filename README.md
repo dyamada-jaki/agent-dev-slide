@@ -3,7 +3,7 @@
 [agent-dev-template](https://github.com/dyamada-jaki/agent-dev-template) の開発プロセスを、人に説明するための日本語スライドです。
 スライド自体も、Spec・Issue・Orca を使った同じプロセスで少しずつ制作します。
 
-現在の原稿は、LT の導入4枚、実例へ切り替える中表紙1枚、実例で Issue 1本の流れを説明する8枚の全13枚です。見た目は共通デザイン（[themes/paper.css](themes/paper.css)、使い方は [docs/design.md](docs/design.md)）でそろえています。
+現在の原稿は、LT の導入8枚（表紙・全体図・役割分担と、スクラムのイベントと関連する5つの活動の図）、実例へ切り替える中表紙1枚、実例で Issue 1本の流れを説明する8枚の全17枚です。各ページの発表ノートの時間は見積もりで、Issue #30 で導入を4枚から8枚にした後の全体の時間は、まだ見積もり直し・実測をしていません。見た目は共通デザイン（[themes/paper.css](themes/paper.css)、使い方は [docs/design.md](docs/design.md)）でそろえています。
 
 [**最新版の PDF を開く**](docs/pdf/agent-dev-slide.pdf)（[生成元・対象版](docs/pdf/README.md)）
 
