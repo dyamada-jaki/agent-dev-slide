@@ -50,7 +50,7 @@ Issue #5 で採用した見本（`e0d645a` の [見本原稿](../slides/design-c
 | 型 | 書き方 | 使っているページ |
 |---|---|---|
 | 表紙 | `<!-- _class: cover -->` と `# 題名`、`<p class="subtitle">`。題名の下にキーワード行 `<p class="keywords">` も置けるが、本編では Issue #24 で外した | 1 |
-| 中表紙 | `<!-- _class: chapter -->` と、上に `<p class="chapter-label">`（章の切り替えを示す短い言葉）、`# 見出し`、必要なら `<p class="subtitle">` に1行。ページ番号は表示する。章の内容（課題・役割一覧など）は繰り返さない。Issue #27 で追加 | 5 |
+| 中表紙 | `<!-- _class: chapter -->` と、上に `<p class="chapter-label">`（章の切り替えを示す短い言葉）、`# 見出し`、必要なら `<p class="subtitle">` に1行。ページ番号は表示する。章の内容（課題・役割一覧など）は繰り返さない。Issue #27 で追加 | 8 |
 | 本文 | `## 見出し` に続けて本文。特別なクラスは不要 | 3・9〜16 |
 | 全体図 | `<!-- _class: overview -->` と `## 見出し`、続けて `<div class="ov">` の中に絶対位置の部品（`ov-` で始まるクラス）と線の `<svg class="ov-wires">`。下の「全体図」 | 2 |
 | 3列 | `<div class="columns">` の中に `<div class="column">`（`<h3>`・`<ul>`・`<p class="meta">`）。順序を示すときだけ列の間に `<div class="arrow">→</div>` を置く。参照先 `.meta` は列の下端にそろう | なし（Issue #24 で削除。以前は3枚目） |
@@ -58,8 +58,8 @@ Issue #5 で採用した見本（`e0d645a` の [見本原稿](../slides/design-c
 | イベントの表 | `<p class="event-lead">`、`<table class="events">`（1行目は列名、各行は `<th>` にイベント名、`<td>` に行うこと・決めること。人間が行う部分だけ `<strong class="judge">`）、`<p class="event-note">`。実例へのつなぎは続けて `<p class="next">`（注記の直後では上の余白を詰める） | なし（Issue #30 で4つの活動の図へ分けた。以前は4枚目） |
 | 活動の図 | 先頭に4つの活動の行 `<ol class="acts">`（1つ目の `<li class="acts-label">` に「スクラムのイベントと関連する活動」、そのページの活動に `now`）、続けて `## 活動名：説明`、`<p class="act-lead">`、`<div class="act-flow">` に担当の枠 `<div class="act-box">` と矢印 `<p class="act-link">` を交互に置き、`<p class="act-next">`・`<p class="act-note">`。下の「活動の図」 | 4〜7 |
 | まとめ表と次の案内 | 必要なら `<p class="stage-label">` に表の説明、`<table class="recap">`（行ごとに `<th>` と `<td>`）と `<p class="next">` | なし（Issue #24 で削除。以前は6枚目） |
-| 前提のページ | 上部の段階の行を付けず `## 見出し`、`<div class="stage">` の左に `<div class="general">`（`<p class="stage-label">`に抜粋元、`<table class="duty">` に前提の行）、右に `<div class="example">`（`<h3>`・画面や `<ul>`・`<p class="meta">`）。下の「前提のページ」 | 6・7 |
-| 工程のページ | 先頭に8ステップの段階の行 `<ol class="steps">`、続けて `## 見出し`、`<div class="stage">` の左に `<div class="general">`（`<p class="stage-label">このプロセスでは</p>` と `<table class="duty">`）、右に `<div class="example">`（`<h3>実例: …</h3>`・`<ul>`・`<p class="meta">`）。下の「工程のページ」 | 8〜13 |
+| 前提のページ | 上部の段階の行を付けず `## 見出し`、`<div class="stage">` の左に `<div class="general">`（`<p class="stage-label">`に抜粋元、`<table class="duty">` に前提の行）、右に `<div class="example">`（`<h3>`・画面や `<ul>`・`<p class="meta">`）。下の「前提のページ」 | 9・10 |
+| 工程のページ | 先頭に8ステップの段階の行 `<ol class="steps">`、続けて `## 見出し`、`<div class="stage">` の左に `<div class="general">`（`<p class="stage-label">このプロセスでは</p>` と `<table class="duty">`）、右に `<div class="example">`（`<h3>実例: …</h3>`・`<ul>`・`<p class="meta">`）。下の「工程のページ」 | 11〜16 |
 
 例（3列）:
 
