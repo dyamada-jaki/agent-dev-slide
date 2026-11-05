@@ -2,6 +2,12 @@
 
 説明するプロセスの出典。制作に合わせて変更する本プロジェクトの設定と区別する。
 
+## 本編8枚の根拠と削除前の原稿
+
+Issue #34 で本編を8枚にし、発表ノートをすべて削除した。本文の説明内容は維持している。出典は以下の既存の固定版 URL と、削除前の固定コミット `c2dcebf` の [原稿](https://github.com/dyamada-jaki/agent-dev-slide/blob/c2dcebf/slides/index.md)・[仕様](https://github.com/dyamada-jaki/agent-dev-slide/blob/c2dcebf/docs/spec.md) で追える。本編1〜8枚目の見出しを、同固定版の対応ページのノートに照合すると、一般的な手順・スクラムの定義・設計者の判断と当てはめの根拠を確認できる。
+
+同原稿の9枚目の中表紙と10〜17枚目の overstrata-board #37 の実例は本編から外した。詳細版の検討で再利用できるよう、画像・出典資料・過去のレポートを保存している。削除は内容や記録の撤回ではなく、残した実例を完成済みの詳細版とは扱わない。詳しい説明用の別のスライドは #31 で検討する。
+
 ## 元テンプレート
 
 - リポジトリ: [dyamada-jaki/agent-dev-template](https://github.com/dyamada-jaki/agent-dev-template)
@@ -22,7 +28,7 @@
 
 README の工程図（65行目）はマージと後片付けを開発チームの作業とし、workflow.md（225行目）はマージを人間がすると記載している。両方を参照版で確認済み（2026-10-28）。2026-10-30 に下記の説明方針を人間と合意した。本プロジェクトで実際に行った手順と、説明対象の記述を混同しない。
 
-2026-10-30 に同じ固定版を再確認した。workflow.md のステップ7も開発チームを担当とし、[finish-issue の手順3・4](https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/.claude/skills/finish-issue/SKILL.md)は、人間が具体的な実行内容を承認した後に開発チームがマージを実行する構成だった。[Issue #5 の完了記録](https://github.com/dyamada-jaki/agent-dev-slide/blob/4c79405a64f13ec4359e6ceb57d1c871ba84b35f/docs/issue-reports/issue-5.md) 9章も同じ流れである。人間の「OKです。」を受け、説明は「人間が採用・実行内容を承認し、開発チームがマージする」に統一する。workflow.md ステップ6の記載不一致は発表ノートに短く残す。参照版や元資料は変更せず、スライドでの説明方針として扱う。
+2026-10-30 に同じ固定版を再確認した。workflow.md のステップ7も開発チームを担当とし、[finish-issue の手順3・4](https://github.com/dyamada-jaki/agent-dev-template/blob/78c72e2a824ef1056e8ecbcae141818acf28ec71/.claude/skills/finish-issue/SKILL.md)は、人間が具体的な実行内容を承認した後に開発チームがマージを実行する構成だった。[Issue #5 の完了記録](https://github.com/dyamada-jaki/agent-dev-slide/blob/4c79405a64f13ec4359e6ceb57d1c871ba84b35f/docs/issue-reports/issue-5.md) 9章も同じ流れである。人間の「OKです。」を受け、説明は「人間が採用・実行内容を承認し、開発チームがマージする」に統一する。workflow.md ステップ6の記載不一致は、当時の発表ノートに短く残した（Issue #34 後の本編の出典は上記の方法で追う）。参照版や元資料は変更せず、スライドでの説明方針として扱う。
 
 ## スクラム
 
@@ -51,7 +57,9 @@ Issue #9 で採用した次章（main `19656aa`）は、元テンプレートの
 - 採用修正版: [PR #6 の原稿](https://github.com/dyamada-jaki/agent-dev-slide/blob/3480008867440677afcb0b29e8a0b8aa06a08c00/slides/design-codex.md)と同じ版の `docs/design-samples/issue-5-codex-preview/`。罫線・金色・下部2文のノート移動を反映した版。
 - 次への接続は [Issue #8](https://github.com/dyamada-jaki/agent-dev-slide/issues/8) の目的・範囲（共通デザインの整備と導入6枚への適用）を示す。今回の実例の時点で、その完了や効果を断定しない。
 
-## 次章で使う overstrata-board #37 の実例
+## 本編から外した overstrata-board #37 の実例（記録）
+
+以下のページ番号とノートへの参照は、上記の削除前の固定版に対応する制作記録。
 
 - 公開リポジトリ [overstrata-board](https://github.com/dyamada-jaki/overstrata-board) の main と手元の HEAD が `346606809993990ddf3cdb0244b0db9a59e42a7d` で一致することを確認した（2026-10-31）。読み取り専用でレポートを調査した。この版を #37 の完了・改善を読む記録の固定版とする。画面の比較は以下の当時の版を使う。
 - [Issue #37 レポート](https://github.com/dyamada-jaki/overstrata-board/blob/346606809993990ddf3cdb0244b0db9a59e42a7d/docs/issue-reports/issue-37.md): 3章の計画、4章の2案、7章の人間の実機比較・条件更新・推薦変更、再受け入れと完了、改善 F/G。比較する画面は PR #40 `b1902c4`／#41 `526f8f8`、採用版は #40 `629709a`。採用版の差分は README であり、画面の作り直しではない。
@@ -66,6 +74,6 @@ Issue #9 で採用した次章（main `19656aa`）は、元テンプレートの
 ## 使い方
 
 - 読むための参照先。元リポジトリを変更しない。
-- 各スライドのノート（HTML コメント）に、説明内容を裏付ける資料の URL を残す。Overstrata の絵・キャラクター・画風の出典表記は上記のとおり不要。
+- 本編8枚の出典は、本書の固定版 URL と上記の削除前の原稿・仕様で確認する。発表ノートへの記録は求めない。Overstrata の絵・キャラクター・画風の出典表記は上記のとおり不要。
 - 参照版を更新するときは差分を読み、説明への影響と新しい SHA を記録する。最新版の仕様を推測で混ぜない。
 - 成果や効果を説明する場合、参照元に根拠がない数値・優劣を追加しない。
