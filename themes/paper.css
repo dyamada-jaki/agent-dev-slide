@@ -291,6 +291,33 @@ table.events .judge { color: var(--gold-text); font-weight: 700; }
 /* イベントのページの末尾で実例へつなぐ1行（Issue #24 で三本柱のページから移した）。下端に収めるため上の余白を詰める */
 .event-note + .next { margin-top: 20px; padding-top: 12px; font-size: 24px; }
 
+/* 活動の図（Issue #30）: 担当の枠と、受け渡すものを添えた矢印。既存ページには適用しない */
+section.activity h2 { margin-bottom: 24px; }
+.activity-lead { font-size: 25px; color: var(--indigo); margin-bottom: 28px; }
+.activity-flow { display: grid; grid-template-columns: 1fr 90px 1fr 90px 1fr; align-items: stretch; }
+.activity-flow.four { grid-template-columns: 1fr 82px 1fr 82px 1fr 82px 1fr; }
+.activity-node { border: 1px solid var(--rule); padding: 18px 14px; text-align: center; }
+.activity-portraits { height: 94px; display: flex; justify-content: center; margin-bottom: 12px; }
+.activity-portraits img { width: 90px; height: 94px; object-fit: contain; }
+.activity-node h3 { font-size: 28px; margin: 0 0 14px; line-height: 1.35; }
+.activity-node h3 small { font-family: var(--font-body); font-size: 18px; font-weight: 400; color: var(--muted); }
+.activity-node p { font-size: 23px; line-height: 1.55; }
+.activity-node.human { border-color: var(--gold-rule); }
+.activity-node.human h3, .activity-node.human p { color: var(--gold-text); font-weight: 700; }
+.activity-node.artifact { display: flex; flex-direction: column; justify-content: center; }
+.activity-node.artifact h3 { margin-bottom: 28px; }
+.activity-edge { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px; color: var(--muted); font-size: 19px; line-height: 1.35; text-align: center; }
+.activity-arrow { display: block; font-size: 34px; line-height: 1; }
+.activity-flow.four .activity-node h3 { font-size: 25px; }
+.activity-flow.four .activity-node h3 small { display: block; margin-top: 3px; }
+.activity-flow.four .activity-node p { font-size: 21px; }
+.activity-flow.four .activity-edge { font-size: 18px; }
+.activity-route { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--indigo); font-size: 24px; }
+.activity-inline-arrow { display: inline-block; padding: 0 8px; color: var(--muted); }
+.activity-note { margin-top: 18px; font-size: 20px; line-height: 1.5; color: var(--muted); }
+.activity-revisit { margin-top: 24px; border-top: 1px solid var(--rule); padding-top: 14px; font-size: 21px; line-height: 1.5; }
+.activity-revisit > p:first-child { color: var(--indigo); margin-bottom: 7px; font-weight: 700; }
+
 /* まとめ表と次の案内: 罫線だけで区切る */
 table.recap {
   display: table;
