@@ -56,6 +56,7 @@ HTML 内のプレイヤー用リソースは CDN を参照する場合があり�
 - [仕様](docs/spec.md): 決まったことと未決事項
 - [現在地と次の Issue](docs/next-issues.md): 続きから始めるための記録
 - [原稿](slides/index.md): Markdown／Marp、16:9
+- [紹介記事の共通原稿](docs/articles/development-process.md): Qiita・Zenn 向け（[根拠・掲載メモ](docs/articles/README.md)）
 - [共通デザイン](docs/design.md): テーマ `paper` の色・書体・ページ型と、スライドの足し方
 - [参照元](docs/sources.md): 説明対象の資料と固定した版
 - [開発手順](docs/workflow.md): 3つの席と8ステップ
