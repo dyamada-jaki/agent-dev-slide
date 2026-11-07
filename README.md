@@ -7,6 +7,8 @@
 
 [**最新版の PDF を開く**](docs/pdf/agent-dev-slide.pdf)（[生成元・対象版](docs/pdf/README.md)）
 
+Qiita・Zenn 向けに、単独で読める[技術記事の共通原稿](docs/articles/agent-development.md)も用意しています。公開前の原稿です。[根拠・掲載時の扱い・表示確認](docs/articles/README.md)は保守用の資料に分けています。
+
 ## すぐに試す
 
 Node.js の版は `.nvmrc` を使います。PDF 出力には Google Chrome が必要です。
@@ -56,6 +58,7 @@ HTML 内のプレイヤー用リソースは CDN を参照する場合があり�
 - [仕様](docs/spec.md): 決まったことと未決事項
 - [現在地と次の Issue](docs/next-issues.md): 続きから始めるための記録
 - [原稿](slides/index.md): Markdown／Marp、16:9
+- [記事原稿](docs/articles/agent-development.md): Qiita・Zenn 共通の Markdown（[保守メモ](docs/articles/README.md)）
 - [共通デザイン](docs/design.md): テーマ `paper` の色・書体・ページ型と、スライドの足し方
 - [参照元](docs/sources.md): 説明対象の資料と固定した版
 - [開発手順](docs/workflow.md): 3つの席と8ステップ
