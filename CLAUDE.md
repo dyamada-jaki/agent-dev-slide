@@ -69,7 +69,7 @@ docs/
 
 ## 守ること
 
-1. 原稿は `slides/`、仕様は `docs/spec.md`、参照元は `docs/sources.md` に置く。生成物 `dist/` を直接編集しない
+1. スライド原稿は `slides/`、仕様は `docs/spec.md`、参照元は `docs/sources.md` に置く。記事原稿とその根拠・掲載メモは `docs/articles/` に置く。生成物 `dist/` を直接編集しない
 2. 制作前に受け入れ条件と確かめ方を決め、[docs/testing.md](docs/testing.md) に従って内容・出典・表示を確認する
 3. 画面があるなら、「開発設定」の画面確認の幅を基準に作る
 4. 画面の文言・文書は 日本語
