@@ -11,6 +11,7 @@
 スキルは「開発設定」の表から値を読み、表に無い項目や「なし」の手順を飛ばす。
 
 - 制作環境: Markdown + Marp CLI。原稿は Git 管理し、HTML と PDF を生成する
+- 技術記事: Qiita・Zenn 向けの共通原稿は `docs/articles/`。通常の Markdown で書き、根拠と掲載時の扱いは同フォルダの README に置く。表示確認は `docs/testing.md`「記事の確認」に従う
 - 実行環境: Node.js 24（`.nvmrc`）と Chrome。ローカルで制作し、GitHub Actions で確認する
 - 本編はプロセスを紹介する8枚（表紙・全体図・役割分担・5つの活動の図）。発表ノートは付けず、出典は `docs/sources.md` と削除前の固定版で追う。実例は本編から外し、詳しい説明用の別のスライドは #31 で検討する。枚数・順序は `docs/spec.md` の現在の制作条件に従う。共通デザイン（`themes/paper.css`）で見た目をそろえる。内容・構成・デザインは人間と議論し、Issue ごとに作る
 
@@ -69,7 +70,7 @@ docs/
 
 ## 守ること
 
-1. 原稿は `slides/`、仕様は `docs/spec.md`、参照元は `docs/sources.md` に置く。生成物 `dist/` を直接編集しない
+1. スライド原稿は `slides/`、記事原稿は `docs/articles/`、仕様は `docs/spec.md`、参照元は `docs/sources.md` に置く。記事の主張と根拠の対応は `docs/articles/README.md` に残す。生成物 `dist/` を直接編集しない
 2. 制作前に受け入れ条件と確かめ方を決め、[docs/testing.md](docs/testing.md) に従って内容・出典・表示を確認する
 3. 画面があるなら、「開発設定」の画面確認の幅を基準に作る
 4. 画面の文言・文書は 日本語
