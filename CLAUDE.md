@@ -34,6 +34,7 @@ scripts/       プレビュー起動・本編と見本の生成・ガイド同�
 dist/          HTML・PDF（生成物、Git 管理外）
 docs/
   spec.md      仕様（正）
+  article/     技術記事の共通原稿と根拠・掲載メモ
   design.md    共通デザインの使い方
   sources.md   説明対象の参照元と版
   setup.md     環境構築・運用の開始手順
