@@ -5,7 +5,13 @@ import { marpCli } from '@marp-team/marp-cli';
 const pdf = process.argv.includes('--pdf');
 await mkdir('dist', { recursive: true });
 await cp('slides/assets', 'dist/assets', { recursive: true });
-const args = pdf
-  ? ['--no-stdin', 'slides/index.md', '--pdf', '--allow-local-files', '-o', 'dist/agent-dev-slide.pdf']
-  : ['--no-stdin', 'slides/index.md', '-o', 'dist/index.html'];
-process.exitCode = await marpCli(args);
+for (const { suffix, lang } of [{ suffix: '', lang: 'ja' }, { suffix: '-en', lang: 'en' }]) {
+  const output = pdf ? `dist/agent-dev-slide${suffix}.pdf` : `dist/index${suffix}.html`;
+  const args = ['--no-stdin', `slides/index${suffix}.md`, '--lang', lang, '-o', output];
+  if (pdf) args.push('--pdf', '--allow-local-files');
+  const result = await marpCli(args);
+  if (result !== 0) {
+    process.exitCode = result;
+    break;
+  }
+}

@@ -1,6 +1,6 @@
 # agent-dev-slide
 
-[agent-dev-template](https://github.com/dyamada-jaki/agent-dev-template) の開発プロセスを、人に説明するための日本語スライドです。
+[agent-dev-template](https://github.com/dyamada-jaki/agent-dev-template) の開発プロセスを、人に説明するための日本語スライドと英語版です。
 スライド自体も、Spec・Issue・Orca を使った同じプロセスで少しずつ制作します。
 
 現在の本編は、表紙・全体図・役割分担と、スクラムのイベントと関連する5つの活動の図の全8枚です。プロセスの紹介を目的とし、ふりかえりで終わります。発表ノートは付けず、出典は [docs/sources.md](docs/sources.md) と削除前の固定版で追えます。実例の章は本編から外し、詳しい説明用の別のスライドを [Issue #31](https://github.com/dyamada-jaki/agent-dev-slide/issues/31) で検討します。削除前の実例は完成済みの詳細版ではありません。説明時間の実測・調整は後段で行います。見た目は共通デザイン（[themes/paper.css](themes/paper.css)、使い方は [docs/design.md](docs/design.md)）でそろえています。
@@ -33,8 +33,8 @@ npm run check
 | `npm run lint` | Markdown の書式確認 |
 | `npm run check:links` | ローカル参照先の確認 |
 | `npm run check:guides` | CLAUDE.md と AGENTS.md の一致確認 |
-| `npm run build` | `dist/index.html` を生成（画像を `dist/assets/` へ複製） |
-| `npm run build:pdf` | `dist/agent-dev-slide.pdf` を生成 |
+| `npm run build` | `dist/index.html`・`dist/index-en.html` を生成（画像を `dist/assets/` へ複製） |
+| `npm run build:pdf` | `dist/agent-dev-slide.pdf`・`dist/agent-dev-slide-en.pdf` を生成 |
 | `npm run build:samples` | Issue #5 の見本を `dist/design-codex.*` に生成 |
 | `npm run check` | 上記の自動確認を一括実行（dev を除く） |
 
@@ -55,7 +55,8 @@ HTML 内のプレイヤー用リソースは CDN を参照する場合があり�
 
 - [仕様](docs/spec.md): 決まったことと未決事項
 - [現在地と次の Issue](docs/next-issues.md): 続きから始めるための記録
-- [原稿](slides/index.md): Markdown／Marp、16:9
+- [日本語原稿](slides/index.md)・[英語原稿](slides/index-en.md): Markdown／Marp、16:9
+- [英語版の方針と確認記録](docs/english-edition.md): 訳語・意味の対応・確認方法
 - [共通デザイン](docs/design.md): テーマ `paper` の色・書体・ページ型と、スライドの足し方
 - [参照元](docs/sources.md): 説明対象の資料と固定した版
 - [開発手順](docs/workflow.md): 3つの席と8ステップ

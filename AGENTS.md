@@ -7,7 +7,7 @@
 
 ## 作るもの（説明用スライド）
 
-`agent-dev-template` の開発プロセスを人に説明する、日本語のスライド。
+`agent-dev-template` の開発プロセスを人に説明する、日本語のスライドと、その英語版。
 スキルは「開発設定」の表から値を読み、表に無い項目や「なし」の手順を飛ばす。
 
 - 制作環境: Markdown + Marp CLI。原稿は Git 管理し、HTML と PDF を生成する
@@ -21,14 +21,14 @@
 - `npm run lint` — Markdown の書式確認
 - `npm run check:links` — 原稿・文書のローカル参照先を確認（外部 URL とアンカーは目視）
 - `npm run check:guides` — CLAUDE.md と AGENTS.md の一致を確認
-- `npm run build` — HTML を `dist/index.html` に出力
-- `npm run build:pdf` — PDF を `dist/agent-dev-slide.pdf` に出力
+- `npm run build` — HTML を `dist/index.html`・`dist/index-en.html` に出力
+- `npm run build:pdf` — PDF を `dist/agent-dev-slide.pdf`・`dist/agent-dev-slide-en.pdf` に出力
 - `npm run check` — 必須確認をまとめて実行
 
 ## ディレクトリ構成
 
 ```text
-slides/        スライド原稿（index.md）と画像（assets/）
+slides/        スライド原稿（index.md・index-en.md）と画像（assets/）
 themes/        共通デザインのテーマ（paper.css）
 scripts/       プレビュー起動・本編と見本の生成・ガイド同期確認
 dist/          HTML・PDF（生成物、Git 管理外）
@@ -73,7 +73,7 @@ docs/
 1. 原稿は `slides/`、仕様は `docs/spec.md`、参照元は `docs/sources.md` に置く。生成物 `dist/` を直接編集しない
 2. 制作前に受け入れ条件と確かめ方を決め、[docs/testing.md](docs/testing.md) に従って内容・出典・表示を確認する
 3. 画面があるなら、「開発設定」の画面確認の幅を基準に作る
-4. 画面の文言・文書は 日本語
+4. 画面の文言・文書は日本語。英語版スライド（仕様2.8）の本文・読み上げ用説明は英語
 5. 依存パッケージを増やすときは、PR 本文に理由を書く
 6. **1つの PR は1つの Issue だけを扱う**。PR 本文に `Closes #番号` を書く
 7. Issue の「スコープ外」に書かれたことはやらない。必要だと思ったら PR 本文で提案する

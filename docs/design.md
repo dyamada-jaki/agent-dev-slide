@@ -239,3 +239,7 @@ AI エージェントの3つの役割を表す人物。Issue #12 で本編4枚�
 本編の1枚目は `cover cover-illustrated` を使う。[比較見本](design-samples/cover-2026-11-08/README.md) の紙色の案を人間が採用した。主題は「AI との開発に／スクラムを／取り入れる」の3行で、副題は置かない。題名は左86px・上196px、挿絵は左706px・上148px・530×530px。紙色・藍・明朝体は共通テーマの値を使う。
 
 挿絵は [development-team.png](../slides/assets/cover/development-team.png)。レナ1人と AI の開発者2人を既存の人物画を参照して内蔵 image_gen で生成した。[生成指示](design-samples/cover-2026-11-08/image-prompt.txt)を保存している。比較見本と同じ画像で、背景は透明。新しい表紙のスタイルは `cover-illustrated` に限定し、旧見本の `cover` と2〜8枚目に適用しない。
+
+### 英語版
+
+`slides/index-en.md` は `theme: paper-en` を使う。`themes/paper-en.css` が共通テーマ `paper` を継承し、英語の書体・文字サイズ・余白だけを調整する。原稿側で英文の改行を指定し、日本語版と同じ図の接続・人物・配色を使う。表紙は同じ絵と配置で、英語の主題を3行に置く。訳語と意味の対応は [english-edition.md](english-edition.md) を参照する。

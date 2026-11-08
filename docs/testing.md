@@ -1,7 +1,7 @@
 # テストとレビューの方針
 
 仕様の正本は [spec.md](spec.md)、今回の範囲は GitHub Issue に置く。
-このプロジェクトでは、日本語のスライド原稿・HTML・PDF を確認する。技術記事の原稿は「記事原稿の確かめ方」の節に従う。
+このプロジェクトでは、日本語・英語のスライド原稿・HTML・PDF を確認する。技術記事の原稿は「記事原稿の確かめ方」の節に従う。
 
 ## 1. 制作前に決めること
 
@@ -33,6 +33,10 @@ Orca のブラウザで、スクリーンショットがタイル状に重複す
 - 表示幅: 生成した HTML を headless Chrome などで 1280×720 にして開き、画像の欠けと本文の下端、矢印などの小さな記号と隣の行の重なりを測る
 - ページ送り: Orca では `orca keypress --key ArrowRight`（`ArrowLeft`）でページが移ることを確かめる。それでも届かなければ、生成した HTML を headless Chrome などで開き、キーイベント（ArrowRight・ArrowLeft）を送って確かめる
 - PR や文書に置くプレビュー画像は、Marp の操作バーが写らない上記の `--images png` で作る。PR のプレビューは `docs/preview/issue-<番号>-<エージェント>/` にコミットし、PR 本文からリンクする（gh から PR に画像を添付できないため）
+
+### 英語版の確認
+
+仕様2.8の英語版も同じ確認コマンドで生成する。日本語版との意味の対応、訳語の統一、本文・alt・aria-label の英語化を確認し、HTML・PDF 全8枚で英文の折り返し・はみ出し・図の接続・ページ送りを確かめる。英語版は `slides/index-en.md` と `themes/paper-en.css` で管理し、共有 PDF は成功した CI artifact の `agent-dev-slide-en.pdf` を `docs/pdf/agent-dev-slide-en.pdf` に置く。生成元と確認記録は日本語版と分けて残す。
 
 ### 毎回の PDF の共有
 
