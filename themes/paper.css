@@ -85,6 +85,27 @@ section.cover h1 {
 section.cover .keywords { font-size: 32px; color: var(--indigo); }
 section.cover .subtitle { font-size: 28px; margin-top: 16px; }
 
+/* 2026-11-08 採用の表紙: 紙色・主題のみ・開発の挿絵。旧見本の cover は維持する */
+section.cover.cover-illustrated h1 {
+  position: absolute;
+  left: 86px;
+  top: 196px;
+  margin: 0;
+  font-size: 80px;
+  line-height: 1.32;
+  letter-spacing: .012em;
+}
+section.cover.cover-illustrated h1 span { display: block; white-space: nowrap; }
+section.cover.cover-illustrated .cover-scene {
+  position: absolute;
+  left: 706px;
+  top: 148px;
+  width: 530px;
+  height: 530px;
+  object-fit: contain;
+}
+
+
 /* 中表紙（Issue #27 で5枚目に追加。Issue #30 の後は9枚目）: 章の切り替えを、上の小さなラベル・藍の罫線・大きな見出しと余白で示す。金色は使わない */
 section.chapter { justify-content: center; }
 section.chapter .chapter-label {

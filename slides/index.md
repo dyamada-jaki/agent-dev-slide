@@ -3,16 +3,16 @@ marp: true
 theme: paper
 size: 16:9
 paginate: true
-title: エージェント開発プロセス
+title: AI との開発にスクラムを取り入れる
 description: agent-dev-template の開発プロセス
 ---
 
-<!-- _class: cover -->
+<!-- _class: cover cover-illustrated -->
 <!-- _paginate: false -->
 
-# エージェント<br>開発プロセス
+# <span>AI との開発に</span><span>スクラムを</span><span>取り入れる</span>
 
-<p class="subtitle">agent-dev-template の全体像と役割</p>
+<img class="cover-scene" src="assets/cover/development-team.png" alt="計画を確認するレナ1人と、ノートパソコンで作業する2人の AI 開発者。淡い水彩調のデフォルメした人物。">
 
 ---
 
