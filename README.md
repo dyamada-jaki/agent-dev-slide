@@ -5,7 +5,7 @@
 
 現在の本編は、表紙・全体図・役割分担と、スクラムのイベントと関連する5つの活動の図の全8枚です。プロセスの紹介を目的とし、ふりかえりで終わります。発表ノートは付けず、出典は [docs/sources.md](docs/sources.md) と削除前の固定版で追えます。実例の章は本編から外し、詳しい説明用の別のスライドを [Issue #31](https://github.com/dyamada-jaki/agent-dev-slide/issues/31) で検討します。削除前の実例は完成済みの詳細版ではありません。説明時間の実測・調整は後段で行います。見た目は共通デザイン（[themes/paper.css](themes/paper.css)、使い方は [docs/design.md](docs/design.md)）でそろえています。
 
-[**最新版の PDF を開く**](docs/pdf/agent-dev-slide.pdf)（[生成元・対象版](docs/pdf/README.md)）
+[**日本語版 PDF**](docs/pdf/agent-dev-slide.pdf) / [**English PDF**](docs/pdf/agent-dev-slide-en.pdf)（[生成元・対象版](docs/pdf/README.md)）
 
 ## すぐに試す
 
