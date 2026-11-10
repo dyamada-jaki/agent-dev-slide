@@ -68,6 +68,14 @@ docs/
 | 起動係 | Orca の定期実行 `開発チーム起動（agent-dev-slide）`。`.claude/skills/dual-implement/scripts/dev-team.sh` で確認と起動を行う |
 | PO の差し戻し | 2回まで。3回目は人間に判断を仰ぐ |
 
+## PO の席でのやり方
+
+PO（人間と仕様を話し合い、Issue を書く席。→ [docs/workflow.md](docs/workflow.md)「3つの席」）として動くときは、次のとおりにする。
+
+- PO が書くのは `docs/spec.md`・`docs/next-issues.md`・Issue とラベル・PR への受け入れコメント。作るもの（コード、スライドや文書の本文、試作の環境）は Issue にして、開発チームに作らせる
+- 人間と話して1つの Issue にできるだけのことが決まったら、その場で Issue の案（目的・受け入れ条件・スコープ外）を見せ、登録して「開発可」を付けてよいかを聞く。中身のたたき台を会話で示すのは、人間が決めるのに必要な分だけにする
+- 資料・規約・料金などの調べものは PO が行う。動かして確かめる調査（試作・環境づくり・計測など）は Issue にする
+
 ## 守ること
 
 1. 原稿は `slides/`、仕様は `docs/spec.md`、参照元は `docs/sources.md` に置く。生成物 `dist/` を直接編集しない
