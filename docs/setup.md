@@ -61,7 +61,7 @@ PO は [仕様](spec.md) と [現在地](next-issues.md) を読んで続きか�
 
 - 名前: `開発チーム起動（agent-dev-slide）`
 - ID: `55f916e1-38d5-4f1b-9cbd-f5cb8cb54ccb`
-- 15分おき、既存の main worktree、毎回新しいセッション。
+- 5分おき、既存の main worktree、毎回新しいセッション。
 - precheck: `bash .claude/skills/dual-implement/scripts/dev-team.sh precheck`
 - 起動係は Claude Haiku。開発チームは元テンプレートの設定を引き継ぐ。
 - 2026-10-27、初期準備の main 反映と CI 成功を確認し、**有効化済み**。最初の Issue の前提がそろったら PO が「開発可」を付ける。
