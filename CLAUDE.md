@@ -1,7 +1,7 @@
 # agent-dev-slide — エージェント向けガイド
 
 `agent-dev-template` の開発プロセスを説明するスライドを、そのプロセスに沿って少しずつ制作する。
-**仕様はすべて [docs/spec.md](docs/spec.md) にある。作業の前に必ず読むこと。**
+仕様の正本は [docs/spec.md](docs/spec.md)。作業に関係する箇所を読んでから始める。
 
 > `CLAUDE.md` と `AGENTS.md`（Codex 用）は同じ内容に保つ。直したら両方をそろえる。
 
